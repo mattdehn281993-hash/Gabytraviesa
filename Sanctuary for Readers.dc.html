@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaby Traviesa · Renacer sin ti</title>
+<meta name="description" content="Historias, quietud y reflexiones para volver a ti. Libros, meditaciones y podcast de Gaby Traviesa, tanatóloga y bioeticista.">
+<script>
+/* Local preview only. When this page is opened from localhost or from disk,
+   use the React vendored in ./vendor so it boots with no network at all.
+   Served from any real host (or the Claude Design canvas) this is inert and
+   the runtime fetches React the way it normally would. */
+(function () {
+  try {
+    var h = location.hostname;
+    if (h === "127.0.0.1" || h === "localhost" || h === "") {
+      window.__resources = {
+        "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "./vendor/react.production.min.js",
+        "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "./vendor/react-dom.production.min.js"
+      };
+    }
+  } catch (e) {}
+})();
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0}
+body{background:oklch(0.20 0.024 265);color:oklch(0.94 0.012 90);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;text-align:left}
+a{color:oklch(0.76 0.10 118);text-decoration:none}
+a:hover{color:oklch(0.86 0.08 118)}
+:focus-visible{outline:2px solid oklch(0.76 0.10 118);outline-offset:3px;border-radius:2px}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes openpage{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{transform:scale(.86);opacity:.5}50%{transform:scale(1.06);opacity:1}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- layout primitives (classed so media queries can reach them) ---- */
+.wrap{max-width:1120px;margin:0 auto;padding-left:28px;padding-right:28px}
+.g2{display:grid;gap:64px}
+.g-hero{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end}
+.g-feat{grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:56px;align-items:center}
+.g-letters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.g-book{grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:72px;align-items:start}
+.g-player{grid-template-columns:minmax(0,1fr) minmax(0,300px);align-items:start}
+.g-vid{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:56px;align-items:center}
+.g-ref{grid-template-columns:minmax(0,110px) minmax(0,1fr);gap:32px;align-items:start}
+.g-about{grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:64px;align-items:start}
+.autofit{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.door{padding:44px 30px;border-right:1px solid oklch(0.28 0.02 265);display:flex;flex-direction:column;gap:10px}
+.door:last-child{border-right:none}
+.hdr-in{max-width:1120px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.hdr-nav{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap}
+.cover-side{width:100%}
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:oklch(0.76 0.10 118);color:oklch(0.18 0.02 265);padding:12px 20px;font-size:13px}
+.skip:focus{left:12px;top:12px}
+
+@media (max-width:860px){
+  .g2{gap:34px}
+  .g-hero,.g-feat,.g-letters,.g-book,.g-player,.g-vid,.g-about{grid-template-columns:minmax(0,1fr)}
+  .g-hero{align-items:start}
+  .g-feat,.g-vid{align-items:start}
+  .cover-feat{max-width:186px}
+  .cover-side{max-width:200px}
+  .wrap{padding-left:20px;padding-right:20px}
+  .sect{padding-top:52px!important;padding-bottom:52px!important}
+  .hdr-in{padding:14px 20px;gap:14px}
+  .hdr-nav{gap:16px;margin-left:0;width:100%;order:3}
+  .lang{margin-left:auto;order:2}
+  .door{padding:26px 0;border-right:none;border-bottom:1px solid oklch(0.28 0.02 265)}
+  .door:last-child{border-bottom:none}
+  .g-ref{grid-template-columns:minmax(0,1fr);gap:10px}
+  .mini{padding:12px 20px!important;gap:14px!important}
+  .mini-meta{display:none}
+}
+@media (max-width:560px){
+  .hdr-nav{gap:14px;font-size:13px}
+  .g-book,.g-player{gap:40px}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column">
+
+<a href="#sanc-main" class="skip">{{ t.a11y.skip }}</a>
+
+<header style="position:sticky;top:0;z-index:20;background:oklch(0.20 0.024 265 / .94);backdrop-filter:blur(10px);border-bottom:1px solid oklch(0.32 0.02 265)">
+  <div class="hdr-in">
+    <button onClick="{{ goHome }}" style="display:flex;flex-direction:column;gap:2px">
+      <span style="font-family:Spectral,serif;font-size:19px;font-weight:400;letter-spacing:.01em">Gaby Traviesa</span>
+      <span style="font-size:10.5px;color:oklch(0.74 0.02 265);letter-spacing:.06em">{{ t.brandSub }}</span>
+    </button>
+    <nav class="hdr-nav" aria-label="{{ t.a11y.nav }}">
+      <button onClick="{{ goBooks }}" aria-current="{{ curBooks }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.88 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">
+        <span>{{ t.nav.books }}</span>
+        <sc-if value="{{ isBooks }}"><span style="height:1px;background:oklch(0.76 0.10 118)"></span></sc-if>
+      </button>
+      <button onClick="{{ goMeds }}" aria-current="{{ curMeds }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.88 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">
+        <span>{{ t.nav.meds }}</span>
+        <sc-if value="{{ isMeds }}"><span style="height:1px;background:oklch(0.76 0.10 118)"></span></sc-if>
+      </button>
+      <button onClick="{{ goRefs }}" aria-current="{{ curRefs }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.88 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">
+        <span>{{ t.nav.refs }}</span>
+        <sc-if value="{{ isRefs }}"><span style="height:1px;background:oklch(0.76 0.10 118)"></span></sc-if>
+      </button>
+      <button onClick="{{ goPod }}" aria-current="{{ curPod }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.88 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">
+        <span>{{ t.nav.pod }}</span>
+        <sc-if value="{{ isPod }}"><span style="height:1px;background:oklch(0.76 0.10 118)"></span></sc-if>
+      </button>
+      <button onClick="{{ goAbout }}" aria-current="{{ curAbout }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.88 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">
+        <span>{{ t.nav.about }}</span>
+        <sc-if value="{{ isAbout }}"><span style="height:1px;background:oklch(0.76 0.10 118)"></span></sc-if>
+      </button>
+      <sc-if value="{{ circleOffered }}">
+        <button onClick="{{ goCircle }}" aria-current="{{ curCircle }}" style="display:flex;flex-direction:column;gap:5px;font-size:13.5px;color:oklch(0.86 0.05 330)" style-hover="color:oklch(0.90 0.08 330)">
+          <span>{{ t.nav.circle }}</span>
+          <sc-if value="{{ isCircle }}"><span style="height:1px;background:oklch(0.78 0.09 330)"></span></sc-if>
+        </button>
+      </sc-if>
+    </nav>
+    <div class="lang" style="display:flex;align-items:center;gap:8px;padding-left:20px;border-left:1px solid oklch(0.32 0.02 265)">
+      <button onClick="{{ setEs }}" aria-pressed="{{ isEs }}" style="font-size:12px;letter-spacing:.04em" aria-label="Español">
+        <sc-if value="{{ isEs }}" hint-placeholder-val="{{ true }}"><span style="color:oklch(0.94 0.012 90)">ES</span></sc-if>
+        <sc-if value="{{ isEn }}"><span style="color:oklch(0.70 0.02 265)">ES</span></sc-if>
+      </button>
+      <span style="font-size:11px;color:oklch(0.50 0.02 265)" aria-hidden="true">/</span>
+      <button onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="font-size:12px;letter-spacing:.04em" aria-label="English">
+        <sc-if value="{{ isEn }}"><span style="color:oklch(0.94 0.012 90)">EN</span></sc-if>
+        <sc-if value="{{ isEs }}" hint-placeholder-val="{{ true }}"><span style="color:oklch(0.70 0.02 265)">EN</span></sc-if>
+      </button>
+      <span style="font-size:11px;color:oklch(0.62 0.02 265);letter-spacing:.04em;border:1px dashed oklch(0.42 0.02 265);padding:1px 5px;border-radius:2px" title="{{ t.a11y.nlSoon }}">NL</span>
+    </div>
+  </div>
+</header>
+
+<main id="sanc-main" style="flex:1">
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div>
+  <div style="position:relative;overflow:hidden">
+  <canvas id="sanc-hero-sky" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.6s ease;pointer-events:none"></canvas>
+  <section class="wrap g2 g-hero sect" style="position:relative;z-index:1;padding-top:96px;padding-bottom:72px">
+    <div>
+      <p style="margin:0 0 26px;font-size:12.5px;color:oklch(0.80 0.016 265);animation:fade 1s .1s both">{{ t.home.kicker }}</p>
+      <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(34px,4.6vw,58px);line-height:1.1;letter-spacing:-.015em;max-width:24ch;animation:rise 1.1s .18s both">{{ t.home.hero }}</h1>
+      <p style="margin:28px 0 0;font-size:16px;line-height:1.7;color:oklch(0.80 0.016 265);max-width:48ch;animation:rise 1.1s .42s both">{{ t.home.heroSub }}</p>
+      <div style="display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;animation:rise 1.1s .62s both">
+        <button onClick="{{ goMeds }}" style="padding:13px 22px;border:1px solid oklch(0.76 0.10 118);color:oklch(0.86 0.09 118);font-size:13.5px;border-radius:1px" style-hover="background:oklch(0.76 0.10 118);color:oklch(0.20 0.024 265)">{{ t.home.ctaMed }}</button>
+        <button onClick="{{ goBooks }}" style="padding:13px 22px;border:1px solid oklch(0.38 0.02 265);color:oklch(0.88 0.014 90);font-size:13.5px;border-radius:1px" style-hover="border-color:oklch(0.60 0.02 265)">{{ t.home.ctaBooks }}</button>
+      </div>
+    </div>
+    <div style="animation:rise 1.2s .8s both">
+      <sc-if value="{{ hasNewest }}">
+      <div style="border-left:1px solid oklch(0.32 0.02 265);padding-left:28px">
+        <p style="margin:0 0 14px;font-size:11.5px;color:oklch(0.80 0.016 265)">{{ t.home.newestLabel }}</p>
+        <p style="margin:0;font-family:Spectral,serif;font-size:26px;font-weight:400;line-height:1.25">{{ newest.title }}</p>
+        <p style="margin:10px 0 22px;font-size:14px;line-height:1.65;color:oklch(0.78 0.016 265)">{{ newest.intentionLine }}</p>
+        <button onClick="{{ playNewest }}" style="display:flex;align-items:center;gap:14px" style-hover="color:oklch(0.86 0.09 118)">
+          <span style="width:46px;height:46px;border-radius:50%;border:1px solid oklch(0.76 0.10 118);display:flex;align-items:center;justify-content:center;color:oklch(0.86 0.09 118);font-size:12px" aria-hidden="true">▶</span>
+          <span style="font-size:13px;color:oklch(0.82 0.016 265)">{{ newest.meta }}</span>
+        </button>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+  </div>
+
+  <section style="border-top:1px solid oklch(0.28 0.02 265);background:oklch(0.23 0.026 265)">
+    <div class="wrap sect" style="padding-top:64px;padding-bottom:64px">
+      <p style="margin:0;font-family:Spectral,serif;font-weight:300;font-style:italic;font-size:clamp(22px,3vw,34px);line-height:1.42;max-width:34ch;color:oklch(0.92 0.014 90)">{{ t.signature }}</p>
+      <p style="margin:22px 0 0;font-size:12px;color:oklch(0.74 0.02 265)">{{ t.signatureBy }}</p>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid oklch(0.28 0.02 265)">
+    <div class="wrap g2 g-feat sect" style="padding-top:72px;padding-bottom:72px">
+      <button onClick="{{ openFeatured }}" class="cover-feat" style="position:relative;aspect-ratio:3/4.6;background:oklch(0.27 0.035 155);padding:26px 22px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid oklch(0.38 0.03 155);overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-6px)">
+        <span style="height:1px;width:38px;background:oklch(0.76 0.10 118)"></span>
+        <span style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:Spectral,serif;font-size:26px;line-height:1.14;font-weight:400">{{ works.0.title }}</span>
+          <span style="font-size:10.5px;color:oklch(0.82 0.02 155);letter-spacing:.06em">GABY TRAVIESA</span>
+        </span>
+        {{ works.0.coverEl }}
+      </button>
+      <div>
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.home.featuredLabel }}</p>
+        <p style="margin:0;font-family:Spectral,serif;font-size:clamp(24px,3vw,34px);font-weight:300;line-height:1.3;max-width:32ch">{{ works.0.line }}</p>
+        <p style="margin:24px 0 0;font-size:15px;line-height:1.75;color:oklch(0.79 0.016 265);max-width:58ch">{{ works.0.synopsis }}</p>
+        <button onClick="{{ openFeatured }}" style="margin-top:26px;font-size:13.5px;color:oklch(0.86 0.09 118);border-bottom:1px solid oklch(0.50 0.06 118);padding-bottom:3px">{{ t.home.featuredCta }}</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid oklch(0.28 0.02 265);background:oklch(0.23 0.026 265)">
+    <div class="wrap g2 g-letters sect" style="padding-top:76px;padding-bottom:76px;align-items:start">
+      <div>
+        <h2 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,38px);line-height:1.2;max-width:22ch">{{ t.letters.title }}</h2>
+        <p style="margin:20px 0 0;font-size:15px;line-height:1.75;color:oklch(0.79 0.016 265);max-width:48ch">{{ t.letters.body }}</p>
+        <p style="margin:26px 0 0;font-size:13.5px;color:oklch(0.78 0.016 265)">{{ t.letters.follow }} <a href="https://www.instagram.com/rebornwithoutyou" target="_blank" rel="noopener">@rebornwithoutyou</a></p>
+      </div>
+      <form style="padding-top:8px" onSubmit="{{ subscribe }}">
+        <label for="sanc-email" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:12px">{{ t.letters.label }}</label>
+        <div style="display:flex;gap:0;border-bottom:1px solid oklch(0.42 0.02 265);padding-bottom:10px">
+          <input id="sanc-email" type="email" value="{{ email }}" onInput="{{ setEmail }}" placeholder="{{ t.letters.placeholder }}" aria-describedby="sanc-email-note" style="flex:1;min-width:0;background:none;border:none;color:oklch(0.94 0.012 90);font-family:Spectral,serif;font-size:18px;outline:none">
+          <button type="submit" style="font-size:13px;color:oklch(0.86 0.09 118);white-space:nowrap;padding-left:16px">{{ t.letters.button }}</button>
+        </div>
+        <p id="sanc-email-note" style="margin:14px 0 0;font-size:12px;color:oklch(0.72 0.02 265);line-height:1.6">{{ t.letters.note }}</p>
+        <sc-if value="{{ emailErr }}">
+          <p role="alert" style="margin:12px 0 0;font-size:12.5px;color:oklch(0.78 0.10 40);animation:fade .4s both">{{ t.letters.invalid }}</p>
+        </sc-if>
+        <sc-if value="{{ subscribed }}">
+          <p role="status" style="margin:18px 0 0;font-family:Spectral,serif;font-style:italic;font-size:16px;color:oklch(0.86 0.09 118);animation:fade .6s both">{{ t.letters.thanks }}</p>
+        </sc-if>
+      </form>
+    </div>
+  </section>
+
+  <section style="border-top:1px solid oklch(0.28 0.02 265)">
+    <div class="wrap autofit" style="padding-left:28px;padding-right:28px">
+      <button onClick="{{ goBooks }}" class="door" style-hover="background:oklch(0.23 0.026 265)">
+        <span style="font-family:Spectral,serif;font-size:22px;font-weight:400">{{ t.nav.books }}</span>
+        <span style="font-size:13px;color:oklch(0.76 0.018 265);line-height:1.6">{{ t.home.doorBooks }}</span>
+      </button>
+      <button onClick="{{ goMeds }}" class="door" style-hover="background:oklch(0.23 0.026 265)">
+        <span style="font-family:Spectral,serif;font-size:22px;font-weight:400">{{ t.nav.meds }}</span>
+        <span style="font-size:13px;color:oklch(0.76 0.018 265);line-height:1.6">{{ t.home.doorMeds }}</span>
+      </button>
+      <button onClick="{{ goRefs }}" class="door" style-hover="background:oklch(0.23 0.026 265)">
+        <span style="font-family:Spectral,serif;font-size:22px;font-weight:400">{{ t.nav.refs }}</span>
+        <span style="font-size:13px;color:oklch(0.76 0.018 265);line-height:1.6">{{ t.home.doorRefs }}</span>
+      </button>
+      <button onClick="{{ goPod }}" class="door" style-hover="background:oklch(0.23 0.026 265)">
+        <span style="font-family:Spectral,serif;font-size:22px;font-weight:400">{{ t.nav.pod }}</span>
+        <span style="font-size:13px;color:oklch(0.76 0.018 265);line-height:1.6">{{ t.home.doorPod }}</span>
+      </button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<sc-if value="{{ showShelf }}">
+<div class="wrap" style="padding-top:80px;padding-bottom:96px;animation:fade .5s both">
+  <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.1;max-width:20ch">{{ t.booksPage.title }}</h1>
+  <p style="margin:22px 0 0;font-size:15.5px;line-height:1.75;color:oklch(0.79 0.016 265);max-width:58ch">{{ t.booksPage.intro }}</p>
+
+  <div style="margin-top:68px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:40px">
+    <sc-for list="{{ works }}" as="w" hint-placeholder-count="4">
+      <button onClick="{{ w.open }}" style="display:flex;flex-direction:column;gap:16px" style-hover="color:oklch(0.86 0.09 118)">
+        <span style="position:relative;aspect-ratio:3/4.6;background:oklch(0.26 0.032 265);border:1px solid oklch(0.36 0.028 265);padding:22px 18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:transform .5s" style-hover="transform:translateY(-8px)">
+          <span style="height:1px;width:30px;background:oklch(0.76 0.10 118)"></span>
+          <span style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:Spectral,serif;font-size:22px;line-height:1.16;color:oklch(0.95 0.012 90)">{{ w.title }}</span>
+            <span style="font-size:10px;color:oklch(0.78 0.02 265);letter-spacing:.06em">GABY TRAVIESA</span>
+          </span>
+          {{ w.coverEl }}
+        </span>
+        <span style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:11px;color:oklch(0.80 0.06 118);letter-spacing:.03em">{{ w.theme }}</span>
+          <span style="font-size:13px;line-height:1.6;color:oklch(0.78 0.016 265)">{{ w.line }}</span>
+        </span>
+      </button>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ bookOpen }}">
+<div style="background:oklch(0.94 0.014 88);color:oklch(0.24 0.02 265);animation:openpage .6s both">
+  <div class="wrap" style="padding-top:34px;padding-bottom:96px">
+    <button onClick="{{ goBooks }}" style="font-size:13px;color:oklch(0.40 0.03 265);border-bottom:1px solid oklch(0.78 0.02 88);padding-bottom:3px" style-hover="color:oklch(0.24 0.02 265)">{{ t.booksPage.back }}</button>
+
+    <div class="g2 g-book" style="margin-top:52px">
+      <div>
+        <p style="margin:0;font-size:12px;color:oklch(0.44 0.02 265)">{{ work.theme }}</p>
+        <h1 style="margin:12px 0 0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.08;letter-spacing:-.015em;max-width:24ch">{{ work.title }}</h1>
+        <p style="margin:14px 0 0;font-size:13px;color:oklch(0.44 0.02 265)">{{ work.otherTitle }}</p>
+        <p style="margin:22px 0 0;font-family:Spectral,serif;font-style:italic;font-size:20px;line-height:1.5;color:oklch(0.36 0.02 265);max-width:40ch">{{ work.line }}</p>
+        <p style="margin:34px 0 0;font-size:16px;line-height:1.8;max-width:62ch;color:oklch(0.30 0.02 265)">{{ work.synopsis }}</p>
+
+        <div style="margin-top:56px;padding-top:34px;border-top:1px solid oklch(0.82 0.02 88)">
+          <p style="margin:0 0 22px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.booksPage.sampleLabel }}</p>
+          <p style="margin:0;font-family:Spectral,serif;font-size:22px;line-height:1.72;max-width:34ch;color:oklch(0.22 0.02 265);text-wrap:pretty">{{ work.sample }}</p>
+          <p style="margin:20px 0 0;font-family:'IBM Plex Sans',sans-serif;font-size:11.5px;color:oklch(0.48 0.02 265)">{{ t.booksPage.sampleNote }}</p>
+        </div>
+
+        <div style="margin-top:52px">
+          <p style="margin:0 0 16px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.booksPage.editionsLabel }}</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a href="{{ work.buyEs }}" target="_blank" rel="noopener" style="padding:14px 24px;background:oklch(0.24 0.02 265);color:oklch(0.95 0.012 90);font-size:13.5px" style-hover="background:oklch(0.34 0.03 265)">{{ t.booksPage.buyEs }}</a>
+            <sc-if value="{{ work.hasEn }}">
+              <a href="{{ work.buyEn }}" target="_blank" rel="noopener" style="padding:14px 24px;border:1px solid oklch(0.58 0.02 265);color:oklch(0.28 0.02 265);font-size:13.5px" style-hover="border-color:oklch(0.30 0.02 265)">{{ t.booksPage.buyEn }}</a>
+            </sc-if>
+          </div>
+          <sc-if value="{{ work.noEn }}">
+            <p style="margin:16px 0 0;font-size:12px;color:oklch(0.48 0.02 265)">{{ t.booksPage.noEnNote }}</p>
+          </sc-if>
+        </div>
+
+        <div style="margin-top:60px;padding-top:34px;border-top:1px solid oklch(0.82 0.02 88)">
+          <p style="margin:0 0 20px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.related.label }}</p>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <button onClick="{{ work.openMed }}" style="display:flex;align-items:baseline;gap:14px;padding:16px 0;border-top:1px solid oklch(0.86 0.02 88);flex-wrap:wrap" style-hover="color:oklch(0.34 0.09 118)">
+              <span style="font-size:11px;color:oklch(0.46 0.02 265);min-width:96px">{{ t.related.med }}</span>
+              <span style="font-family:Spectral,serif;font-size:19px;line-height:1.3">{{ work.medTitle }}</span>
+              <span style="font-size:12px;color:oklch(0.48 0.02 265)">{{ work.medMeta }}</span>
+            </button>
+            <sc-if value="{{ work.hasVideo }}">
+              <button onClick="{{ work.openVideo }}" style="display:flex;align-items:baseline;gap:14px;padding:16px 0;border-top:1px solid oklch(0.86 0.02 88);flex-wrap:wrap" style-hover="color:oklch(0.34 0.09 118)">
+                <span style="font-size:11px;color:oklch(0.46 0.02 265);min-width:96px">{{ t.related.video }}</span>
+                <span style="font-family:Spectral,serif;font-size:19px;line-height:1.3">{{ work.videoTitle }}</span>
+              </button>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:36px">
+        <span class="cover-side" style="position:relative;aspect-ratio:3/4.6;background:oklch(0.26 0.032 265);border:1px solid oklch(0.72 0.02 88);padding:24px 20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+          <span style="height:1px;width:32px;background:oklch(0.76 0.10 118)"></span>
+          <span style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-family:Spectral,serif;font-size:23px;line-height:1.16;color:oklch(0.95 0.012 90)">{{ work.title }}</span>
+            <span style="font-size:10px;color:oklch(0.78 0.02 265);letter-spacing:.06em">GABY TRAVIESA</span>
+          </span>
+          {{ work.coverEl }}
+        </span>
+        <div style="border-left:1px solid oklch(0.82 0.02 88);padding-left:28px">
+          <p style="margin:0 0 20px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.booksPage.promptsLabel }}</p>
+          <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:22px">
+            <sc-for list="{{ work.prompts }}" as="p" hint-placeholder-count="3">
+              <li style="font-family:Spectral,serif;font-size:17px;line-height:1.6;color:oklch(0.28 0.02 265);padding-left:22px;border-left:1px solid oklch(0.62 0.09 118)">{{ p }}</li>
+            </sc-for>
+          </ol>
+          <p style="margin:30px 0 0;font-size:12.5px;line-height:1.7;color:oklch(0.42 0.02 265)">{{ t.booksPage.promptsNote }}</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMeds }}">
+<div style="animation:fade .5s both">
+  <section class="wrap" style="padding-top:76px;padding-bottom:40px">
+    <p style="margin:0 0 20px;font-size:12.5px;color:oklch(0.74 0.02 265)">{{ t.meds.kicker }}</p>
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(36px,6vw,72px);line-height:1.04;letter-spacing:-.02em">{{ t.meds.question }}</h1>
+  </section>
+
+  <section class="wrap" style="padding-bottom:40px">
+    <!-- 3 columns at desktop so six moods fill exactly two rows with no orphan cell -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border-top:1px solid oklch(0.30 0.02 265)">
+      <sc-for list="{{ moods }}" as="m" hint-placeholder-count="6">
+        <button onClick="{{ m.select }}" aria-pressed="{{ m.active }}" style="padding:26px 24px 26px 0;border-bottom:1px solid oklch(0.30 0.02 265);display:flex;flex-direction:column;align-items:flex-start;gap:7px;transition:padding-left .4s,background .4s" style-hover="padding-left:14px;background:oklch(0.24 0.026 265)">
+          <span style="font-family:Spectral,serif;font-size:clamp(24px,3vw,34px);font-weight:300;line-height:1.15;color:oklch(0.93 0.012 90)">{{ m.label }}</span>
+          <span style="font-size:12px;color:oklch(0.74 0.02 265);line-height:1.5">{{ m.hint }}</span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasMed }}">
+  <section id="sanc-player" style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.24 0.03 265);animation:rise .7s both">
+    <div class="wrap" style="padding-top:64px;padding-bottom:76px">
+      <p style="margin:0 0 30px;font-family:Spectral,serif;font-style:italic;font-size:19px;color:oklch(0.84 0.05 118);max-width:44ch;line-height:1.55">{{ medIntro }}</p>
+      <div class="g2 g-player">
+        <div>
+          <p style="margin:0;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ med.intention }}</p>
+          <h2 style="margin:12px 0 0;font-family:Spectral,serif;font-weight:300;font-size:clamp(30px,4vw,46px);line-height:1.12;max-width:24ch">{{ med.title }}</h2>
+          <p style="margin:22px 0 0;font-size:15.5px;line-height:1.78;color:oklch(0.80 0.016 265);max-width:54ch">{{ med.body }}</p>
+
+          <div style="margin-top:44px;display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+            <button onClick="{{ togglePlay }}" aria-label="{{ t.meds.playLabel }}" aria-pressed="{{ playing }}" style="width:84px;height:84px;border-radius:50%;border:1px solid oklch(0.76 0.10 118);display:flex;align-items:center;justify-content:center;position:relative;flex:none" style-hover="background:oklch(0.28 0.05 118)">
+              <sc-if value="{{ playing }}"><span style="position:absolute;inset:-14px;border-radius:50%;border:1px solid oklch(0.55 0.07 118);animation:breathe 8s ease-in-out infinite"></span></sc-if>
+              <span style="font-size:15px;color:oklch(0.88 0.09 118)" aria-hidden="true">{{ playIcon }}</span>
+            </button>
+            <div style="flex:1;min-width:200px">
+              <div style="height:2px;background:oklch(0.34 0.02 265);position:relative">{{ progressBar }}</div>
+              <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:oklch(0.76 0.02 265)">
+                <span>{{ elapsedLabel }}</span>
+                <span>{{ durationLabel }}</span>
+              </div>
+              <p style="margin:16px 0 0;font-size:12.5px;color:oklch(0.74 0.02 265)">{{ playState }}</p>
+            </div>
+          </div>
+          <p style="margin:26px 0 0;font-size:11.5px;color:{{ playerNoteColor }};line-height:1.7;max-width:46ch">{{ playerNote }}</p>
+        </div>
+        <aside style="border-left:1px solid oklch(0.34 0.02 265);padding-left:30px">
+          <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.meds.intentionLabel }}</p>
+          <p style="margin:0;font-family:Spectral,serif;font-size:18px;line-height:1.6;color:oklch(0.90 0.014 90)">{{ med.intentionLine }}</p>
+          <p style="margin:24px 0 0;font-size:13px;line-height:1.7;color:oklch(0.76 0.018 265)">{{ med.voice }}</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="border-top:1px solid oklch(0.30 0.02 265)">
+    <div class="wrap" style="padding-top:72px;padding-bottom:40px">
+      <h2 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(24px,3vw,34px)">{{ t.meds.browseTitle }}</h2>
+      <p style="margin:16px 0 32px;font-size:14.5px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:52ch">{{ t.meds.browseIntro }}</p>
+
+      {{ chipsEl }}
+      {{ libraryEl }}
+    </div>
+  </section>
+
+  <sc-if value="{{ hasVideoOne }}">
+  <section style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.23 0.026 265)">
+    <div class="wrap g2 g-vid" style="padding-top:64px;padding-bottom:84px">
+      <div>
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.video.label }}</p>
+        <h2 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(24px,3vw,34px);line-height:1.2">{{ videoOne.title }}</h2>
+        <p style="margin:20px 0 0;font-family:Spectral,serif;font-style:italic;font-size:19px;line-height:1.6;color:oklch(0.88 0.05 118);max-width:30ch">{{ videoOne.quote }}</p>
+      </div>
+      {{ videoOne.player }}
+    </div>
+  </section>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ showFeed }}">
+<div class="wrap" style="padding-top:80px;padding-bottom:96px;animation:fade .5s both">
+  <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.1">{{ t.refs.title }}</h1>
+  <p style="margin:22px 0 0;font-size:15.5px;line-height:1.75;color:oklch(0.79 0.016 265);max-width:56ch">{{ t.refs.intro }}</p>
+  <div style="margin-top:64px;display:flex;flex-direction:column">
+    <sc-for list="{{ reflections }}" as="r" hint-placeholder-count="4">
+      <button onClick="{{ r.open }}" class="g-ref" style="padding:34px 0;border-top:1px solid oklch(0.30 0.02 265);display:grid;transition:background .4s" style-hover="background:oklch(0.23 0.026 265)">
+        <span style="font-size:12px;color:oklch(0.74 0.02 265);padding-top:6px">{{ r.date }}</span>
+        <span style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-family:Spectral,serif;font-size:clamp(22px,2.6vw,30px);font-weight:400;line-height:1.24;color:oklch(0.94 0.012 90);max-width:30ch">{{ r.title }}</span>
+          <span style="font-size:14.5px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:60ch">{{ r.teaser }}</span>
+          <span style="font-size:12px;color:oklch(0.80 0.06 118)">{{ r.readLabel }}</span>
+        </span>
+      </button>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ hasVideos }}">
+  <div style="margin-top:80px;padding-top:44px;border-top:1px solid oklch(0.30 0.02 265)">
+    <h2 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(24px,3vw,34px)">{{ t.video.sectionTitle }}</h2>
+    <p style="margin:16px 0 40px;font-size:14.5px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:52ch">{{ t.video.sectionIntro }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:32px">
+      <sc-for list="{{ videos }}" as="v" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          {{ v.player }}
+          <p style="margin:0;font-family:Spectral,serif;font-size:19px;line-height:1.35">{{ v.title }}</p>
+          <p style="margin:0;font-size:13px;line-height:1.65;color:oklch(0.78 0.016 265)">{{ v.quote }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ refOpen }}">
+<div style="background:oklch(0.94 0.014 88);color:oklch(0.24 0.02 265);animation:openpage .6s both">
+  <div style="max-width:760px;margin:0 auto;padding:34px 28px 110px">
+    <button onClick="{{ goRefs }}" style="font-size:13px;color:oklch(0.40 0.03 265);border-bottom:1px solid oklch(0.78 0.02 88);padding-bottom:3px" style-hover="color:oklch(0.24 0.02 265)">{{ t.refs.back }}</button>
+    <p style="margin:64px 0 0;font-size:12px;color:oklch(0.44 0.02 265)">{{ ref.date }}</p>
+    <h1 style="margin:14px 0 0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.6vw,50px);line-height:1.1;letter-spacing:-.015em;max-width:24ch">{{ ref.title }}</h1>
+    <p style="margin:40px 0 0;font-family:Spectral,serif;font-size:21px;line-height:1.78;color:oklch(0.22 0.02 265);max-width:36ch;text-wrap:pretty">{{ ref.body }}</p>
+    <sc-if value="{{ ref.hasClose }}">
+      <p style="margin:44px 0 0;font-family:Spectral,serif;font-style:italic;font-size:18px;line-height:1.7;color:oklch(0.38 0.03 265);max-width:34ch;padding-left:22px;border-left:1px solid oklch(0.62 0.09 118)">{{ ref.close }}</p>
+    </sc-if>
+    <p style="margin:56px 0 0;font-size:13px;color:oklch(0.44 0.02 265)">{{ ref.byline }}</p>
+
+    <sc-if value="{{ ref.hasRelated }}">
+    <div style="margin-top:64px;padding-top:34px;border-top:1px solid oklch(0.82 0.02 88)">
+      <p style="margin:0 0 8px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.related.label }}</p>
+      <div style="display:flex;flex-direction:column">
+        <sc-if value="{{ ref.hasWork }}">
+          <button onClick="{{ ref.openWork }}" style="display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid oklch(0.86 0.02 88);flex-wrap:wrap" style-hover="color:oklch(0.34 0.09 118)">
+            <span style="font-size:11px;color:oklch(0.46 0.02 265);min-width:96px">{{ t.related.book }}</span>
+            <span style="font-family:Spectral,serif;font-size:19px;line-height:1.3">{{ ref.workTitle }}</span>
+          </button>
+        </sc-if>
+        <sc-if value="{{ ref.hasMed }}">
+          <button onClick="{{ ref.openMed }}" style="display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid oklch(0.86 0.02 88);flex-wrap:wrap" style-hover="color:oklch(0.34 0.09 118)">
+            <span style="font-size:11px;color:oklch(0.46 0.02 265);min-width:96px">{{ t.related.med }}</span>
+            <span style="font-family:Spectral,serif;font-size:19px;line-height:1.3">{{ ref.medTitle }}</span>
+            <span style="font-size:12px;color:oklch(0.48 0.02 265)">{{ ref.medMeta }}</span>
+          </button>
+        </sc-if>
+        <sc-if value="{{ ref.hasVideo }}">
+          <button onClick="{{ ref.openVideo }}" style="display:flex;align-items:baseline;gap:14px;padding:18px 0;border-top:1px solid oklch(0.86 0.02 88);flex-wrap:wrap" style-hover="color:oklch(0.34 0.09 118)">
+            <span style="font-size:11px;color:oklch(0.46 0.02 265);min-width:96px">{{ t.related.video }}</span>
+            <span style="font-family:Spectral,serif;font-size:19px;line-height:1.3">{{ ref.videoTitle }}</span>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+    </sc-if>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isPod }}">
+<div style="animation:fade .5s both">
+  <section class="wrap" style="padding-top:80px;padding-bottom:56px">
+    <p style="margin:0 0 20px;font-size:12.5px;color:oklch(0.74 0.02 265)">{{ t.pod.kicker }}</p>
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(34px,5vw,60px);line-height:1.06;letter-spacing:-.015em;max-width:20ch">{{ t.pod.title }}</h1>
+    <p style="margin:26px 0 0;font-size:16px;line-height:1.75;color:oklch(0.80 0.016 265);max-width:56ch">{{ t.pod.intro }}</p>
+    <p style="margin:32px 0 0;font-family:Spectral,serif;font-style:italic;font-size:20px;line-height:1.6;color:oklch(0.88 0.05 118);max-width:34ch;padding-left:22px;border-left:1px solid oklch(0.55 0.07 118)">{{ t.signature }}</p>
+  </section>
+  <section style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.23 0.026 265)">
+    <div class="wrap" style="padding-top:64px;padding-bottom:88px">
+      <p style="margin:0 0 32px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.pod.episodesLabel }}</p>
+      <sc-if value="{{ hasEpisodes }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+        <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="2">
+          <div style="border:1px solid oklch(0.34 0.02 265);background:oklch(0.20 0.024 265);display:flex;flex-direction:column">
+            <div style="padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px">
+              <span style="font-size:11px;color:oklch(0.82 0.07 118);letter-spacing:.04em">{{ e.num }}</span>
+              <span style="font-family:Spectral,serif;font-size:24px;line-height:1.24;color:oklch(0.95 0.012 90)">{{ e.title }}</span>
+              <span style="font-size:13.5px;line-height:1.7;color:oklch(0.78 0.016 265)">{{ e.desc }}</span>
+            </div>
+            {{ e.player }}
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+      <p style="margin:36px 0 0;font-size:13px;line-height:1.7;color:oklch(0.76 0.018 265);max-width:56ch">{{ t.pod.note }}</p>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAbout }}">
+<div style="background:oklch(0.94 0.014 88);color:oklch(0.24 0.02 265);animation:openpage .6s both">
+  <div class="wrap" style="padding-top:72px;padding-bottom:96px">
+    <div class="g2 g-about">
+      <div>
+        <p style="margin:0;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.about.kicker }}</p>
+        <h1 style="margin:14px 0 0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.015em;max-width:20ch">{{ t.about.title }}</h1>
+        <p style="margin:28px 0 0;font-family:Spectral,serif;font-style:italic;font-size:21px;line-height:1.55;color:oklch(0.36 0.02 265);max-width:36ch">{{ t.about.lead }}</p>
+        <p style="margin:34px 0 0;font-size:16px;line-height:1.8;max-width:60ch;color:oklch(0.30 0.02 265)">{{ t.about.body1 }}</p>
+        <p style="margin:22px 0 0;font-size:16px;line-height:1.8;max-width:60ch;color:oklch(0.30 0.02 265)">{{ t.about.body2 }}</p>
+
+        <div style="margin-top:52px;padding-top:32px;border-top:1px solid oklch(0.82 0.02 88)">
+          <p style="margin:0 0 20px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.about.workLabel }}</p>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px">
+            <sc-for list="{{ t.about.work }}" as="w" hint-placeholder-count="4">
+              <li style="font-size:15px;line-height:1.7;color:oklch(0.30 0.02 265);padding-left:22px;border-left:1px solid oklch(0.62 0.09 118);max-width:52ch">{{ w }}</li>
+            </sc-for>
+          </ul>
+        </div>
+
+        <div style="margin-top:52px;padding-top:32px;border-top:1px solid oklch(0.82 0.02 88)">
+          <p style="margin:0 0 20px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.about.talksLabel }}</p>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ t.about.talks }}" as="k" hint-placeholder-count="1">
+              <div style="padding:18px 0;border-top:1px solid oklch(0.86 0.02 88)">
+                <p style="margin:0;font-family:Spectral,serif;font-size:19px;line-height:1.35;color:oklch(0.24 0.02 265);max-width:44ch">{{ k.topic }}</p>
+                <p style="margin:9px 0 0;font-size:13.5px;line-height:1.6;color:oklch(0.34 0.02 265);max-width:52ch">{{ k.event }}</p>
+                <p style="margin:6px 0 0;font-size:12px;line-height:1.6;color:oklch(0.46 0.02 265)">{{ k.meta }}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:52px;padding-top:32px;border-top:1px solid oklch(0.82 0.02 88)">
+          <p style="margin:0 0 16px;font-size:12px;color:oklch(0.44 0.02 265)">{{ t.about.contactLabel }}</p>
+          <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:oklch(0.30 0.02 265);max-width:52ch">{{ t.about.contactBody }}</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a href="https://theguidinglighttherapy.com" target="_blank" rel="noopener" style="padding:14px 24px;background:oklch(0.24 0.02 265);color:oklch(0.95 0.012 90);font-size:13.5px" style-hover="background:oklch(0.34 0.03 265)">{{ t.about.ctaSite }}</a>
+            <a href="https://www.instagram.com/rebornwithoutyou" target="_blank" rel="noopener" style="padding:14px 24px;border:1px solid oklch(0.58 0.02 265);color:oklch(0.28 0.02 265);font-size:13.5px" style-hover="border-color:oklch(0.30 0.02 265)">@rebornwithoutyou</a>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:flex;flex-direction:column;gap:28px">
+        <div style="position:relative;aspect-ratio:3/4;background:oklch(0.88 0.018 88);border:1px solid oklch(0.78 0.02 88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:28px;text-align:center;overflow:hidden">
+          <sc-if value="{{ noPortrait }}" hint-placeholder-val="{{ true }}">
+            <span style="font-family:Spectral,serif;font-size:44px;font-weight:300;color:oklch(0.52 0.03 265)">GT</span>
+            <span style="font-size:11.5px;line-height:1.6;color:oklch(0.46 0.02 265);max-width:22ch">{{ t.about.portraitNote }}</span>
+          </sc-if>
+          {{ portraitEl }}
+        </div>
+        <div style="border-left:1px solid oklch(0.82 0.02 88);padding-left:24px;display:flex;flex-direction:column;gap:18px">
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;color:oklch(0.46 0.02 265)">{{ t.about.baseLabel }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:oklch(0.30 0.02 265)">{{ t.about.base }}</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;color:oklch(0.46 0.02 265)">{{ t.about.langLabel }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:oklch(0.30 0.02 265)">{{ t.about.langs }}</p>
+          </div>
+          <div>
+            <p style="margin:0 0 6px;font-size:11px;color:oklch(0.46 0.02 265)">{{ t.about.brandLabel }}</p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:oklch(0.30 0.02 265)">Guiding Light</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isCircle }}">
+<div style="animation:fade .5s both">
+  <section class="wrap" style="padding-top:80px;padding-bottom:40px">
+    <p style="margin:0 0 20px;font-size:12.5px;color:oklch(0.80 0.06 330)">{{ t.circle.kicker }}</p>
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.015em;max-width:20ch">{{ t.circle.title }}</h1>
+    <p style="margin:24px 0 0;font-size:16px;line-height:1.75;color:oklch(0.80 0.016 265);max-width:56ch">{{ t.circle.intro }}</p>
+  </section>
+
+  <sc-if value="{{ circleLocked }}">
+  <section style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.22 0.026 330)">
+    <div class="wrap" style="padding-top:56px;padding-bottom:72px;max-width:640px">
+      <p style="margin:0 0 22px;font-size:14.5px;line-height:1.75;color:oklch(0.82 0.016 265)">{{ t.circle.gate }}</p>
+      <form onSubmit="{{ enterCircle }}">
+        <label for="circ-mail" style="display:block;font-size:12px;color:oklch(0.76 0.02 265);margin-bottom:10px">{{ t.circle.emailLabel }}</label>
+        <div style="display:flex;gap:0;border-bottom:1px solid oklch(0.46 0.04 330);padding-bottom:10px">
+          <input id="circ-mail" type="email" value="{{ circleEmail }}" onChange="{{ setCircleEmail }}" placeholder="{{ t.circle.placeholder }}" style="flex:1;min-width:0;background:none;border:none;color:oklch(0.94 0.012 90);font-family:Spectral,serif;font-size:18px;outline:none">
+          <button type="submit" style="font-size:13px;color:oklch(0.86 0.08 330);white-space:nowrap;padding-left:16px">{{ t.circle.enter }}</button>
+        </div>
+      </form>
+      <sc-if value="{{ circleErr }}">
+        <p role="alert" style="margin:14px 0 0;font-size:12.5px;color:oklch(0.80 0.10 40);animation:fade .4s both">{{ circleErr }}</p>
+      </sc-if>
+      <p style="margin:22px 0 0;font-size:12px;line-height:1.7;color:oklch(0.72 0.02 265)">{{ t.circle.note }}</p>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ circleOpen }}">
+  <section style="border-top:1px solid oklch(0.30 0.02 265)">
+    <div class="wrap" style="padding-top:44px;padding-bottom:96px">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:44px">
+        <p style="margin:0;font-size:12.5px;color:oklch(0.82 0.06 330)">{{ circleWelcome }}</p>
+        <button onClick="{{ leaveCircle }}" style="font-size:12px;color:oklch(0.74 0.02 265);border-bottom:1px solid oklch(0.44 0.02 265);padding-bottom:2px" style-hover="color:oklch(0.90 0.014 90)">{{ t.circle.leave }}</button>
+      </div>
+      <sc-if value="{{ noCircleRefs }}">
+        <p style="margin:0;font-size:15px;line-height:1.75;color:oklch(0.76 0.018 265);max-width:48ch">{{ t.circle.empty }}</p>
+      </sc-if>
+      <div style="display:flex;flex-direction:column;gap:2px">
+        <sc-for list="{{ circleRefs }}" as="c" hint-placeholder-count="1">
+          <article style="padding:34px 0;border-top:1px solid oklch(0.34 0.03 330)">
+            <p style="margin:0;font-size:12px;color:oklch(0.76 0.05 330)">{{ c.date }}</p>
+            <h2 style="margin:12px 0 0;font-family:Spectral,serif;font-weight:400;font-size:clamp(22px,2.8vw,31px);line-height:1.22;color:oklch(0.95 0.012 90);max-width:30ch">{{ c.title }}</h2>
+            <p style="margin:20px 0 0;font-family:Spectral,serif;font-size:18px;line-height:1.8;color:oklch(0.88 0.014 90);max-width:44ch;text-wrap:pretty">{{ c.body }}</p>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+</div>
+</sc-if>
+
+</main>
+
+<sc-if value="{{ showMini }}">
+<div class="mini" style="position:sticky;bottom:0;z-index:30;background:oklch(0.24 0.03 265 / .97);backdrop-filter:blur(10px);border-top:1px solid oklch(0.40 0.04 118);padding:14px 28px;display:flex;align-items:center;gap:20px;animation:rise .4s both">
+  <button onClick="{{ togglePlay }}" aria-label="{{ t.meds.playLabel }}" style="width:38px;height:38px;border-radius:50%;border:1px solid oklch(0.76 0.10 118);display:flex;align-items:center;justify-content:center;flex:none;color:oklch(0.88 0.09 118);font-size:11px" style-hover="background:oklch(0.30 0.05 118)"><span aria-hidden="true">{{ playIcon }}</span></button>
+  <button onClick="{{ goPlayer }}" style="flex:1;min-width:0;display:flex;flex-direction:column;gap:5px">
+    <span style="font-size:10.5px;color:oklch(0.80 0.06 118);letter-spacing:.05em">{{ t.meds.nowPlaying }}</span>
+    <span style="font-family:Spectral,serif;font-size:16px;line-height:1.2;color:oklch(0.94 0.012 90);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ med.title }}</span>
+  </button>
+  <span class="mini-meta" style="font-size:12px;color:oklch(0.76 0.02 265);flex:none">{{ elapsedLabel }} / {{ durationLabel }}</span>
+</div>
+</sc-if>
+
+<footer style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.22 0.026 265)">
+  <div class="wrap" style="padding-top:64px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px">
+    <div>
+      <p style="margin:0;font-family:Spectral,serif;font-size:20px">Gabriela Traviesa Soria</p>
+      <p style="margin:14px 0 0;font-size:13.5px;line-height:1.75;color:oklch(0.78 0.018 265);max-width:36ch">{{ t.footer.bio }}</p>
+      <p style="margin:16px 0 0;font-size:12.5px;color:oklch(0.72 0.02 265)">{{ t.footer.place }}</p>
+    </div>
+    <div>
+      <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.footer.readLabel }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
+        <button onClick="{{ goBooks }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.books }}</button>
+        <button onClick="{{ goMeds }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.meds }}</button>
+        <button onClick="{{ goRefs }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.refs }}</button>
+        <button onClick="{{ goPod }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.pod }}</button>
+        <button onClick="{{ goAbout }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.about }}</button>
+      </div>
+    </div>
+    <div>
+      <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.footer.elseLabel }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
+        <a href="https://www.instagram.com/rebornwithoutyou" target="_blank" rel="noopener">@rebornwithoutyou</a>
+        <a href="https://www.youtube.com/@gabrielatraviesaescritora.64" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://theguidinglighttherapy.com" target="_blank" rel="noopener">Guiding Light</a>
+        <span style="font-size:13px;color:oklch(0.68 0.02 265)">{{ t.footer.soon }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="padding-bottom:44px">
+    <p style="margin:0;font-size:11.5px;color:oklch(0.68 0.02 265)">{{ t.footer.legal }}</p>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+/* Language object is keyed by code so a third language (NL) can be dropped in
+   as C.nl with the same shape — no template changes needed. */
+const COVER = a => "https://images-na.ssl-images-amazon.com/images/P/" + a + ".01._SCLZZZZZZZ_.jpg";
+const h = (...a) => React.createElement(...a);
+
+/* Four works = seven Amazon editions. medKey / videoId wire each book to the
+   meditation and talk that belong with it, so the sections stop being silos. */
+const WORKS = [
+  { key: "renacer", asinEs: "B085SWT4Q1", asinEn: "B095QRRJ11", medKey: "habitacion", videoId: null,
+    buyEs: "https://www.amazon.com/Renacer-Spanish-Gabriela-Traviesa-Soria-ebook/dp/B085SWT4Q1",
+    buyEn: "https://www.amazon.nl/-/en/Gabriela-Traviesa-Soria-ebook/dp/B095QRRJ11" },
+  { key: "huellas", asinEs: "B0CJ5VYKJ4", asinEn: "B0DSLXW1VS", medKey: "casa", videoId: null,
+    buyEs: "https://www.amazon.nl/-/en/Gabriela-Traviesa-Soria-ebook/dp/B0CJ5VYKJ4",
+    buyEn: "https://www.amazon.com.mx/Paw-Prints-our-Hearts-Mourning-ebook/dp/B0DSLXW1VS" },
+  { key: "trascender", asinEs: "B0DHXMKKNK", asinEn: "B0DR5M8YHQ", medKey: "decision", videoId: "TefHntd8kT8",
+    buyEs: "https://www.amazon.com/-/es/Trascender-Viaje-Hacia-Plenitud-Spanish/dp/B0DHXMKKNK",
+    buyEn: "https://www.amazon.de/Transcend-Journey-Fulfillment-Gabriela-Traviesa/dp/B0DR5M8YHQ" },
+  { key: "ligero", asinEs: "B0G3B1TV6C", asinEn: null, medKey: "dormir", videoId: "vgi5Txca8QU",
+    buyEs: "https://www.amazon.es/Viajar-Ligero-Cuando-Menos-Más/dp/B0G3B1TV6C",
+    buyEn: null }
+];
+
+/* Ten meditations across six intentions, so "browse by intention" is a real
+   second axis rather than the six mood answers relabelled. */
+const MEDS = [
+  { key: "peso",       min: 12, intention: "sanar" },
+  { key: "habitacion", min: 18, intention: "duelo" },
+  { key: "ruido",      min: 9,  intention: "claridad" },
+  { key: "dormir",     min: 20, intention: "sueno" },
+  { key: "amiga",      min: 11, intention: "autoestima" },
+  { key: "luz",        min: 7,  intention: "manana" },
+  { key: "casa",       min: 15, intention: "duelo" },
+  { key: "decision",   min: 10, intention: "claridad" },
+  { key: "perdonar",   min: 14, intention: "autoestima" },
+  { key: "cuerpo",     min: 8,  intention: "manana" },
+  /* Her first real recording. Two takes, one per language, so audio and
+     duration are both language-dependent. */
+  { key: "viaje", min: 5, intention: "sanar",
+    audio: { es: "./assets/audio/true-journey-es.mp3", en: "./assets/audio/true-journey-en.mp3" },
+    secs:  { es: 284, en: 297 } }
+];
+const MED_BY_KEY = {};
+MEDS.forEach(m => { MED_BY_KEY[m.key] = m; });
+const MOOD_MED = { overwhelmed: "peso", grieving: "habitacion", clarity: "ruido", restless: "dormir", tender: "amiga", joyful: "luz" };
+const INTENTIONS = ["sanar", "duelo", "claridad", "sueno", "autoestima", "manana"];
+
+/* Titles confirmed from the YouTube oEmbed endpoint. */
+const VIDEOS = [
+  { id: "TefHntd8kT8", key: "one" },
+  { id: "vgi5Txca8QU", key: "two" },
+  { id: "lF_jTGUKuC0", key: "three" }
+];
+const VIDEO_KEY = {};
+VIDEOS.forEach(v => { VIDEO_KEY[v.id] = v.key; });
+/* Titles confirmed from the Spotify oEmbed endpoint. */
+const EPISODES = [{ id: "1FLkr6zWI6L7C4HfBgZJSX", key: "one" }, { id: "5aCNqeApFpbxwTdfhZd2Pc", key: "two" }];
+
+const C = {
+  es: {
+    brandSub: "Tanatóloga · Guiding Light",
+    signature: "No hay que temer a la muerte sino a no vivir cada día, cada instante, plenamente.",
+    signatureBy: "Gaby Traviesa · tanatóloga y bioeticista",
+    nav: { home: "Inicio", books: "Libros", meds: "Meditaciones", refs: "Reflexiones", pod: "Podcast", about: "Sobre mí", circle: "Círculo" },
+    a11y: { skip: "Ir al contenido", nav: "Secciones", nlSoon: "Neerlandés: pendiente de decidir con la autora", playVideo: "Reproducir el vídeo", playEp: "Reproducir el episodio" },
+    home: {
+      kicker: "Aalsmeer, Países Bajos",
+      hero: "Historias, quietud y reflexiones para volver a ti.",
+      heroSub: "Un lugar tranquilo para acompañar la pérdida, leer despacio y aprender a vivir con lo que queda. Sin prisa y sin ruido.",
+      ctaMed: "Empezar por una meditación",
+      ctaBooks: "Entrar en la biblioteca",
+      newestLabel: "La meditación más reciente",
+      featuredLabel: "El libro",
+      featuredCta: "Leer más sobre el libro",
+      doorBooks: "Cuatro obras, en español e inglés, sobre duelo y sentido.",
+      doorMeds: "Empieza por cómo llegas hoy, no por lo que deberías sentir.",
+      doorRefs: "Textos breves y tres vídeos de sus charlas.",
+      doorPod: "Renacer Sin Ti: tanatología, acompañamiento y bioética."
+    },
+    letters: {
+      title: "Cartas para la estación",
+      body: "Cuatro veces al año escribo una carta larga: lo que estoy leyendo, lo que aprendo acompañando a las familias y una meditación nueva. Llega con el cambio de estación y nada más.",
+      label: "Tu correo",
+      placeholder: "nombre@correo.com",
+      button: "Recibir la carta",
+      note: "Cuatro cartas al año. Puedes irte cuando quieras y no pasa nada.",
+      invalid: "Revisa el correo: parece que falta algo.",
+      thanks: "Gracias. Nos vemos en el próximo cambio de estación.",
+      follow: "También me encuentras en Instagram:"
+    },
+    booksPage: {
+      title: "Los libros",
+      intro: "Cuatro obras, cada una disponible en español e inglés. Hablan de la pérdida, del duelo por quien —o por lo que— ya no está, y de cómo seguir viviendo con sentido.",
+      back: "Volver a los libros",
+      sampleLabel: "Un fragmento",
+      sampleNote: "Texto de muestra para la maqueta · pendiente de sustituir por el pasaje real del libro.",
+      editionsLabel: "Ediciones disponibles",
+      buyEs: "Comprar en español",
+      buyEn: "Buy in English",
+      noEnNote: "Edición en inglés por confirmar con la autora.",
+      promptsLabel: "Para pensar después",
+      promptsNote: "Tres preguntas para el cuaderno. No hace falta responderlas todas ni hacerlo hoy."
+    },
+    related: { label: "Sigue por aquí", med: "Meditación", video: "En vídeo", book: "El libro" },
+    meds: {
+      kicker: "Meditaciones guiadas · voz de Gaby",
+      question: "¿Cómo llegas hoy?",
+      playLabel: "Reproducir o pausar la meditación",
+      intentionLabel: "La intención",
+      browseTitle: "O busca por intención",
+      browseIntro: "Diez prácticas, de siete a veinte minutos, ordenadas por lo que vienes a buscar.",
+      allLabel: "Todas",
+      playingText: "Suena ahora · respira sin corregir nada",
+      pausedText: "En pausa · el silencio también cuenta",
+      readyText: "Ponte los auriculares cuando quieras. No hay prisa.",
+      demoNote: "En la maqueta el reproductor avanza sin audio. En la versión real sonaría aquí la grabación de Gaby.",
+      realNote: "Grabación real, en la voz de Gaby. Cambia el idioma y sonará la otra toma.",
+      realBadge: "Con audio",
+      nowPlaying: "Suena ahora",
+      intentions: { sanar: "Sanar", duelo: "Duelo", claridad: "Claridad", sueno: "Sueño", autoestima: "Autoestima", manana: "Arraigo matinal" },
+      items: {
+        peso: { title: "Poner el peso en el suelo", intentionLine: "Dejar de sostener lo que puede apoyarse.", body: "Empezamos por las manos: casi siempre están sujetando algo que ya no hace falta sujetar. Después bajamos hasta los pies y le devolvemos al suelo la parte del peso que le corresponde. No vamos a resolver la lista de hoy; vamos a quitarle a tu cuerpo la obligación de cargarla.", voice: "Voz de Gaby, sin música. Grabada en Aalsmeer una mañana de noviembre." },
+        habitacion: { title: "Una habitación para quien se fue", intentionLine: "Hacer sitio en vez de hacer las paces.", body: "Una meditación larga y lenta para los días en los que la ausencia ocupa toda la casa. No buscamos consuelo ni conclusiones: abrimos una habitación, la amueblamos con lo que recuerdas y nos quedamos un rato ahí dentro, acompañadas.", voice: "Voz de Gaby, con silencios largos. Puedes llorar; está previsto." },
+        ruido: { title: "Quitar el ruido de encima", intentionLine: "Distinguir tu voz de todas las demás.", body: "Nueve minutos para separar lo que piensas de lo que has oído decir. Nombramos las voces que opinan dentro de ti —la de la familia, la del médico, la del miedo— y las dejamos esperar fuera. Lo que quede cuando se callen es lo que buscabas.", voice: "Voz de Gaby. Recomendada antes de una conversación difícil." },
+        dormir: { title: "Dormir sin resolverlo", intentionLine: "Dejar el día abierto y dormirte igual.", body: "Para las noches en las que el cuerpo se acuesta y la cabeza sigue de pie. Recorremos el día sin juzgarlo, lo dejamos a medias —porque lo está— y descendemos muy despacio hasta que la respiración se hace más larga que los pensamientos.", voice: "Voz de Gaby, muy baja. Puedes quedarte dormida antes del final." },
+        amiga: { title: "Hablarte como a una amiga", intentionLine: "Cambiar el tono con el que te hablas.", body: "Once minutos para escuchar cómo te hablas cuando nadie te oye, y para probar otro tono. No afirmaciones ni frases de cartel: solo la voz que usarías con alguien a quien cuidas bien, dirigida por una vez hacia ti.", voice: "Voz de Gaby. Va bien después de un día de cuidar a otros." },
+        luz: { title: "La primera luz", intentionLine: "Empezar el día por el cuerpo, no por la lista.", body: "Siete minutos junto a la ventana, con los pies en el suelo y el día todavía sin abrir. Una práctica breve para los días buenos: no para aprovecharlos mejor, sino para estar presente mientras pasan.", voice: "Voz de Gaby. Grabada al amanecer, con los pájaros de fondo." },
+        casa: { title: "La casa en silencio", intentionLine: "Volver a una casa donde ya no está.", body: "Para el momento exacto de abrir la puerta y que no conteste nadie. No vamos a llenar ese silencio ni a taparlo con ruido: vamos a aprender a entrar en él sin salir corriendo. Quince minutos para que la casa vuelva a ser tuya sin dejar de haber sido de los dos.", voice: "Voz de Gaby. Pensada para escuchar al llegar, todavía con el abrigo puesto." },
+        decision: { title: "Antes de una decisión difícil", intentionLine: "Preguntar desde la calma y no desde el miedo.", body: "Diez minutos para las decisiones que no tienen buena opción: un tratamiento, un ingreso, una despedida. No buscamos la respuesta correcta —a veces no existe—; buscamos tomarla desde un sitio donde puedas sostenerla después.", voice: "Voz de Gaby. Grabada pensando en quienes deciden por otros." },
+        perdonar: { title: "Perdonarte lo que no supiste", intentionLine: "Devolverle a la culpa su tamaño real.", body: "Casi todo el mundo guarda una frase: «tenía que haber ido antes», «no le dije lo que sentía». Catorce minutos para mirar esa culpa de frente y entender que estabas haciéndolo lo mejor que sabías con lo que tenías entonces, que nunca es lo que sabes ahora.", voice: "Voz de Gaby. La más pedida en los meses siguientes a una pérdida." },
+        cuerpo: { title: "El cuerpo primero", intentionLine: "Habitar el cuerpo antes de que empiece el día.", body: "Ocho minutos para empezar por donde estás y no por lo que falta: los pies, el peso, el aire entrando sin que tengas que ayudarlo. Una práctica de mañana para los días en que te levantas ya cansada.", voice: "Voz de Gaby. Va bien antes de mirar el teléfono." },
+        viaje: { title: "El verdadero viaje", intentionLine: "Grabada por Gaby, en su voz.", body: "Descripción pendiente de la autora. Pulsa reproducir y escúchala: es la grabación real, en español y en inglés.", voice: "Voz de Gaby · grabación original." }
+      }
+    },
+    video: {
+      label: "En vídeo",
+      sectionTitle: "Charlas y reflexiones en vídeo",
+      sectionIntro: "Fragmentos de sus charlas sobre el tiempo, el duelo y la dignidad al final de la vida. Se reproducen aquí mismo.",
+      watch: "Ver el vídeo",
+      one: { title: "Tiempo y Vida", quote: "El tiempo no se toma ni se pide, sino que se vive." },
+      two: { title: "Viajar Ligero: el arte de soltar", quote: "Sobre el equipaje que cargamos sin revisarlo, y lo que cambia cuando abrimos la maleta." },
+      three: { title: "Aspectos éticos al final de la vida", quote: "Qué decisiones aparecen cuando ya no se trata de curar, y quién las sostiene." }
+    },
+    pod: {
+      kicker: "Podcast",
+      title: "Renacer Sin Ti",
+      intro: "Conversaciones sobre tanatología, acompañamiento y bioética: cómo se sostiene a una familia que despide a alguien, qué decisiones aparecen al final de la vida y cómo se vuelve a vivir después de una pérdida.",
+      episodesLabel: "Episodios destacados",
+      listen: "Escuchar el episodio",
+      note: "Los episodios se escuchan aquí mismo, sin salir de la página. Spotify reproduce el episodio completo si tienes sesión abierta; si no, ofrece un avance. En Spotify el programa aparece como «Reflexiones» — pendiente de decidir con la autora si unificamos el nombre con Renacer Sin Ti.",
+      one: { title: "¿Cómo hemos trascendido?", desc: "Una reflexión íntima sobre los procesos de transformación y trascendencia, desde la consciencia y la presencia." },
+      two: { title: "Ecos del alma", desc: "Un espacio sonoro introspectivo que invita a una escucha pausada: el silencio, la sutileza y la voz como viaje hacia dentro." }
+    },
+    circle: {
+      kicker: "Por invitación",
+      title: "El círculo",
+      intro: "Un grupo pequeño que recibe los textos que no están en el sitio público. Se entra por invitación de Gaby y no hace falta hacer nada más: solo leer.",
+      gate: "Si tienes invitación, escribe el correo al que llegó. No hay contraseña ni cuenta que crear.",
+      emailLabel: "Tu correo",
+      placeholder: "nombre@correo.com",
+      enter: "Entrar",
+      notFound: "Ese correo no está en la lista. Si crees que debería estarlo, escríbele a Gaby.",
+      note: "Maqueta de demostración: la comprobación ocurre en tu navegador contra la lista del estudio. No es un acceso real todavía.",
+      welcome: "Estás dentro como",
+      leave: "Salir del círculo",
+      empty: "Ahora mismo no hay ningún texto solo para el círculo. Cuando Gaby escriba uno, aparecerá aquí."
+    },
+    refs: {
+      title: "Reflexiones",
+      intro: "Textos breves escritos entre visitas y acompañamientos, casi siempre temprano. Se leen en dos minutos.",
+      back: "Volver a las reflexiones",
+      readLabel: "Leer"
+    },
+    about: {
+      kicker: "Sobre mí",
+      title: "Gabriela Traviesa Soria",
+      lead: "Acompaño a personas en duelo y a familias en el final de la vida. Escribo sobre lo que aprendo ahí.",
+      body1: "Soy tanatóloga y bioeticista. Mi trabajo ocurre casi siempre en habitaciones pequeñas: al lado de una cama, en un pasillo de hospital, en una cocina donde alguien acaba de quedarse sola. No llevo respuestas; llevo tiempo y presencia, que suele ser lo único que hace falta.",
+      body2: "Vivo en Aalsmeer, cerca de Ámsterdam, y trabajo en español, inglés y neerlandés. Escribo libros y grabo meditaciones porque no todo el mundo tiene a alguien a quien llamar a las tres de la mañana, y ese es exactamente el momento en el que la ausencia pesa más.",
+      workLabel: "En qué acompaño",
+      work: [
+        "Duelo por la muerte de una persona querida: los primeros meses y los que vienen después, cuando el mundo ya ha seguido y tú no.",
+        "Duelo por un animal de compañía, un duelo que casi nadie valida y que duele igual.",
+        "Familias en el final de la vida: decisiones difíciles, conversaciones aplazadas y cuidado de los mayores.",
+        "Bioética: qué se decide cuando ya no se trata de curar, y cómo se sostiene esa decisión después."
+      ],
+      talksLabel: "Charlas y congresos",
+      talks: [
+        { topic: "Tanatología clínica: la ética del cuidado ante la finitud",
+          event: "5.º Congreso Nacional de la Academia Brasileña de Bioética Clínica (ABBC)",
+          meta: "Río de Janeiro · junio de 2026 · Mesa redonda: cuidados y decisiones en contextos de finitud" }
+      ],
+      contactLabel: "Escribirme",
+      contactBody: "La consulta y las formas de contacto están en Guiding Light, mi sitio profesional. Si prefieres empezar por algo más pequeño, las cartas de la estación llegan cuatro veces al año.",
+      ctaSite: "Ir a Guiding Light",
+      portraitNote: "Retrato pendiente · a solicitar a la autora",
+      portraitAlt: "Gaby Traviesa al atardecer, junto al mar",
+      baseLabel: "Dónde",
+      base: "Aalsmeer, Holanda del Norte",
+      langLabel: "Idiomas",
+      langs: "Español, inglés y neerlandés",
+      brandLabel: "Consulta"
+    },
+    footer: {
+      bio: "Gaby Traviesa es tanatóloga y bioeticista. Acompaña a personas en duelo y a familias en el final de la vida, y escribe sobre la pérdida, el cuidado de los mayores y la dignidad.",
+      place: "Aalsmeer, Holanda del Norte · atiende en español, inglés y neerlandés.",
+      readLabel: "Leer y escuchar",
+      elseLabel: "Lo demás",
+      soon: "Círculo de duelo · pronto",
+      legal: "© 2026 Gabriela Traviesa Soria · Guiding Light. Maqueta de demostración con textos de muestra."
+    },
+    moodIntro: {
+      overwhelmed: "Cuando todo pesa, no hace falta ordenarlo: primero se suelta.",
+      grieving: "El duelo no se medita para que pase antes. Se medita para no estar sola en él.",
+      clarity: "La claridad no llega pensando más. Llega quitando ruido de encima.",
+      restless: "No vamos a resolver nada esta noche. Vamos a dejarlo en el suelo.",
+      tender: "Hoy hablamos como se habla a una amiga que ha tenido un día difícil.",
+      joyful: "La alegría también se practica: se trata de dejar que dure un poco más."
+    },
+    moods: [
+      { key: "overwhelmed", label: "Desbordada", hint: "todo a la vez" },
+      { key: "grieving", label: "En duelo", hint: "alguien falta" },
+      { key: "clarity", label: "Buscando claridad", hint: "una decisión pendiente" },
+      { key: "restless", label: "Inquieta", hint: "el cuerpo no se para" },
+      { key: "tender", label: "Tierna", hint: "la piel muy fina hoy" },
+      { key: "joyful", label: "Luminosa", hint: "y quiero que dure" }
+    ],
+    works: {
+      renacer: {
+        theme: "Duelo y nuevos comienzos",
+        title: "Renacer sin ti",
+        otherTitle: "Edición en inglés: Reborn Without You",
+        line: "¿Cómo continuar mi vida sin tu presencia?",
+        synopsis: "Su libro faro. Un camino escrito desde la tanatología para quien acaba de perder a alguien: del dolor a la gratitud, de la gratitud a la aceptación y, con tiempo, a la posibilidad de volver a ser feliz sin dejar de querer a quien ya no está.",
+        sample: "La ausencia no se llena, se habita. Al principio ocupa la casa entera: la silla, la taza, el lado de la cama. Con el tiempo aprendes a vivir con ella como se vive con una habitación más, y un día descubres que puedes hablar de él sin que se te rompa la voz.",
+        prompts: ["¿Qué le dirías hoy si pudieras?", "¿Qué parte de tu vida sigue esperando permiso para continuar?", "¿Por qué le estás agradecida, aunque duela?"]
+      },
+      huellas: {
+        theme: "Duelo por un animal",
+        title: "Huellas en el Corazón",
+        otherTitle: "Edición en inglés: Paw Prints on Our Hearts",
+        line: "El duelo por un animal también es un duelo.",
+        synopsis: "Para quien ha perdido a un compañero animal y ha oído demasiadas veces que 'era solo un perro'. Un libro breve que da nombre y dignidad a ese duelo, y acompaña el proceso desde el amor y la aceptación.",
+        sample: "Nadie te da la baja por esto. Vuelves a casa y sigue estando el cuenco, el pelo en el sofá, la hora exacta del paseo. Ese duelo no es menor: es distinto. Se llora en voz baja y también merece ser llorado del todo.",
+        prompts: ["¿Qué costumbre suya sigue marcando tu día?", "¿A quién no te has atrevido a contarle cuánto te dolió?", "¿Qué te enseñó sobre estar presente?"]
+      },
+      trascender: {
+        theme: "Sentido y plenitud",
+        title: "Trascender",
+        otherTitle: "Edición en inglés: Transcend — A Journey Toward Fulfillment",
+        line: "Un viaje hacia la plenitud, incluso en los momentos más difíciles.",
+        synopsis: "Escrito desde el acompañamiento al final de la vida: qué queda cuando lo demás se cae, cómo se sostiene el propósito en medio del dolor y por qué trascender no es escapar de la vida, sino atravesarla despierta.",
+        sample: "Las personas que acompaño al final de su vida casi nunca hablan de lo que consiguieron. Hablan de una tarde concreta, de una mano, de una conversación que no tuvieron. La plenitud no era una meta: estaba repartida en instantes que casi no miramos.",
+        prompts: ["¿Qué instante de esta semana habrías querido mirar mejor?", "¿Qué estás dejando para cuando haya tiempo?", "¿Qué querrías que se contara de ti?"]
+      },
+      ligero: {
+        theme: "Soltar y simplificar",
+        title: "Viajar Ligero",
+        otherTitle: "Cuando menos es más",
+        line: "Cuando menos es más: soltar lo que pesa para poder caminar.",
+        synopsis: "Sobre el equipaje que cargamos sin revisarlo: objetos, rencores, papeles de otros, versiones antiguas de nosotras mismas. Un libro práctico y sereno sobre elegir con qué seguimos el camino.",
+        sample: "Nadie decide cargar con todo esto. Se va acumulando: lo que heredaste, lo que te dijeron que valía, lo que guardaste por si acaso. Viajar ligero no es renunciar; es abrir la maleta a media vida y elegir, por primera vez, qué merece seguir viniendo contigo.",
+        prompts: ["¿Qué llevas encima que no elegiste?", "¿Qué te da miedo soltar, y por qué?", "¿Qué cabría en tu vida si hubiera sitio?"]
+      }
+    },
+    reflections: [
+      { id: "r0", date: "12 marzo", place: "Aalsmeer", title: "El tiempo no se pide, se vive", teaser: "Nadie me ha dicho al final de su vida que le faltó tiempo. Me dicen que no lo miraron.",
+        body: "En las visitas hay una frase que se repite: «si tuviera más tiempo». Pero cuando pregunto para qué, casi nunca es para hacer algo grande. Es para una tarde concreta, para una conversación que se aplazó, para mirar a alguien sin prisa. El tiempo no se toma ni se pide: se vive, y se vive en instantes que casi no miramos.",
+        close: "No hay que temer a la muerte, sino a no vivir cada día, cada instante, plenamente.",
+        workKey: "trascender", medKey: "decision", videoId: "TefHntd8kT8" },
+      { id: "r1", date: "27 febrero", place: "Aalsmeer", title: "Lo que aprendí acompañando a quien se va", teaser: "Acompañar no es tener las palabras. Es quedarse cuando no las hay.",
+        body: "Al principio buscaba qué decir. Preparaba frases por si el silencio se hacía insoportable. Con los años he aprendido que las familias no recuerdan lo que dije: recuerdan que me quedé, que no miré el reloj, que aguanté el silencio con ellas. El acompañamiento no cura la pérdida; evita que se viva a solas.",
+        close: "Casi siempre lo único que hace falta es una presencia que no tenga prisa.",
+        workKey: "renacer", medKey: "habitacion", videoId: "lF_jTGUKuC0" },
+      { id: "r2", date: "9 enero", place: "Aalsmeer", title: "Huellas pequeñas", teaser: "Era solo un perro, dicen. Y la casa entera suena distinta.",
+        body: "Recibo muchos mensajes que empiezan pidiendo perdón: «sé que era solo un gato, pero…». Ese «pero» es el duelo entero. Nadie te da unos días libres, nadie manda flores, y sin embargo el cuenco sigue ahí y la hora del paseo también. Los duelos no compiten entre sí. El que estás viviendo es el tuyo, y merece ser llorado del todo.",
+        close: "El amor que le diste no era menor. Tampoco lo es la falta.",
+        workKey: "huellas", medKey: "casa", videoId: null },
+      { id: "r3", date: "18 diciembre", place: "Aalsmeer", title: "Viajar ligero en diciembre", teaser: "Diciembre es el mes en que la ausencia se sienta a la mesa.",
+        body: "En diciembre las casas se llenan y las sillas vacías se ven más. Nadie pide permiso para estar triste entre luces. Yo propongo algo pequeño: poner su plato si consuela, o no ponerlo si duele demasiado, y dejar de fingir en cualquiera de los dos casos. Las fiestas no son un examen de superación.",
+        close: "Se puede brindar y echar de menos con la misma mano.",
+        workKey: "ligero", medKey: "dormir", videoId: "vgi5Txca8QU" }
+    ]
+  },
+  en: {
+    brandSub: "Thanatologist · Guiding Light",
+    signature: "We don't have to fear death — only failing to live each day, each moment, fully.",
+    signatureBy: "Gaby Traviesa · thanatologist and bioethicist",
+    nav: { home: "Home", books: "Books", meds: "Meditations", refs: "Reflections", pod: "Podcast", about: "About", circle: "Circle" },
+    a11y: { skip: "Skip to content", nav: "Sections", nlSoon: "Dutch: still to be decided with the author", playVideo: "Play the video", playEp: "Play the episode" },
+    home: {
+      kicker: "Aalsmeer, the Netherlands",
+      hero: "Stories, stillness, and reflections for coming home to yourself.",
+      heroSub: "A quiet place to sit with loss, read slowly, and learn to live with what remains. No hurry, no noise.",
+      ctaMed: "Begin with a meditation",
+      ctaBooks: "Enter the library",
+      newestLabel: "Newest meditation",
+      featuredLabel: "The book",
+      featuredCta: "Read more about the book",
+      doorBooks: "Four works, in Spanish and English, on grief and meaning.",
+      doorMeds: "Start from how you arrive today, not how you should feel.",
+      doorRefs: "Short pieces, and three videos from her talks.",
+      doorPod: "Reborn Without You: thanatology, accompaniment, bioethics."
+    },
+    letters: {
+      title: "Letters for the season",
+      body: "Four times a year I write a long letter: what I'm reading, what I'm learning alongside the families I accompany, and one new meditation. It arrives when the season turns, and never otherwise.",
+      label: "Your email",
+      placeholder: "name@email.com",
+      button: "Receive the letter",
+      note: "Four letters a year. Leave whenever you like; nothing happens.",
+      invalid: "Have a look at that address — something seems to be missing.",
+      thanks: "Thank you. I'll see you when the season turns.",
+      follow: "You can also find me on Instagram:"
+    },
+    booksPage: {
+      title: "The books",
+      intro: "Four works, each available in Spanish and English. They are about loss, about grieving whoever — or whatever — is gone, and about how to keep living with meaning.",
+      back: "Back to the books",
+      sampleLabel: "A passage",
+      sampleNote: "Sample text for this mockup · to be replaced with the real passage from the book.",
+      editionsLabel: "Available editions",
+      buyEs: "Comprar en español",
+      buyEn: "Buy in English",
+      noEnNote: "English edition to be confirmed with the author.",
+      promptsLabel: "To sit with afterwards",
+      promptsNote: "Three questions for the notebook. You don't have to answer them all, or today."
+    },
+    related: { label: "Stay a while", med: "Meditation", video: "On video", book: "The book" },
+    meds: {
+      kicker: "Guided meditations · in Gaby's voice",
+      question: "How are you arriving today?",
+      playLabel: "Play or pause the meditation",
+      intentionLabel: "The intention",
+      browseTitle: "Or browse by intention",
+      browseIntro: "Ten practices, seven to twenty minutes, ordered by what you came looking for.",
+      allLabel: "All",
+      playingText: "Playing now · breathe without correcting anything",
+      pausedText: "Paused · the silence counts too",
+      readyText: "Put your headphones on whenever you like. There's no hurry.",
+      demoNote: "In this mockup the player advances without audio. In the real version, Gaby's recording would play here.",
+      realNote: "A real recording, in Gaby's voice. Switch language and the other take plays.",
+      realBadge: "With audio",
+      nowPlaying: "Playing now",
+      intentions: { sanar: "Healing", duelo: "Grief", claridad: "Clarity", sueno: "Sleep", autoestima: "Self-worth", manana: "Morning grounding" },
+      items: {
+        peso: { title: "Letting the weight reach the floor", intentionLine: "Stop holding what can rest on its own.", body: "We start with the hands: they are almost always gripping something that no longer needs to be held. Then we travel down to the feet and give the floor back the share of the weight that belongs to it. We aren't going to solve today's list; we're going to relieve your body of the duty of carrying it.", voice: "Gaby's voice, no music. Recorded in Aalsmeer on a November morning." },
+        habitacion: { title: "A room for the one who left", intentionLine: "Making space instead of making peace.", body: "A long, slow meditation for the days when the absence fills the whole house. We aren't after comfort or conclusions: we open a room, furnish it with what you remember, and stay inside it a while, accompanied.", voice: "Gaby's voice, with long silences. You may cry; it's accounted for." },
+        ruido: { title: "Taking the noise off", intentionLine: "Telling your voice apart from all the others.", body: "Nine minutes to separate what you think from what you have been told. We name the voices with opinions inside you — the family's, the doctor's, fear's — and let them wait outside. What remains once they go quiet is what you were looking for.", voice: "Gaby's voice. Recommended before a difficult conversation." },
+        dormir: { title: "Sleeping without solving it", intentionLine: "Leave the day open and fall asleep anyway.", body: "For the nights when the body lies down and the head stays standing. We walk back through the day without judging it, leave it unfinished — because it is — and descend very slowly until the breath grows longer than the thoughts.", voice: "Gaby's voice, very low. You may fall asleep before the end." },
+        amiga: { title: "Speaking to yourself as to a friend", intentionLine: "Changing the tone you use on yourself.", body: "Eleven minutes to hear how you speak to yourself when no one is listening, and to try another tone. No affirmations, no poster phrases: only the voice you would use with someone you take good care of, turned for once towards you.", voice: "Gaby's voice. Good after a day of caring for others." },
+        luz: { title: "First light", intentionLine: "Begin the day with the body, not the list.", body: "Seven minutes by the window, feet on the floor, the day still unopened. A short practice for the good days: not to make better use of them, but to be present while they pass.", voice: "Gaby's voice. Recorded at dawn, with birds in the background." },
+        casa: { title: "The house in silence", intentionLine: "Coming back to a house where they no longer are.", body: "For the exact moment of opening the door and no one answering. We aren't going to fill that silence or cover it with noise: we're going to learn to walk into it without running back out. Fifteen minutes for the house to become yours again without ceasing to have been both of yours.", voice: "Gaby's voice. Made to be heard on arriving, still with your coat on." },
+        decision: { title: "Before a hard decision", intentionLine: "Asking from calm rather than from fear.", body: "Ten minutes for the decisions with no good option: a treatment, an admission, a goodbye. We aren't looking for the right answer — sometimes there isn't one; we're looking to make it from a place you can still stand behind afterwards.", voice: "Gaby's voice. Recorded thinking of those who decide for others." },
+        perdonar: { title: "Forgiving yourself for what you didn't know", intentionLine: "Giving the guilt back its real size.", body: "Almost everyone keeps one sentence: 'I should have gone sooner', 'I never told them how I felt'. Fourteen minutes to look at that guilt directly and understand that you were doing the best you knew with what you had then, which is never what you know now.", voice: "Gaby's voice. The most requested in the months after a loss." },
+        cuerpo: { title: "The body first", intentionLine: "Inhabiting the body before the day begins.", body: "Eight minutes to start from where you are rather than from what is missing: the feet, the weight, the air coming in without your having to help it. A morning practice for the days you wake already tired.", voice: "Gaby's voice. Good before looking at your phone." },
+        viaje: { title: "The True Journey", intentionLine: "Recorded by Gaby, in her own voice.", body: "Description still to come from the author. Press play and listen: this is the real recording, in Spanish and in English.", voice: "Gaby's voice · original recording." }
+      }
+    },
+    video: {
+      label: "On video",
+      sectionTitle: "Talks and reflections on video",
+      sectionIntro: "Excerpts from her talks on time, grief, and dignity at the end of life. They play right here.",
+      watch: "Play the video",
+      one: { title: "Time and Life", quote: "Time is not taken or asked for — it is lived." },
+      two: { title: "Travelling Light: the art of letting go", quote: "On the luggage we carry without ever checking it, and what changes when we open the case." },
+      three: { title: "Ethical questions at the end of life", quote: "Which decisions appear once it is no longer about curing, and who carries them." }
+    },
+    pod: {
+      kicker: "Podcast",
+      title: "Reborn Without You",
+      intro: "Conversations on thanatology, accompaniment, and bioethics: how a family is held while they say goodbye, what decisions appear at the end of life, and how one comes back to living after a loss.",
+      episodesLabel: "Featured episodes",
+      listen: "Play the episode",
+      note: "Episodes play right here, without leaving the page. Spotify plays the full episode if you are signed in; otherwise it offers a preview. On Spotify the show is listed as 'Reflexiones' — still to be decided with the author whether to unify the name with Reborn Without You.",
+      one: { title: "How have we transcended?", desc: "An intimate reflection on transformation and transcendence, approached through awareness and presence." },
+      two: { title: "Echoes of the soul", desc: "An introspective sound space inviting unhurried listening: silence, subtlety, and the voice as a journey inward." }
+    },
+    circle: {
+      kicker: "By invitation",
+      title: "The circle",
+      intro: "A small group that receives the writing which isn't on the public site. You join by Gaby's invitation, and there is nothing else to do but read.",
+      gate: "If you have an invitation, type the address it arrived at. No password, no account to create.",
+      emailLabel: "Your email",
+      placeholder: "name@email.com",
+      enter: "Enter",
+      notFound: "That address isn't on the list. If you think it should be, write to Gaby.",
+      note: "Demonstration mockup: the check happens in your browser against the studio's list. It isn't real access yet.",
+      welcome: "You're in as",
+      leave: "Leave the circle",
+      empty: "There's no circle-only writing right now. When Gaby writes one, it will appear here."
+    },
+    refs: {
+      title: "Reflections",
+      intro: "Short pieces written between visits, almost always early in the morning. They take two minutes to read.",
+      back: "Back to the reflections",
+      readLabel: "Read"
+    },
+    about: {
+      kicker: "About",
+      title: "Gabriela Traviesa Soria",
+      lead: "I accompany people in grief and families at the end of life. I write about what I learn there.",
+      body1: "I am a thanatologist and bioethicist. My work almost always happens in small rooms: beside a bed, in a hospital corridor, in a kitchen where someone has just been left alone. I don't bring answers; I bring time and presence, which is usually the only thing needed.",
+      body2: "I live in Aalsmeer, near Amsterdam, and work in Spanish, English, and Dutch. I write books and record meditations because not everyone has someone to call at three in the morning, and that is exactly the hour when the absence weighs most.",
+      workLabel: "What I accompany",
+      work: [
+        "Grief after the death of someone loved: the first months, and the ones that come after, when the world has moved on and you haven't.",
+        "Grief for an animal companion — a grief almost nobody validates, and which hurts just the same.",
+        "Families at the end of life: hard decisions, postponed conversations, and the care of elders.",
+        "Bioethics: what gets decided once it is no longer about curing, and how that decision is carried afterwards."
+      ],
+      talksLabel: "Talks and congresses",
+      talks: [
+        { topic: "Clinical thanatology: the ethics of care in the face of finitude",
+          event: "5th National Congress of the Brazilian Academy of Clinical Bioethics (ABBC)",
+          meta: "Rio de Janeiro · June 2026 · Round table: care and decisions in contexts of finitude" }
+      ],
+      contactLabel: "Getting in touch",
+      contactBody: "The practice and all the ways to reach me live on Guiding Light, my professional site. If you would rather begin with something smaller, the seasonal letters arrive four times a year.",
+      ctaSite: "Go to Guiding Light",
+      portraitNote: "Portrait pending · to request from the author",
+      portraitAlt: "Gaby Traviesa at dusk, beside the sea",
+      baseLabel: "Where",
+      base: "Aalsmeer, North Holland",
+      langLabel: "Languages",
+      langs: "Spanish, English, and Dutch",
+      brandLabel: "Practice"
+    },
+    footer: {
+      bio: "Gaby Traviesa is a thanatologist and bioethicist. She accompanies people in grief and families at the end of life, and writes about loss, the care of elders, and dignity.",
+      place: "Aalsmeer, North Holland · works in Spanish, English, and Dutch.",
+      readLabel: "Read and listen",
+      elseLabel: "Elsewhere",
+      soon: "Grief circle · soon",
+      legal: "© 2026 Gabriela Traviesa Soria · Guiding Light. Demonstration mockup with sample text."
+    },
+    moodIntro: {
+      overwhelmed: "When everything weighs, it doesn't need sorting: first it gets put down.",
+      grieving: "We don't meditate on grief to make it pass sooner. We meditate so as not to be alone in it.",
+      clarity: "Clarity doesn't come from thinking more. It comes from taking noise off.",
+      restless: "We aren't going to solve anything tonight. We're going to set it on the floor.",
+      tender: "Today we speak the way you'd speak to a friend who has had a hard day.",
+      joyful: "Joy is practised too: it's about letting it last a little longer."
+    },
+    moods: [
+      { key: "overwhelmed", label: "Overwhelmed", hint: "everything at once" },
+      { key: "grieving", label: "Grieving", hint: "someone is missing" },
+      { key: "clarity", label: "Seeking clarity", hint: "a decision waiting" },
+      { key: "restless", label: "Restless", hint: "the body won't settle" },
+      { key: "tender", label: "Tender", hint: "thin-skinned today" },
+      { key: "joyful", label: "Luminous", hint: "and I want it to last" }
+    ],
+    works: {
+      renacer: {
+        theme: "Grief and new beginnings",
+        title: "Reborn Without You",
+        otherTitle: "Spanish edition: Renacer sin ti",
+        line: "How do I carry on with my life without your presence?",
+        synopsis: "Her guiding book. A path written from thanatology for someone who has just lost a person: from pain to gratitude, from gratitude to acceptance and, in time, to the possibility of being happy again without loving them any less.",
+        sample: "Absence isn't filled, it's inhabited. At first it takes the whole house: the chair, the cup, that side of the bed. In time you learn to live with it as you live with one more room, and one day you find you can speak of him without your voice breaking.",
+        prompts: ["What would you say to them today, if you could?", "Which part of your life is still waiting for permission to carry on?", "What are you grateful to them for, even though it hurts?"]
+      },
+      huellas: {
+        theme: "Grief for an animal",
+        title: "Paw Prints on Our Hearts",
+        otherTitle: "Spanish edition: Huellas en el Corazón",
+        line: "Grief for an animal is grief too.",
+        synopsis: "For anyone who has lost an animal companion and heard too many times that 'it was only a dog'. A short book that gives that grief its name and its dignity, and accompanies the process through love and acceptance.",
+        sample: "Nobody signs you off work for this. You come home and the bowl is still there, the hair on the sofa, the exact hour of the walk. That grief isn't lesser: it's different. It's cried quietly, and it deserves to be cried all the way through.",
+        prompts: ["Which of their habits still shapes your day?", "Who have you not dared tell how much it hurt?", "What did they teach you about being present?"]
+      },
+      trascender: {
+        theme: "Meaning and fulfilment",
+        title: "Transcend",
+        otherTitle: "Spanish edition: Trascender — Un viaje hacia la plenitud",
+        line: "A journey toward fulfilment, even in the hardest moments.",
+        synopsis: "Written from accompanying people at the end of life: what remains when the rest falls away, how purpose is held in the middle of pain, and why transcending is not escaping life but going through it awake.",
+        sample: "The people I accompany at the end of their lives almost never speak of what they achieved. They speak of one particular afternoon, of a hand, of a conversation they never had. Fulfilment was never a destination: it was distributed across moments we barely looked at.",
+        prompts: ["Which moment this week would you have liked to look at properly?", "What are you saving for when there is time?", "What would you want told about you?"]
+      },
+      ligero: {
+        theme: "Letting go and simplifying",
+        title: "Travelling Light",
+        otherTitle: "When less is more",
+        line: "When less is more: putting down what weighs so you can walk.",
+        synopsis: "About the luggage we carry without ever checking it: objects, resentments, other people's paperwork, old versions of ourselves. A calm, practical book about choosing what continues the journey with us.",
+        sample: "Nobody decides to carry all of this. It accumulates: what you inherited, what you were told had value, what you kept just in case. Travelling light isn't giving things up; it's opening the case halfway through life and choosing, for the first time, what deserves to keep coming with you.",
+        prompts: ["What are you carrying that you never chose?", "What are you afraid to put down, and why?", "What would fit in your life if there were room?"]
+      }
+    },
+    reflections: [
+      { id: "r0", date: "12 March", place: "Aalsmeer", title: "Time isn't asked for, it's lived", teaser: "No one at the end of their life has told me they ran out of time. They tell me they didn't look at it.",
+        body: "There is a sentence that repeats itself on these visits: 'if I had more time'. But when I ask what for, it is almost never for something large. It is for one particular afternoon, for a conversation that was postponed, for looking at someone without hurrying. Time is not taken or asked for: it is lived, and it is lived in moments we barely look at.",
+        close: "We don't have to fear death, only failing to live each day, each moment, fully.",
+        workKey: "trascender", medKey: "decision", videoId: "TefHntd8kT8" },
+      { id: "r1", date: "27 February", place: "Aalsmeer", title: "What I learned accompanying the dying", teaser: "Accompanying isn't having the words. It's staying when there are none.",
+        body: "At first I looked for what to say. I prepared sentences in case the silence became unbearable. Over the years I have learned that families don't remember what I said: they remember that I stayed, that I didn't look at the clock, that I held the silence with them. Accompaniment doesn't cure the loss; it keeps it from being lived alone.",
+        close: "Almost always the only thing needed is a presence that isn't in a hurry.",
+        workKey: "renacer", medKey: "habitacion", videoId: "lF_jTGUKuC0" },
+      { id: "r2", date: "9 January", place: "Aalsmeer", title: "Small paw prints", teaser: "It was only a dog, they say. And the whole house sounds different.",
+        body: "I receive many messages that begin with an apology: 'I know it was only a cat, but…'. That 'but' is the entire grief. Nobody gives you days off, nobody sends flowers, and yet the bowl is still there and so is the hour of the walk. Griefs don't compete with each other. The one you are living is yours, and it deserves to be cried all the way through.",
+        close: "The love you gave was not smaller. Neither is the absence.",
+        workKey: "huellas", medKey: "casa", videoId: null },
+      { id: "r3", date: "18 December", place: "Aalsmeer", title: "Travelling light in December", teaser: "December is the month when the absence sits down at the table.",
+        body: "In December the houses fill up and the empty chairs show more. No one asks permission to be sad among the lights. I suggest something small: set their place if it comforts you, or don't if it hurts too much, and stop pretending either way. The holidays are not an exam in getting over it.",
+        close: "You can raise a glass and miss someone with the same hand.",
+        workKey: "ligero", medKey: "dormir", videoId: "vgi5Txca8QU" }
+    ]
+  }
+};
+
+/* ---- the wire to the Studio ----
+   Both pages are served from the same origin, so they share localStorage. The
+   Studio owns this key; the reader only ever reads it. Anything not marked
+   "public" never reaches the site, and rich copy the Studio doesn't capture
+   (a reflection's closing line, a meditation's body) is looked up from the
+   built-ins below by stable id. With no store present the site falls back to
+   everything built in, so it still stands on its own. */
+const STORE_KEY = "gt-studio-v1";
+function readStore() {
+  try {
+    const raw = window.localStorage.getItem(STORE_KEY);
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    return d && typeof d === "object" ? d : null;
+  } catch (e) { return null; }
+}
+const isPublic = x => x && x.status === "public";
+const CIRCLE_KEY = "gt-circle-email";
+const PORTRAIT = "./assets/portrait/gaby.jpg";
+
+const PAGES = ["home", "books", "meds", "refs", "pod", "about", "circulo"];
+
+class Component extends DCLogic {
+  state = { lang: "es", page: "home", workIndex: null, refIndex: null, moodKey: null,
+            playing: false, elapsed: 0, subscribed: false, email: "", emailErr: false,
+            coverOk: {}, videoOn: {}, podOn: {}, filter: null,
+            store: null, circleEmail: "", circleWho: null, circleErr: "",
+            portraitOk: false };
+
+  componentDidMount() {
+    /* Preload each edition's Amazon CDN cover off-DOM. Only covers that
+       actually load get rendered; otherwise the type-designed cover stays. */
+    WORKS.forEach(w => [w.asinEs, w.asinEn].forEach(asin => {
+      if (!asin) return;
+      const im = new Image();
+      im.onload = () => this.setState(s => ({ coverOk: Object.assign({}, s.coverOk, { [asin]: true }) }));
+      im.src = COVER(asin);
+    }));
+
+    /* Her portrait is a real file on disk; if it is missing or fails, the
+       type-set initials underneath simply stay. */
+    try {
+      const pi = new Image();
+      pi.onload = () => this.setState({ portraitOk: true });
+      pi.src = PORTRAIT;
+    } catch (e) {}
+
+    /* Meditations that have a real recording play it. The rest keep the
+       simulated ticker, so the demo still reads as a working library. */
+    try {
+      this.audio = new Audio();
+      this.audio.preload = "none";
+      this.audio.addEventListener("ended", () => this.setState({ playing: false }));
+      this.audio.addEventListener("timeupdate", () => {
+        if (this.audio && !this.audio.paused) this.setState({ elapsed: Math.floor(this.audio.currentTime) });
+      });
+    } catch (e) { this.audio = null; }
+
+    this.timer = setInterval(() => {
+      if (!this.state.playing) return;
+      const med = this.currentMed();
+      if (!med) return;
+      if (med.audioSrc) return;            // real audio drives its own clock
+      const dur = med.secs || med.min * 60;
+      this.setState(s => ({ elapsed: Math.min(s.elapsed + 1, dur), playing: s.elapsed + 1 < dur }));
+    }, 1000);
+
+    /* Hash routing: gives the browser Back button and shareable links to a
+       single book or reflection. Hash rather than pushState because the canvas
+       can run from a null origin, where pushState throws. */
+    /* Pick up whatever the Studio has published, and stay live: a publish in
+       another tab fires "storage" here, so the site updates without a reload. */
+    this.setState({ store: readStore() });
+    this.onStore = e => { if (!e || !e.key || e.key === STORE_KEY) this.setState({ store: readStore() }); };
+    try {
+      window.addEventListener("storage", this.onStore);
+      const who = window.localStorage.getItem(CIRCLE_KEY);
+      if (who) this.setState({ circleWho: who });
+    } catch (e) {}
+
+    this.onHash = () => this.applyRoute(this.parseHash());
+    try {
+      window.addEventListener("hashchange", this.onHash);
+      if (window.location.hash) this.applyRoute(this.parseHash());
+    } catch (e) {}
+    this.syncDocLang();
+    if (this.state.page === "home") this.heroStart();
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.page === "home") this.heroStart(); else this.heroStop();
+    if (!prevState || prevState.lang !== this.state.lang) {
+      this.syncDocLang();
+      /* Switching language swaps to the other take of the same recording and
+         keeps her roughly where she was, rather than starting over. */
+      const med = this.currentMed();
+      if (med && med.audioSrc && this.audio) {
+        try {
+          const at = Math.min(this.audio.currentTime || 0, (med.secs || 0) - 1);
+          const wasPlaying = !this.audio.paused;
+          this.audio.src = med.audioSrc;
+          this.audio.currentTime = at > 0 ? at : 0;
+          if (wasPlaying) this.audio.play().catch(() => this.setState({ playing: false }));
+        } catch (e) {}
+      }
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    this.heroStop();
+    try { if (this.audio) { this.audio.pause(); this.audio.src = ""; } } catch (e) {}
+    try { window.removeEventListener("hashchange", this.onHash); } catch (e) {}
+    try { window.removeEventListener("storage", this.onStore); } catch (e) {}
+  }
+
+  syncDocLang() {
+    try {
+      document.documentElement.lang = this.state.lang;
+      document.title = this.state.lang === "es"
+        ? "Gaby Traviesa · Renacer sin ti"
+        : "Gaby Traviesa · Reborn Without You";
+    } catch (e) {}
+  }
+
+  /* ---------------- routing ---------------- */
+  parseHash() {
+    let raw = "";
+    try { raw = (window.location.hash || "").replace(/^#\/?/, ""); } catch (e) {}
+    const parts = raw.split("/").filter(Boolean);
+    const page = PAGES.indexOf(parts[0]) >= 0 ? parts[0] : "home";
+    const n = parts[1] !== undefined ? parseInt(parts[1], 10) : NaN;
+    return { page: page, index: isNaN(n) ? null : n };
+  }
+  applyRoute(r) {
+    const t = this.t();
+    const next = { page: r.page, workIndex: null, refIndex: null };
+    if (r.page === "books" && r.index !== null && WORKS[r.index]) next.workIndex = r.index;
+    if (r.page === "refs" && r.index !== null && t.reflections[r.index]) next.refIndex = r.index;
+    this.setState(next);
+  }
+  setHash(page, index) {
+    const target = "#/" + page + (index !== undefined && index !== null ? "/" + index : "");
+    try { if (window.location.hash !== target) window.location.hash = target; } catch (e) {}
+  }
+  nav(page, index, scroll) {
+    this.applyRoute({ page: page, index: index === undefined ? null : index });
+    this.setHash(page, index);
+    if (scroll !== false) this.toTop();
+  }
+  toTop() { try { window.scrollTo(0, 0); } catch (e) {} }
+  scrollTo(id) {
+    try {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    } catch (e) {}
+  }
+
+  t() { return C[this.state.lang]; }
+
+  /* ---------- the hero: dusk over water ----------
+     The same technique as a WebGL depth-field hero — layers at different
+     distances, parallax driven by scroll, an orchestrated reveal — but drawn
+     on a 2D canvas, because at this density it looks identical and costs no
+     library. The scene is hers: the dusk she is standing in on the About page,
+     the "first light" the morning meditation opens with.
+
+     Rules it obeys: it never animates for someone who asked for less motion,
+     it stops when the tab is hidden or she navigates away, it thins out on
+     small screens, and if anything at all goes wrong the hero is simply the
+     background colour it was before. */
+  heroStart() {
+    if (this.heroRAF || this.heroDead) return;
+    let cv;
+    try { cv = document.getElementById("sanc-hero-sky"); } catch (e) { return; }
+    if (!cv) return;
+
+    let ctx;
+    try { ctx = cv.getContext("2d"); } catch (e) { ctx = null; }
+    if (!ctx) { this.heroDead = true; return; }
+
+    let still = false;
+    try { still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+    const state = { w: 0, h: 0, dpr: 1, motes: [], scroll: 0 };
+
+    const size = () => {
+      const r = cv.getBoundingClientRect();
+      state.w = Math.max(1, Math.round(r.width));
+      state.h = Math.max(1, Math.round(r.height));
+      state.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(state.w * state.dpr);
+      cv.height = Math.round(state.h * state.dpr);
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      /* Fewer motes on a phone: this runs behind text people are reading. */
+      const n = state.w < 640 ? 34 : state.w < 1100 ? 54 : 76;
+      state.motes = [];
+      for (let i = 0; i < n; i++) {
+        state.motes.push({
+          x: Math.random(),
+          y: Math.random() * 0.72,
+          depth: Math.random(),           // 0 far, 1 near
+          r: 0.5 + Math.random() * 1.4,
+          drift: 0.004 + Math.random() * 0.012,
+          phase: Math.random() * Math.PI * 2,
+          warm: Math.random() < 0.22
+        });
+      }
+    };
+
+    const draw = (t) => {
+      const w = state.w, h = state.h, sc = state.scroll;
+      const horizon = h * (0.60 + sc * 0.06);   // the horizon lifts a little as she scrolls
+
+      /* sky: deep dusk above, a warm band where the light went down */
+      const sky = ctx.createLinearGradient(0, 0, 0, horizon);
+      sky.addColorStop(0.00, "#0f131d");
+      sky.addColorStop(0.45, "#161d2e");
+      sky.addColorStop(0.80, "#1f2940");
+      sky.addColorStop(1.00, "#4b3e4e");
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, w, horizon + 1);
+
+      /* the last of the light, breathing very slowly just above the water */
+      const breathe = 0.82 + Math.sin(t * 0.16) * 0.18;
+      const glowH = h * 0.30;
+      const glow = ctx.createLinearGradient(0, horizon - glowH, 0, horizon);
+      glow.addColorStop(0, "rgba(150,96,86,0)");
+      glow.addColorStop(1, "rgba(182,118,96," + (0.22 * breathe).toFixed(3) + ")");
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, horizon - glowH, w, glowH);
+
+      /* water */
+      const sea = ctx.createLinearGradient(0, horizon, 0, h);
+      sea.addColorStop(0.00, "#1b2233");
+      sea.addColorStop(0.35, "#121724");
+      sea.addColorStop(1.00, "#0d1019");
+      ctx.fillStyle = sea;
+      ctx.fillRect(0, horizon, w, h - horizon + 1);
+
+      /* the light lying on the water, directly under the glow */
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      for (let i = 0; i < 7; i++) {
+        const p = i / 7;
+        const y = horizon + p * (h - horizon) * 0.55;
+        const sway = Math.sin(t * 0.5 + i * 1.3) * (6 + i * 5);
+        const wide = w * (0.06 + p * 0.20);
+        const a = (0.055 - p * 0.006) * breathe;
+        ctx.fillStyle = "rgba(206,146,112," + Math.max(0, a).toFixed(3) + ")";
+        ctx.fillRect(w * 0.5 - wide / 2 + sway, y, wide, 1.6 + p * 2.4);
+      }
+      ctx.restore();
+
+      /* three low headlands, each parallaxing at its own rate — the depth cue
+         that the reference gets from moving a camera through 3D layers */
+      const bands = [
+        { off: 0.030, amp: 0.020, col: "#131a29", rate: 0.16 },
+        { off: 0.012, amp: 0.014, col: "#0e131f", rate: 0.34 },
+        { off: -0.008, amp: 0.010, col: "#090c14", rate: 0.58 }
+      ];
+      bands.forEach((b, bi) => {
+        const base = horizon + h * b.off + sc * h * b.rate * 0.30;
+        ctx.beginPath();
+        ctx.moveTo(0, h);
+        ctx.lineTo(0, base);
+        const steps = 26;
+        for (let i = 0; i <= steps; i++) {
+          const x = (i / steps) * w;
+          const y = base
+            - Math.sin(i * 0.55 + bi * 2.1) * h * b.amp
+            - Math.sin(i * 0.21 + bi * 1.3 + t * 0.03) * h * b.amp * 0.45;
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w, h);
+        ctx.closePath();
+        ctx.fillStyle = b.col;
+        ctx.fill();
+      });
+
+      /* a sparse drift of light — dozens, not thousands; this is a quiet
+         evening, not a galaxy */
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      state.motes.forEach(m => {
+        const par = 0.25 + m.depth * 0.75;
+        const x = ((m.x + t * m.drift * 0.05) % 1.15 - 0.075) * w;
+        const y = m.y * horizon - sc * h * par * 0.45;
+        if (y < -10 || y > horizon + 6) return;
+        const tw = 0.55 + Math.sin(t * 0.55 + m.phase) * 0.45;
+        const a = (0.10 + m.depth * 0.30) * tw;
+        const rr = m.r * (0.6 + m.depth * 0.8);
+        const g = ctx.createRadialGradient(x, y, 0, x, y, rr * 3.4);
+        const c = m.warm ? "214,168,132" : "196,206,168";
+        g.addColorStop(0, "rgba(" + c + "," + a.toFixed(3) + ")");
+        g.addColorStop(1, "rgba(" + c + ",0)");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, rr * 3.4, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+
+      /* let the section below settle onto the scene instead of cutting */
+      const fade = ctx.createLinearGradient(0, h - 140, 0, h);
+      fade.addColorStop(0, "rgba(19,23,33,0)");
+      fade.addColorStop(1, "#131721");
+      ctx.fillStyle = fade;
+      ctx.fillRect(0, h - 140, w, 140);
+    };
+
+    const t0 = Date.now();
+    const frame = () => {
+      this.heroRAF = window.requestAnimationFrame(frame);
+      if (document.hidden) return;                 // no work behind a hidden tab
+      try {
+        state.scroll = Math.min(1, (window.scrollY || 0) / Math.max(1, window.innerHeight));
+        draw((Date.now() - t0) / 1000);
+      } catch (e) { this.heroStop(); this.heroDead = true; }
+    };
+
+    try {
+      size();
+      this.heroResize = () => { try { size(); if (still) draw(0); } catch (e) {} };
+      window.addEventListener("resize", this.heroResize);
+      if (still) { draw(0); }                      // one calm frame, no loop
+      else { this.heroRAF = window.requestAnimationFrame(frame); }
+      requestAnimationFrame(() => { try { cv.style.opacity = "1"; } catch (e) {} });
+    } catch (e) { this.heroDead = true; }
+  }
+
+  heroStop() {
+    try { if (this.heroRAF) window.cancelAnimationFrame(this.heroRAF); } catch (e) {}
+    this.heroRAF = null;
+    try { if (this.heroResize) window.removeEventListener("resize", this.heroResize); } catch (e) {}
+    this.heroResize = null;
+  }
+
+  stopAudio() { try { if (this.audio) { this.audio.pause(); } } catch (e) {} }
+  toggleAudio() {
+    const med = this.currentMed();
+    if (!med || !med.audioSrc || !this.audio) {
+      this.setState(s => ({ playing: !s.playing }));   // simulated
+      return;
+    }
+    try {
+      const want = new URL(med.audioSrc, window.location.href).href;
+      if (this.audio.src !== want) { this.audio.src = med.audioSrc; this.audio.currentTime = this.state.elapsed || 0; }
+      if (this.audio.paused) {
+        this.audio.play().then(() => this.setState({ playing: true }))
+                         .catch(() => this.setState({ playing: false }));
+      } else {
+        this.audio.pause();
+        this.setState({ playing: false });
+      }
+    } catch (e) { this.setState(s => ({ playing: !s.playing })); }
+  }
+
+  /* ---------- what the Studio has published ----------
+     Each list: if the Studio has spoken, its published items define what exists
+     and what they are called; the built-ins fill in everything it doesn't
+     capture. No store, or an empty one, and the site shows its own content. */
+  pubMeds() {
+    const st = this.state.store;
+    if (!st || !Array.isArray(st.meds) || !st.meds.length) return MEDS.map(m => m.key);
+    return st.meds.filter(isPublic).map(m => m.id);
+  }
+  medRecord(key) {
+    if (!key) return null;
+    const st = this.state.store;
+    const fromStore = st && Array.isArray(st.meds) ? st.meds.filter(m => m.id === key)[0] : null;
+    const base = MED_BY_KEY[key], copy = this.t().meds.items[key];
+    if (!base && !fromStore) return null;
+    const en = this.state.lang === "en";
+    if (!base || !copy) {
+      /* A meditation she created in the Studio: show exactly what it carries. */
+      const intent = this.t().meds.intentions[fromStore.intention] || fromStore.intention;
+      return { key: key, title: (en && fromStore.titleEn) || fromStore.title, min: Math.round((fromStore.secs || 0) / 60),
+               intention: intent, intentionLine: (en && fromStore.lineEn) || fromStore.line || "",
+               body: "", voice: "" };
+    }
+    const rec = Object.assign({}, copy, { key: key, min: base.min, intention: this.t().meds.intentions[base.intention] });
+    if (base.audio) {
+      rec.audioSrc = base.audio[this.state.lang] || base.audio.es;
+      rec.secs = (base.secs && base.secs[this.state.lang]) || base.min * 60;
+      rec.min = Math.round(rec.secs / 60);
+    }
+    if (fromStore) {
+      if (fromStore.title) rec.title = (en && fromStore.titleEn) || fromStore.title;
+      if (fromStore.secs) rec.min = Math.round(fromStore.secs / 60);
+    }
+    return rec;
+  }
+  pubVideos() {
+    const st = this.state.store, t = this.t();
+    if (!st || !Array.isArray(st.videos) || !st.videos.length)
+      return VIDEOS.map(v => ({ id: v.id, title: t.video[v.key].title, quote: t.video[v.key].quote }));
+    return st.videos.filter(isPublic).map(v => {
+      const key = VIDEO_KEY[v.ytId];
+      return { id: v.ytId, title: v.title || (key ? t.video[key].title : ""), quote: v.quote || (key ? t.video[key].quote : "") };
+    });
+  }
+  pubEpisodes() {
+    const st = this.state.store, t = this.t();
+    if (!st || !Array.isArray(st.episodes) || !st.episodes.length)
+      return EPISODES.map(e => ({ id: e.id, title: t.pod[e.key].title, desc: t.pod[e.key].desc }));
+    const KEY = {}; EPISODES.forEach(e => { KEY[e.id] = e.key; });
+    return st.episodes.filter(isPublic).filter(e => e.kind === "spotify" && e.spId).map(e => {
+      const key = KEY[e.spId];
+      return { id: e.spId, title: e.title || (key ? t.pod[key].title : ""), desc: key ? t.pod[key].desc : "" };
+    });
+  }
+  /* Reflections keep their built-in place, closing line and cross-links; the
+     Studio supplies the title and body she actually wrote. */
+  pubRefs() {
+    const st = this.state.store, built = this.t().reflections;
+    if (!st || !Array.isArray(st.posts) || !st.posts.length) return built;
+    const BY = {}; built.forEach(r => { BY[r.id] = r; });
+    return st.posts.filter(isPublic).map(pst => {
+      const b = BY[pst.id];
+      return b ? Object.assign({}, b, { title: pst.title || b.title, body: pst.body || b.body })
+               : { id: pst.id, date: pst.date || "", place: "", title: pst.title, body: pst.body,
+                   teaser: (pst.body || "").slice(0, 120) + ((pst.body || "").length > 120 ? "…" : ""),
+                   close: "", workKey: null, medKey: null, videoId: null };
+    });
+  }
+  circleRefs() {
+    const st = this.state.store;
+    if (!st || !Array.isArray(st.posts)) return [];
+    return st.posts.filter(x => x && x.status === "circle");
+  }
+  /* Demo gate: the address must be one the Studio has invited. Not real auth —
+     that arrives with the server in phase 3. */
+  enterCircle(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const mail = (this.state.circleEmail || "").trim().toLowerCase();
+    const st = this.state.store;
+    const list = st && Array.isArray(st.members) ? st.members : [];
+    const hit = list.filter(m => (m.email || "").toLowerCase() === mail)[0];
+    if (!hit) { this.setState({ circleErr: this.t().circle.notFound }); return; }
+    try { window.localStorage.setItem(CIRCLE_KEY, hit.email); } catch (er) {}
+    this.setState({ circleWho: hit.email, circleErr: "", circleEmail: "" });
+  }
+  leaveCircle() {
+    try { window.localStorage.removeItem(CIRCLE_KEY); } catch (e) {}
+    this.setState({ circleWho: null });
+  }
+
+  currentMed() {
+    const k = this.state.moodKey;
+    if (!k) return null;
+    return this.medRecord(MOOD_MED[k] || k);
+  }
+
+  /* Selecting a mood is the hero interaction — scroll the result into view so
+     it can never look like nothing happened. */
+  pickMood(key) {
+    this.stopAudio();
+    this.setState({ moodKey: key, elapsed: 0, playing: false });
+    this.scrollTo("sanc-player");
+  }
+  openMedFrom(medKey) {
+    this.stopAudio();
+    this.nav("meds", null, false);
+    this.setState({ moodKey: medKey, elapsed: 0, playing: false });
+    this.scrollTo("sanc-player");
+  }
+  showVideo(id) { this.setState(s => ({ videoOn: Object.assign({}, s.videoOn, { [id]: true }) })); }
+
+  /* ---------------- media: click-to-load facades ----------------
+     Nothing embeds until the visitor asks for it. The poster is built from the
+     YouTube thumbnail CDN inside her own frame, and the click swaps in the
+     player inline with autoplay — so nobody is ever sent off the site to watch
+     or listen. It also means a blocked iframe can't break the first render. */
+  ytPoster(id, title) {
+    const t = this.t();
+    return h("button", {
+      onClick: () => this.showVideo(id),
+      "aria-label": t.a11y.playVideo + ": " + title,
+      style: { position: "relative", display: "block", width: "100%", aspectRatio: "16/9", padding: 0,
+               border: "1px solid oklch(0.36 0.02 265)", background: "oklch(0.16 0.02 265)", overflow: "hidden", cursor: "pointer" }
+    },
+      h("img", { key: "t", src: "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg", alt: "", loading: "lazy",
+        style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "saturate(.8) brightness(.66)" } }),
+      h("span", { key: "s", style: { position: "absolute", inset: 0,
+        background: "linear-gradient(to top, oklch(0.16 0.02 265 / .80), oklch(0.16 0.02 265 / .10))" } }),
+      h("span", { key: "p", style: { position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)",
+        width: "62px", height: "62px", borderRadius: "50%", border: "1px solid oklch(0.80 0.10 118)",
+        background: "oklch(0.20 0.024 265 / .55)", display: "flex", alignItems: "center", justifyContent: "center",
+        color: "oklch(0.90 0.09 118)", fontSize: "14px" } }, "▶"),
+      h("span", { key: "l", style: { position: "absolute", left: "16px", bottom: "13px", fontSize: "10.5px",
+        letterSpacing: ".05em", color: "oklch(0.88 0.06 118)" } }, t.video.watch)
+    );
+  }
+  ytPlayer(id, title) {
+    if (!this.state.videoOn[id]) return this.ytPoster(id, title);
+    return h("div", { style: { aspectRatio: "16/9", border: "1px solid oklch(0.36 0.02 265)", background: "oklch(0.16 0.02 265)" } },
+      h("iframe", {
+        src: "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3",
+        title: title, allow: "autoplay; encrypted-media; picture-in-picture; fullscreen; accelerometer; clipboard-write",
+        allowFullScreen: true, referrerPolicy: "strict-origin-when-cross-origin",
+        style: { width: "100%", height: "100%", border: "none", display: "block" }
+      })
+    );
+  }
+  spPlayer(id, title) {
+    const t = this.t();
+    if (!this.state.podOn[id]) {
+      return h("button", {
+        onClick: () => this.setState(s => ({ podOn: Object.assign({}, s.podOn, { [id]: true }) })),
+        "aria-label": t.a11y.playEp + ": " + title,
+        style: { display: "flex", alignItems: "center", gap: "16px", width: "100%", padding: "20px 24px",
+                 borderTop: "1px solid oklch(0.32 0.02 265)", background: "oklch(0.22 0.028 265)", cursor: "pointer" }
+      },
+        h("span", { key: "p", style: { width: "44px", height: "44px", borderRadius: "50%", flex: "none",
+          border: "1px solid oklch(0.76 0.10 118)", display: "flex", alignItems: "center", justifyContent: "center",
+          color: "oklch(0.88 0.09 118)", fontSize: "12px" } }, "▶"),
+        h("span", { key: "l", style: { fontSize: "13px", color: "oklch(0.84 0.05 118)" } }, t.pod.listen)
+      );
+    }
+    return h("div", { style: { borderTop: "1px solid oklch(0.32 0.02 265)", padding: "16px 16px 18px", background: "oklch(0.22 0.028 265)" } },
+      h("iframe", {
+        src: "https://open.spotify.com/embed/episode/" + id + "?theme=0&utm_source=generator",
+        title: title, loading: "lazy", allow: "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture",
+        style: { width: "100%", height: "152px", border: "none", display: "block", borderRadius: "6px" }
+      })
+    );
+  }
+
+  work(i) {
+    const w = WORKS[i], copy = this.t().works[w.key];
+    const asin = this.state.lang === "en" && w.asinEn ? w.asinEn : w.asinEs;
+    const med = this.medRecord(w.medKey);
+    const vid = w.videoId ? this.t().video[VIDEO_KEY[w.videoId]] : null;
+    return Object.assign({}, copy, {
+      coverEl: this.state.coverOk[asin] ? h("img", {
+        src: COVER(asin), alt: copy.title, loading: "lazy",
+        style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }
+      }) : null,
+      buyEs: w.buyEs, buyEn: w.buyEn,
+      hasEn: !!w.buyEn, noEn: !w.buyEn,
+      open: () => this.nav("books", i),
+      medTitle: med ? med.title : "", medMeta: med ? med.min + " min · " + med.intention : "",
+      openMed: () => this.openMedFrom(w.medKey),
+      hasVideo: !!vid, videoTitle: vid ? vid.title : "",
+      openVideo: () => { this.nav("refs"); if (w.videoId) this.showVideo(w.videoId); }
+    });
+  }
+
+  fmt(sec) {
+    const m = Math.floor(sec / 60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  submitEmail(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((this.state.email || "").trim());
+    this.setState({ emailErr: !ok, subscribed: ok });
+  }
+
+  renderVals() {
+    const t = this.t(), st = this.state;
+    const med = this.currentMed();
+    const dur = med ? (med.secs || med.min * 60) : 0;
+    const pct = dur ? Math.min(100, (st.elapsed / dur) * 100) : 0;
+    const cur = p => (st.page === p ? "page" : null);
+    const pubKeys = this.pubMeds();
+    const liveMoods = t.moods.filter(m => pubKeys.indexOf(MOOD_MED[m.key]) >= 0);
+
+    /* Intention chips — a real filter across ten meditations rather than the six
+       moods relabelled. Built here so no style fragment is interpolated. */
+    const chip = (label, active, onClick) => h("button", {
+      key: label, onClick: onClick, "aria-pressed": active,
+      style: { padding: "9px 16px", fontSize: "12.5px", borderRadius: "1px", cursor: "pointer",
+        border: "1px solid " + (active ? "oklch(0.76 0.10 118)" : "oklch(0.36 0.02 265)"),
+        color: active ? "oklch(0.20 0.024 265)" : "oklch(0.86 0.014 90)",
+        background: active ? "oklch(0.76 0.10 118)" : "transparent" }
+    }, label);
+
+    const chipsEl = h("div", { style: { display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "40px" } },
+      [chip(t.meds.allLabel, st.filter === null, () => this.setState({ filter: null }))].concat(
+        INTENTIONS.map(k => chip(t.meds.intentions[k], st.filter === k, () => this.setState({ filter: k })))
+      )
+    );
+
+    const intentOf = k => {
+      const b = MED_BY_KEY[k];
+      if (b) return b.intention;
+      const sm = st.store && Array.isArray(st.store.meds) ? st.store.meds.filter(m => m.id === k)[0] : null;
+      return sm ? sm.intention : null;
+    };
+    const shown = pubKeys
+      .filter(k => st.filter === null || intentOf(k) === st.filter)
+      .map(k => ({ key: k, rec: this.medRecord(k) }))
+      .filter(x => !!x.rec);
+    const libraryEl = h("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+        gap: "1px", background: "oklch(0.30 0.02 265)", border: "1px solid oklch(0.30 0.02 265)" } },
+      shown.map(m => {
+        const rec = m.rec;
+        const active = !!med && med.key === m.key;
+        return h("button", {
+          key: m.key, onClick: () => this.openMedFrom(m.key), "aria-current": active ? "true" : null,
+          style: { background: active ? "oklch(0.27 0.035 265)" : "oklch(0.20 0.024 265)", padding: "28px 24px",
+            display: "flex", flexDirection: "column", gap: "12px", minHeight: "172px", cursor: "pointer",
+            boxShadow: active ? "inset 2px 0 0 oklch(0.76 0.10 118)" : "none" }
+        },
+          h("span", { key: "i", style: { display: "flex", alignItems: "center", gap: "9px", flexWrap: "wrap" } },
+            h("span", { key: "a", style: { fontSize: "11px", color: "oklch(0.82 0.07 118)", letterSpacing: ".04em" } }, rec.intention),
+            rec.audioSrc ? h("span", { key: "b", style: { fontSize: "9.5px", letterSpacing: ".05em", padding: "2px 7px",
+              border: "1px solid oklch(0.55 0.09 118)", borderRadius: "2px", color: "oklch(0.86 0.08 118)" } }, t.meds.realBadge) : null),
+          h("span", { key: "t", style: { fontFamily: "Spectral,serif", fontSize: "22px", lineHeight: 1.2, color: "oklch(0.94 0.012 90)" } }, rec.title),
+          h("span", { key: "m", style: { fontSize: "13px", lineHeight: 1.6, color: "oklch(0.76 0.018 265)", marginTop: "auto" } }, rec.min + " min · " + rec.intentionLine)
+        );
+      })
+    );
+
+    const liveVideos = this.pubVideos();
+    const liveEpisodes = this.pubEpisodes();
+    const liveRefs = this.pubRefs();
+    const newestKey = pubKeys.indexOf("peso") >= 0 ? "peso" : pubKeys[0];
+    const newestRec = newestKey ? this.medRecord(newestKey) : null;
+    const refVals = (function (self) {
+      if (st.refIndex === null || !liveRefs[st.refIndex]) return null;
+      const r = liveRefs[st.refIndex];
+      const wi = r.workKey ? WORKS.map(w => w.key).indexOf(r.workKey) : -1;
+      const rm = r.medKey ? self.medRecord(r.medKey) : null;
+      const medLive = !!r.medKey && pubKeys.indexOf(r.medKey) >= 0;
+      const vk = r.videoId ? VIDEO_KEY[r.videoId] : null;
+      const vidLive = !!r.videoId && liveVideos.some(v => v.id === r.videoId);
+      const hasWork = wi >= 0, hasMed = !!rm && medLive, hasVideo = !!vk && vidLive;
+      return Object.assign({}, r, {
+        hasClose: !!r.close,
+        hasWork: hasWork, workTitle: hasWork ? t.works[r.workKey].title : "",
+        openWork: () => { if (hasWork) self.nav("books", wi); },
+        hasMed: hasMed, medTitle: rm ? rm.title : "", medMeta: rm ? rm.min + " min · " + rm.intention : "",
+        openMed: () => self.openMedFrom(r.medKey),
+        hasVideo: hasVideo, videoTitle: vk ? t.video[vk].title : "",
+        openVideo: () => { self.nav("refs"); self.showVideo(r.videoId); },
+        hasRelated: hasWork || hasMed || hasVideo,
+        byline: r.place ? "Gaby Traviesa · " + r.place : "Gaby Traviesa"
+      });
+    })(this);
+
+    return {
+      t: t,
+      works: WORKS.map((w, i) => this.work(i)),
+      work: st.workIndex !== null ? this.work(st.workIndex) : null,
+
+      isEs: st.lang === "es",
+      isEn: st.lang === "en",
+      setEs: () => this.setState({ lang: "es" }),
+      setEn: () => this.setState({ lang: "en" }),
+
+      isHome: st.page === "home",
+      isBooks: st.page === "books",
+      isMeds: st.page === "meds",
+      isRefs: st.page === "refs",
+      isPod: st.page === "pod",
+      isAbout: st.page === "about",
+      isCircle: st.page === "circulo",
+      curBooks: cur("books"), curMeds: cur("meds"), curRefs: cur("refs"), curPod: cur("pod"), curAbout: cur("about"), curCircle: cur("circulo"),
+      showShelf: st.page === "books" && st.workIndex === null,
+      bookOpen: st.page === "books" && st.workIndex !== null,
+      showFeed: st.page === "refs" && st.refIndex === null,
+      refOpen: st.page === "refs" && st.refIndex !== null,
+
+      goHome: () => this.nav("home"),
+      goBooks: () => this.nav("books"),
+      goMeds: () => this.nav("meds"),
+      goRefs: () => this.nav("refs"),
+      goPod: () => this.nav("pod"),
+      goAbout: () => this.nav("about"),
+      goCircle: () => this.nav("circulo"),
+
+      noPortrait: !st.portraitOk,
+      portraitEl: st.portraitOk ? h("img", {
+        src: PORTRAIT, alt: t.about.portraitAlt, loading: "lazy",
+        style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 30%" }
+      }) : null,
+
+      /* The circle only shows itself once she has actually invited someone. */
+      circleOffered: !!(st.store && Array.isArray(st.store.members) && st.store.members.length),
+      circleLocked: !st.circleWho,
+      circleOpen: !!st.circleWho,
+      circleWelcome: t.circle.welcome + " " + (st.circleWho || ""),
+      circleEmail: st.circleEmail,
+      setCircleEmail: e => this.setState({ circleEmail: e.target.value, circleErr: "" }),
+      circleErr: st.circleErr,
+      enterCircle: e => this.enterCircle(e),
+      leaveCircle: () => this.leaveCircle(),
+      circleRefs: this.circleRefs(),
+      noCircleRefs: this.circleRefs().length === 0,
+      openFeatured: () => this.nav("books", 0),
+
+      newest: newestRec ? Object.assign({}, newestRec, { meta: newestRec.min + " min · " + t.moods[0].label.toLowerCase() })
+                        : { title: "", intentionLine: "", meta: "" },
+      hasNewest: !!newestRec,
+
+      reflections: liveRefs.map((r, i) => Object.assign({}, r, {
+        readLabel: t.refs.readLabel,
+        open: () => this.nav("refs", i)
+      })),
+      ref: refVals,
+
+      moods: liveMoods.map(m => Object.assign({}, m, {
+        select: () => this.pickMood(m.key),
+        active: st.moodKey === m.key
+      })),
+      chipsEl: chipsEl,
+      libraryEl: libraryEl,
+
+      hasMed: !!med,
+      med: med,
+      medIntro: st.moodKey && t.moodIntro[st.moodKey] ? t.moodIntro[st.moodKey] : "",
+      playing: st.playing,
+      playIcon: st.playing ? "❙❙" : "▶",
+      togglePlay: () => this.toggleAudio(),
+      hasRealAudio: !!(med && med.audioSrc),
+      playerNote: med && med.audioSrc ? t.meds.realNote : t.meds.demoNote,
+      playerNoteColor: med && med.audioSrc ? "oklch(0.82 0.07 118)" : "oklch(0.70 0.02 265)",
+      playNewest: () => { this.stopAudio(); this.nav("meds"); this.setState({ moodKey: newestKey === "peso" ? "overwhelmed" : newestKey, elapsed: 0, playing: true }); },
+      goPlayer: () => { this.nav("meds", null, false); this.scrollTo("sanc-player"); },
+      showMini: !!med && st.playing && st.page !== "meds",
+      elapsedLabel: this.fmt(st.elapsed),
+      durationLabel: this.fmt(dur),
+      playState: st.playing ? t.meds.playingText : (st.elapsed > 0 ? t.meds.pausedText : t.meds.readyText),
+      progressBar: h("div", { style: { position: "absolute", left: 0, top: 0, height: "2px", width: pct + "%", background: "oklch(0.76 0.10 118)", transition: "width .9s linear" } }),
+
+      videoOne: liveVideos.length ? Object.assign({}, liveVideos[0], { player: this.ytPlayer(liveVideos[0].id, liveVideos[0].title) })
+                                  : { title: "", quote: "", player: null },
+      hasVideoOne: liveVideos.length > 0,
+      videos: liveVideos.map(v => ({ title: v.title, quote: v.quote, player: this.ytPlayer(v.id, v.title) })),
+      hasVideos: liveVideos.length > 0,
+      episodes: liveEpisodes.map((e, i) => ({
+        num: (i + 1) + " / " + liveEpisodes.length,
+        title: e.title, desc: e.desc,
+        player: this.spPlayer(e.id, e.title)
+      })),
+      hasEpisodes: liveEpisodes.length > 0,
+
+      email: st.email,
+      setEmail: e => this.setState({ email: e.target.value, emailErr: false }),
+      emailErr: st.emailErr,
+      subscribed: st.subscribed,
+      subscribe: e => this.submitEmail(e)
+    };
+  }
+}
+</script>
+</body>
+</html>

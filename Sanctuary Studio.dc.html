@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaby Traviesa · Estudio</title>
+<meta name="description" content="Estudio de Gaby Traviesa — subir meditaciones, añadir vídeos y episodios, escribir reflexiones y gestionar el círculo.">
+<script>
+/* Local preview only. When this page is opened from localhost or from disk,
+   use the React vendored in ./vendor so it boots with no network at all.
+   Served from any real host (or the Claude Design canvas) this is inert and
+   the runtime fetches React the way it normally would. */
+(function () {
+  try {
+    var h = location.hostname;
+    if (h === "127.0.0.1" || h === "localhost" || h === "") {
+      window.__resources = {
+        "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "./vendor/react.production.min.js",
+        "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "./vendor/react-dom.production.min.js"
+      };
+    }
+  } catch (e) {}
+})();
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0}
+body{background:oklch(0.18 0.022 265);color:oklch(0.94 0.012 90);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;text-align:left}
+input,textarea,select{font:inherit;color:inherit}
+a{color:oklch(0.78 0.10 118);text-decoration:none}
+a:hover{color:oklch(0.88 0.08 118)}
+:focus-visible{outline:2px solid oklch(0.78 0.10 118);outline-offset:3px;border-radius:2px}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes slidein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.side{background:oklch(0.15 0.02 265);border-right:1px solid oklch(0.28 0.02 265);padding:26px 20px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.work{padding:40px 44px 80px;max-width:1080px;min-width:0}
+.navbtn{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:3px;font-size:13.5px;color:oklch(0.84 0.014 90);transition:background .25s,color .25s;width:100%}
+.navbtn:hover{background:oklch(0.21 0.026 265);color:oklch(0.90 0.06 118)}
+.navbtn.on{background:oklch(0.24 0.035 265);color:oklch(0.92 0.07 118);box-shadow:inset 2px 0 0 oklch(0.78 0.10 118)}
+
+/* ---------- panels & forms ---------- */
+.panel{background:oklch(0.21 0.024 265);border:1px solid oklch(0.30 0.02 265);border-radius:3px}
+.field{width:100%;background:oklch(0.16 0.02 265);border:1px solid oklch(0.34 0.02 265);border-radius:2px;padding:12px 14px;font-size:14px;outline:none;transition:border-color .25s}
+.field:focus{border-color:oklch(0.70 0.09 118)}
+.field::placeholder{color:oklch(0.58 0.02 265)}
+.btn{padding:11px 20px;border-radius:2px;font-size:13.5px;border:1px solid oklch(0.78 0.10 118);background:oklch(0.78 0.10 118);color:oklch(0.18 0.02 265);transition:filter .25s}
+.btn:hover{filter:brightness(1.1)}
+/* A disabled primary must read as "not yet", not as a muddy filled block. */
+.btn[disabled]{background:none;color:oklch(0.64 0.02 265);border-color:oklch(0.32 0.02 265);cursor:not-allowed}
+.btn[disabled]:hover{filter:none}
+.btn-ghost[disabled]{opacity:.45;cursor:not-allowed}
+.btn-ghost[disabled]:hover{border-color:oklch(0.40 0.02 265)}
+.btn-ghost{padding:11px 20px;border-radius:2px;font-size:13.5px;border:1px solid oklch(0.40 0.02 265);color:oklch(0.88 0.014 90);background:none;transition:border-color .25s}
+.btn-ghost:hover{border-color:oklch(0.64 0.02 265)}
+.btn-sm{padding:7px 13px;font-size:12.5px;border-radius:2px;border:1px solid oklch(0.38 0.02 265);color:oklch(0.86 0.014 90);transition:border-color .25s,color .25s}
+.btn-sm:hover{border-color:oklch(0.70 0.08 118);color:oklch(0.90 0.07 118)}
+.btn-danger:hover{border-color:oklch(0.62 0.14 25);color:oklch(0.78 0.13 25)}
+.drop{border:1px dashed oklch(0.42 0.03 265);border-radius:3px;padding:34px 26px;text-align:center;transition:border-color .25s,background .25s;cursor:pointer;display:block}
+.drop:hover{border-color:oklch(0.70 0.09 118);background:oklch(0.22 0.03 265)}
+.drop.hot{border-color:oklch(0.78 0.10 118);background:oklch(0.24 0.04 118)}
+.row{display:flex;align-items:center;gap:16px;padding:16px 18px;border-top:1px solid oklch(0.28 0.02 265)}
+.rowmain{flex:1;min-width:0}
+.pill{font-size:10.5px;letter-spacing:.05em;padding:3px 9px;border-radius:2px;border:1px solid currentColor;white-space:nowrap}
+
+/* ---------- layout helpers ---------- */
+.g2{display:grid;gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.g-form{display:grid;gap:28px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start}
+.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.mobonly{display:none}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;height:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;overflow:visible}
+  .sidenav{display:flex;flex-direction:row!important;gap:6px!important;flex-wrap:wrap;width:100%}
+  .navbtn{padding:8px 12px;white-space:nowrap;font-size:13px}
+  .navbtn.on{box-shadow:inset 0 -2px 0 oklch(0.78 0.10 118)}
+  .sidefoot{display:none!important}  /* inline display:flex would otherwise win */
+  .mobonly{display:flex}
+  .work{padding:26px 18px 70px}
+  .g2,.g-form{grid-template-columns:minmax(0,1fr)}
+  .row{flex-wrap:wrap;gap:10px}
+  .rowmain{flex-basis:100%}
+}
+</style>
+</helmet>
+
+<sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px">
+  <div style="width:100%;max-width:392px;animation:rise .7s both">
+    <p style="margin:0;font-family:Spectral,serif;font-size:25px;font-weight:400">Gaby Traviesa</p>
+    <p style="margin:7px 0 0;font-size:11px;color:oklch(0.72 0.02 265);letter-spacing:.06em">{{ t.studio }}</p>
+    <h1 style="margin:38px 0 0;font-family:Spectral,serif;font-weight:300;font-size:31px;line-height:1.2">{{ t.login.title }}</h1>
+    <p style="margin:14px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265)">{{ t.login.body }}</p>
+    <form onSubmit="{{ signIn }}" style="margin-top:30px;display:flex;flex-direction:column;gap:14px">
+      <div>
+        <label for="st-mail" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:7px">{{ t.login.email }}</label>
+        <input id="st-mail" class="field" type="email" value="{{ email }}" onChange="{{ setEmail }}" placeholder="gaby@theguidinglighttherapy.com">
+      </div>
+      <div>
+        <label for="st-pass" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:7px">{{ t.login.pass }}</label>
+        <input id="st-pass" class="field" type="password" value="{{ pass }}" onChange="{{ setPass }}" placeholder="••••••••">
+      </div>
+      <button class="btn" type="submit" style="margin-top:6px">{{ t.login.go }}</button>
+    </form>
+    <p style="margin:26px 0 0;font-size:11.5px;line-height:1.7;color:oklch(0.68 0.02 265);border-left:1px solid oklch(0.40 0.03 265);padding-left:14px">{{ t.login.note }}</p>
+    <div style="margin-top:24px;display:flex;gap:10px;align-items:center">
+      <button onClick="{{ setEs }}" aria-pressed="{{ isEs }}" style="font-size:12px;color:{{ esColor }}">ES</button>
+      <span style="font-size:11px;color:oklch(0.50 0.02 265)">/</span>
+      <button onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="font-size:12px;color:{{ enColor }}">EN</button>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ unlocked }}">
+<div class="shell">
+  <aside class="side">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <span style="font-family:Spectral,serif;font-size:19px">Gaby Traviesa</span>
+      <span style="font-size:10px;color:oklch(0.72 0.02 265);letter-spacing:.06em">{{ t.studio }}</span>
+    </div>
+    <nav class="sidenav" style="display:flex;flex-direction:column;gap:3px" aria-label="{{ t.a11y.nav }}">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+        <button onClick="{{ n.go }}" class="{{ n.cls }}" aria-current="{{ n.cur }}">
+          <span aria-hidden="true" style="font-size:13px;width:17px;text-align:center;flex:none">{{ n.icon }}</span>
+          <span>{{ n.label }}</span>
+          <sc-if value="{{ n.hasCount }}">
+            <span style="margin-left:auto;font-size:11px;color:oklch(0.70 0.02 265)">{{ n.count }}</span>
+          </sc-if>
+        </button>
+      </sc-for>
+    </nav>
+    <div class="sidefoot" style="margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-top:20px;border-top:1px solid oklch(0.26 0.02 265)">
+      <div style="display:flex;gap:9px;align-items:center">
+        <button onClick="{{ setEs }}" aria-pressed="{{ isEs }}" style="font-size:12px;color:{{ esColor }}">ES</button>
+        <span style="font-size:11px;color:oklch(0.50 0.02 265)">/</span>
+        <button onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="font-size:12px;color:{{ enColor }}">EN</button>
+      </div>
+      <a href="./Sanctuary for Readers.dc.html" target="_blank" rel="noopener" style="font-size:12.5px">{{ t.viewSite }}</a>
+      <button onClick="{{ signOut }}" style="font-size:12.5px;color:oklch(0.74 0.02 265)" style-hover="color:oklch(0.90 0.014 90)">{{ t.signOut }}</button>
+    </div>
+    <div class="mobonly" style="margin-left:auto;gap:10px;align-items:center">
+      <button onClick="{{ setEs }}" style="font-size:12px;color:{{ esColor }}">ES</button>
+      <button onClick="{{ setEn }}" style="font-size:12px;color:{{ enColor }}">EN</button>
+      <button onClick="{{ signOut }}" style="font-size:12px;color:oklch(0.74 0.02 265)">{{ t.signOut }}</button>
+    </div>
+  </aside>
+
+  <main class="work">
+
+  <!-- ================= OVERVIEW ================= -->
+  <sc-if value="{{ isHome }}">
+  <div style="animation:fade .4s both">
+    <p style="margin:0;font-size:12px;color:oklch(0.74 0.02 265)">{{ greeting }}</p>
+    <h1 style="margin:10px 0 0;font-family:Spectral,serif;font-weight:300;font-size:clamp(28px,3.4vw,40px);line-height:1.15">{{ t.home.title }}</h1>
+    <p style="margin:14px 0 0;font-size:14.5px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:56ch">{{ t.home.intro }}</p>
+
+    <div class="stats" style="margin-top:34px">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <button onClick="{{ s.go }}" class="panel" style="padding:20px 22px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s" style-hover="border-color:oklch(0.62 0.08 118)">
+          <span style="font-family:Spectral,serif;font-size:33px;font-weight:300;line-height:1;color:oklch(0.94 0.012 90)">{{ s.n }}</span>
+          <span style="font-size:12.5px;color:oklch(0.78 0.016 265)">{{ s.label }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div class="g2" style="margin-top:34px">
+      <div class="panel" style="padding:24px">
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.home.quick }}</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ quick }}" as="q" hint-placeholder-count="4">
+            <button onClick="{{ q.go }}" style="display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid oklch(0.30 0.02 265);border-radius:2px;transition:border-color .25s,background .25s" style-hover="border-color:oklch(0.66 0.08 118);background:oklch(0.23 0.03 265)">
+              <span aria-hidden="true" style="font-size:14px;flex:none">{{ q.icon }}</span>
+              <span style="font-size:13.5px">{{ q.label }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      <div class="panel" style="padding:24px">
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.home.recent }}</p>
+        <sc-if value="{{ noActivity }}">
+          <p style="margin:0;font-size:13.5px;line-height:1.7;color:oklch(0.70 0.02 265)">{{ t.home.empty }}</p>
+        </sc-if>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ activity }}" as="a" hint-placeholder-count="5">
+            <div style="display:flex;gap:13px;align-items:baseline;padding:11px 0;border-bottom:1px solid oklch(0.26 0.02 265)">
+              <span aria-hidden="true" style="font-size:12px;flex:none">{{ a.icon }}</span>
+              <span style="font-size:13px;line-height:1.6;color:oklch(0.86 0.014 90);flex:1;min-width:0">{{ a.text }}</span>
+              <span style="font-size:11px;color:oklch(0.68 0.02 265);flex:none">{{ a.when }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= MEDITATIONS ================= -->
+  <sc-if value="{{ isMeds }}">
+  <div style="animation:fade .4s both">
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px)">{{ t.meds.title }}</h1>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:58ch">{{ t.meds.intro }}</p>
+
+    <div class="g-form" style="margin-top:30px">
+      <div class="panel" style="padding:26px">
+        <p style="margin:0 0 18px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.meds.newLabel }}</p>
+
+        <label class="{{ dropCls }}" onDragOver="{{ dragOver }}" onDragLeave="{{ dragLeave }}" onDrop="{{ dropAudio }}">
+          <input type="file" accept="audio/*" onChange="{{ pickAudio }}" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
+          <span style="display:block;font-size:22px;margin-bottom:10px" aria-hidden="true">♪</span>
+          <span style="display:block;font-size:13.5px;color:oklch(0.88 0.014 90)">{{ t.meds.drop }}</span>
+          <span style="display:block;font-size:11.5px;color:oklch(0.70 0.02 265);margin-top:7px">{{ t.meds.dropHint }}</span>
+        </label>
+
+        <sc-if value="{{ hasDraftAudio }}">
+        <div style="margin-top:20px;padding:16px;border:1px solid oklch(0.36 0.04 118);border-radius:2px;background:oklch(0.22 0.03 265);animation:rise .35s both">
+          <div style="display:flex;align-items:center;gap:13px">
+            <button onClick="{{ previewToggle }}" aria-label="{{ t.meds.preview }}" style="width:40px;height:40px;border-radius:50%;border:1px solid oklch(0.78 0.10 118);display:flex;align-items:center;justify-content:center;color:oklch(0.90 0.09 118);font-size:12px;flex:none"><span aria-hidden="true">{{ previewIcon }}</span></button>
+            <div class="rowmain">
+              <p style="margin:0;font-size:13px;color:oklch(0.92 0.012 90);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ draft.fileName }}</p>
+              <p style="margin:5px 0 0;font-size:11.5px;color:oklch(0.72 0.02 265)">{{ draft.meta }}</p>
+            </div>
+            <button onClick="{{ clearDraft }}" class="btn-sm btn-danger" style="flex:none">{{ t.remove }}</button>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px">
+          <div>
+            <label for="md-title" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:7px">{{ t.meds.fTitle }}</label>
+            <input id="md-title" class="field" value="{{ draft.title }}" onChange="{{ setDraftTitle }}" placeholder="{{ t.meds.pTitle }}">
+          </div>
+          <div>
+            <label for="md-int" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:7px">{{ t.meds.fIntention }}</label>
+            <select id="md-int" class="field" value="{{ draft.intention }}" onChange="{{ setDraftIntention }}">
+              <sc-for list="{{ intentionOpts }}" as="o" hint-placeholder-count="6">
+                <option value="{{ o.key }}">{{ o.label }}</option>
+              </sc-for>
+            </select>
+          </div>
+          <div>
+            <label for="md-line" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:7px">{{ t.meds.fLine }}</label>
+            <input id="md-line" class="field" value="{{ draft.line }}" onChange="{{ setDraftLine }}" placeholder="{{ t.meds.pLine }}">
+          </div>
+          <button onClick="{{ saveMed }}" class="btn" disabled="{{ cantSaveMed }}">{{ t.meds.save }}</button>
+          <sc-if value="{{ medErr }}">
+            <p role="alert" style="margin:0;font-size:12.5px;color:oklch(0.78 0.13 25)">{{ medErr }}</p>
+          </sc-if>
+        </div>
+      </div>
+
+      <div>
+        <p style="margin:0 0 14px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.meds.listLabel }}</p>
+        <div class="panel">
+          <sc-for list="{{ meds }}" as="m" hint-placeholder-count="4">
+            <div class="row">
+              <button onClick="{{ m.play }}" aria-label="{{ m.playLabel }}" style="width:36px;height:36px;border-radius:50%;border:1px solid {{ m.ring }};display:flex;align-items:center;justify-content:center;color:{{ m.ring }};font-size:11px;flex:none"><span aria-hidden="true">{{ m.icon }}</span></button>
+              <div class="rowmain">
+                <p style="margin:0;font-family:Spectral,serif;font-size:16px;line-height:1.3;color:oklch(0.94 0.012 90)">{{ m.title }}</p>
+                <p style="margin:5px 0 0;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ m.meta }}</p>
+              </div>
+              <span class="pill" style="color:{{ m.pillColor }};flex:none">{{ m.pill }}</span>
+              <button onClick="{{ m.remove }}" class="btn-sm btn-danger" style="flex:none">{{ t.remove }}</button>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:14px 0 0;font-size:11.5px;line-height:1.7;color:oklch(0.68 0.02 265)">{{ t.meds.note }}</p>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= VIDEOS ================= -->
+  <sc-if value="{{ isVideos }}">
+  <div style="animation:fade .4s both">
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px)">{{ t.vids.title }}</h1>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:58ch">{{ t.vids.intro }}</p>
+
+    <div class="panel" style="margin-top:28px;padding:24px">
+      <label for="vd-url" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:8px">{{ t.vids.fUrl }}</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <input id="vd-url" class="field" style="flex:1;min-width:230px" value="{{ vidUrl }}" onChange="{{ setVidUrl }}" placeholder="https://www.youtube.com/watch?v=...">
+        <button onClick="{{ addVideo }}" class="btn" disabled="{{ cantAddVid }}">{{ t.vids.add }}</button>
+      </div>
+      <sc-if value="{{ vidErr }}">
+        <p role="alert" style="margin:12px 0 0;font-size:12.5px;color:oklch(0.78 0.13 25)">{{ vidErr }}</p>
+      </sc-if>
+      <sc-if value="{{ hasVidPreview }}">
+      <div style="margin-top:20px;display:flex;gap:16px;align-items:flex-start;animation:rise .35s both;flex-wrap:wrap">
+        <img src="{{ vidThumb }}" alt="" style="width:170px;aspect-ratio:16/9;object-fit:cover;border:1px solid oklch(0.34 0.02 265);flex:none">
+        <div style="flex:1;min-width:190px">
+          <p style="margin:0;font-size:11px;color:oklch(0.82 0.07 118);letter-spacing:.04em">{{ t.vids.detected }}</p>
+          <input class="field" style="margin-top:9px" value="{{ vidTitle }}" onChange="{{ setVidTitle }}" placeholder="{{ t.vids.pTitle }}">
+          <input class="field" style="margin-top:9px" value="{{ vidQuote }}" onChange="{{ setVidQuote }}" placeholder="{{ t.vids.pQuote }}">
+        </div>
+      </div>
+      </sc-if>
+      <p style="margin:16px 0 0;font-size:11.5px;line-height:1.7;color:oklch(0.68 0.02 265)">{{ t.vids.note }}</p>
+    </div>
+
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px">
+      <sc-for list="{{ videos }}" as="v" hint-placeholder-count="3">
+        <div class="panel" style="overflow:hidden;display:flex;flex-direction:column">
+          <img src="{{ v.thumb }}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid oklch(0.30 0.02 265)">
+          <div style="padding:16px 18px;display:flex;flex-direction:column;gap:8px;flex:1">
+            <p style="margin:0;font-family:Spectral,serif;font-size:17px;line-height:1.3">{{ v.title }}</p>
+            <p style="margin:0;font-size:12.5px;line-height:1.6;color:oklch(0.76 0.018 265)">{{ v.quote }}</p>
+            <div style="margin-top:auto;padding-top:12px;display:flex;align-items:center;gap:10px">
+              <span class="pill" style="color:{{ v.pillColor }}">{{ v.pill }}</span>
+              <button onClick="{{ v.toggle }}" class="btn-sm">{{ v.toggleLabel }}</button>
+              <button onClick="{{ v.remove }}" class="btn-sm btn-danger" style="margin-left:auto">{{ t.remove }}</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= PODCAST ================= -->
+  <sc-if value="{{ isPod }}">
+  <div style="animation:fade .4s both">
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px)">{{ t.pod.title }}</h1>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:58ch">{{ t.pod.intro }}</p>
+
+    <div class="g2" style="margin-top:28px">
+      <div class="panel" style="padding:24px">
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.pod.wayLink }}</p>
+        <label for="sp-url" style="display:block;font-size:12px;color:oklch(0.74 0.02 265);margin-bottom:8px">{{ t.pod.fUrl }}</label>
+        <input id="sp-url" class="field" value="{{ podUrl }}" onChange="{{ setPodUrl }}" placeholder="https://open.spotify.com/episode/...">
+        <input class="field" style="margin-top:10px" value="{{ podTitle }}" onChange="{{ setPodTitle }}" placeholder="{{ t.pod.pTitle }}">
+        <button onClick="{{ addEpisode }}" class="btn" style="margin-top:14px" disabled="{{ cantAddPod }}">{{ t.pod.addLink }}</button>
+        <sc-if value="{{ podErr }}">
+          <p role="alert" style="margin:12px 0 0;font-size:12.5px;color:oklch(0.78 0.13 25)">{{ podErr }}</p>
+        </sc-if>
+        <sc-if value="{{ hasPodPreview }}">
+          <p style="margin:14px 0 0;font-size:11.5px;color:oklch(0.82 0.07 118)">{{ podDetected }}</p>
+        </sc-if>
+      </div>
+
+      <div class="panel" style="padding:24px">
+        <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.pod.wayFile }}</p>
+        <label class="{{ podDropCls }}" onDragOver="{{ podDragOver }}" onDragLeave="{{ podDragLeave }}" onDrop="{{ podDrop }}">
+          <input type="file" accept="audio/*" onChange="{{ pickPodAudio }}" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
+          <span style="display:block;font-size:20px;margin-bottom:9px" aria-hidden="true">♪</span>
+          <span style="display:block;font-size:13px;color:oklch(0.88 0.014 90)">{{ t.pod.drop }}</span>
+        </label>
+        <sc-if value="{{ hasPodFile }}">
+        <div style="margin-top:16px;animation:rise .35s both">
+          <p style="margin:0;font-size:12.5px;color:oklch(0.90 0.012 90);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ podFileName }}</p>
+          <input class="field" style="margin-top:10px" value="{{ podFileTitle }}" onChange="{{ setPodFileTitle }}" placeholder="{{ t.pod.pTitle }}">
+          <button onClick="{{ addSelfHosted }}" class="btn" style="margin-top:12px">{{ t.pod.addFile }}</button>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:26px">
+      <sc-for list="{{ episodes }}" as="e" hint-placeholder-count="2">
+        <div class="row">
+          <button onClick="{{ e.play }}" aria-label="{{ e.playLabel }}" style="width:36px;height:36px;border-radius:50%;border:1px solid {{ e.ring }};display:flex;align-items:center;justify-content:center;color:{{ e.ring }};font-size:11px;flex:none"><span aria-hidden="true">{{ e.icon }}</span></button>
+          <div class="rowmain">
+            <p style="margin:0;font-family:Spectral,serif;font-size:16px;line-height:1.3;color:oklch(0.94 0.012 90)">{{ e.title }}</p>
+            <p style="margin:5px 0 0;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ e.meta }}</p>
+          </div>
+          <span class="pill" style="color:{{ e.pillColor }};flex:none">{{ e.pill }}</span>
+          <button onClick="{{ e.remove }}" class="btn-sm btn-danger" style="flex:none">{{ t.remove }}</button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= REFLECTIONS ================= -->
+  <sc-if value="{{ isRefs }}">
+  <div style="animation:fade .4s both">
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px)">{{ t.refs.title }}</h1>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:58ch">{{ t.refs.intro }}</p>
+
+    <div class="panel" style="margin-top:28px;padding:26px">
+      <input class="field" style="font-family:Spectral,serif;font-size:20px;padding:14px" value="{{ post.title }}" onChange="{{ setPostTitle }}" placeholder="{{ t.refs.pTitle }}">
+
+      <div style="margin-top:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <button onClick="{{ toggleDictation }}" class="{{ micCls }}" style="display:flex;align-items:center;gap:11px;padding:10px 18px;border-radius:2px;border:1px solid {{ micRing }};color:{{ micText }}">
+          <span style="position:relative;display:flex;align-items:center;justify-content:center;width:15px;height:15px" aria-hidden="true">
+            <sc-if value="{{ dictating }}"><span style="position:absolute;inset:-5px;border-radius:50%;background:oklch(0.70 0.14 25 / .35);animation:pulse 1.6s ease-in-out infinite"></span></sc-if>
+            <span style="position:relative;font-size:13px">●</span>
+          </span>
+          <span style="font-size:13px">{{ micLabel }}</span>
+        </button>
+        <span style="font-size:11.5px;color:oklch(0.72 0.02 265)">{{ micHint }}</span>
+      </div>
+
+      <sc-if value="{{ noSpeech }}">
+        <p style="margin:12px 0 0;font-size:12px;line-height:1.7;color:oklch(0.76 0.06 75);border-left:1px solid oklch(0.60 0.09 75);padding-left:12px">{{ t.refs.noSpeech }}</p>
+      </sc-if>
+
+      <textarea class="field" style="margin-top:16px;min-height:230px;line-height:1.8;font-size:15px;resize:vertical" value="{{ post.body }}" onChange="{{ setPostBody }}" placeholder="{{ t.refs.pBody }}"></textarea>
+      <sc-if value="{{ hasInterim }}">
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.7;color:oklch(0.70 0.05 118);font-style:italic">{{ interim }}</p>
+      </sc-if>
+
+      <div style="margin-top:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:11.5px;color:oklch(0.70 0.02 265)">{{ wordCount }}</span>
+        <div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap">
+          <button onClick="{{ savePost }}" class="btn-ghost" disabled="{{ cantSavePost }}">{{ t.refs.saveDraft }}</button>
+          <button onClick="{{ publishCircle }}" class="btn-ghost" disabled="{{ cantSavePost }}">{{ t.refs.toCircle }}</button>
+          <button onClick="{{ publishPost }}" class="btn" disabled="{{ cantSavePost }}">{{ t.refs.publish }}</button>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin:30px 0 14px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.refs.listLabel }}</p>
+    <div class="panel">
+      <sc-for list="{{ posts }}" as="p" hint-placeholder-count="4">
+        <div class="row" style="align-items:flex-start">
+          <div class="rowmain">
+            <p style="margin:0;font-family:Spectral,serif;font-size:17px;line-height:1.3;color:oklch(0.94 0.012 90)">{{ p.title }}</p>
+            <p style="margin:6px 0 0;font-size:12.5px;line-height:1.6;color:oklch(0.76 0.018 265)">{{ p.excerpt }}</p>
+            <p style="margin:7px 0 0;font-size:11px;color:oklch(0.68 0.02 265)">{{ p.meta }}</p>
+          </div>
+          <span class="pill" style="color:{{ p.pillColor }};flex:none">{{ p.pill }}</span>
+          <button onClick="{{ p.edit }}" class="btn-sm" style="flex:none">{{ t.edit }}</button>
+          <button onClick="{{ p.remove }}" class="btn-sm btn-danger" style="flex:none">{{ t.remove }}</button>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ================= CIRCLE ================= -->
+  <sc-if value="{{ isCircle }}">
+  <div style="animation:fade .4s both">
+    <h1 style="margin:0;font-family:Spectral,serif;font-weight:300;font-size:clamp(26px,3.2vw,36px)">{{ t.circle.title }}</h1>
+    <p style="margin:12px 0 0;font-size:14px;line-height:1.7;color:oklch(0.78 0.016 265);max-width:60ch">{{ t.circle.intro }}</p>
+
+    <div class="g-form" style="margin-top:28px">
+      <div>
+        <div class="panel" style="padding:24px">
+          <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.circle.inviteLabel }}</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input class="field" style="flex:1;min-width:210px" type="email" value="{{ inviteMail }}" onChange="{{ setInviteMail }}" placeholder="nombre@correo.com">
+            <input class="field" style="flex:1;min-width:150px" value="{{ inviteName }}" onChange="{{ setInviteName }}" placeholder="{{ t.circle.pName }}">
+          </div>
+          <button onClick="{{ invite }}" class="btn" style="margin-top:12px" disabled="{{ cantInvite }}">{{ t.circle.send }}</button>
+          <sc-if value="{{ inviteErr }}">
+            <p role="alert" style="margin:12px 0 0;font-size:12.5px;color:oklch(0.78 0.13 25)">{{ inviteErr }}</p>
+          </sc-if>
+          <p style="margin:14px 0 0;font-size:11.5px;line-height:1.7;color:oklch(0.68 0.02 265)">{{ t.circle.note }}</p>
+        </div>
+
+        <p style="margin:26px 0 14px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.circle.listLabel }}</p>
+        <div class="panel">
+          <sc-if value="{{ noMembers }}">
+            <p style="margin:0;padding:22px;font-size:13.5px;color:oklch(0.70 0.02 265)">{{ t.circle.empty }}</p>
+          </sc-if>
+          <sc-for list="{{ members }}" as="m" hint-placeholder-count="3">
+            <div class="row">
+              <span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;border:1px solid oklch(0.42 0.03 265);display:flex;align-items:center;justify-content:center;font-family:Spectral,serif;font-size:14px;color:oklch(0.84 0.05 118);flex:none">{{ m.initial }}</span>
+              <div class="rowmain">
+                <p style="margin:0;font-size:14px;color:oklch(0.92 0.012 90)">{{ m.name }}</p>
+                <p style="margin:4px 0 0;font-size:11.5px;color:oklch(0.72 0.02 265);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ m.email }}</p>
+              </div>
+              <span class="pill" style="color:{{ m.pillColor }};flex:none">{{ m.pill }}</span>
+              <button onClick="{{ m.remove }}" class="btn-sm btn-danger" style="flex:none">{{ t.remove }}</button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div class="panel" style="padding:24px">
+        <p style="margin:0 0 8px;font-size:11.5px;color:oklch(0.74 0.02 265);letter-spacing:.04em">{{ t.circle.readingLabel }}</p>
+        <p style="margin:0 0 18px;font-size:12.5px;line-height:1.7;color:oklch(0.74 0.018 265)">{{ t.circle.readingIntro }}</p>
+        <sc-if value="{{ noCirclePosts }}">
+          <p style="margin:0;font-size:13px;line-height:1.7;color:oklch(0.70 0.02 265)">{{ t.circle.readingEmpty }}</p>
+        </sc-if>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ circlePosts }}" as="c" hint-placeholder-count="2">
+            <div style="padding:15px 16px;border:1px solid oklch(0.32 0.03 330);border-radius:2px;background:oklch(0.22 0.028 330)">
+              <p style="margin:0;font-family:Spectral,serif;font-size:16px;line-height:1.3">{{ c.title }}</p>
+              <p style="margin:7px 0 0;font-size:12.5px;line-height:1.6;color:oklch(0.78 0.018 265)">{{ c.excerpt }}</p>
+              <p style="margin:9px 0 0;font-size:11px;color:oklch(0.70 0.02 265)">{{ c.meta }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  </main>
+</div>
+</sc-if>
+
+<sc-if value="{{ toast }}">
+<div role="status" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:80;background:oklch(0.26 0.05 118);border:1px solid oklch(0.62 0.10 118);color:oklch(0.94 0.02 118);padding:13px 22px;border-radius:3px;font-size:13.5px;animation:slidein .35s both;max-width:calc(100vw - 40px)">{{ toast }}</div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+/* Studio — Gaby's side of the sanctuary. Phase 1: everything works in the
+   browser. Text content persists in localStorage so a walkthrough survives a
+   refresh; uploaded audio lives for the session only (object URLs), which is
+   the honest limit of a no-backend build. Phase 3 swaps STORE for Supabase. */
+
+const h = (...a) => React.createElement(...a);
+const KEY = "gt-studio-v1";
+const INTENTIONS = ["sanar", "duelo", "claridad", "sueno", "autoestima", "manana"];
+
+/* ---- URL parsing: accept anything she might paste ---- */
+function youtubeId(raw) {
+  const s = (raw || "").trim();
+  if (!s) return null;
+  if (/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+  const pats = [
+    /[?&]v=([A-Za-z0-9_-]{11})/,
+    /youtu\.be\/([A-Za-z0-9_-]{11})/,
+    /youtube\.com\/embed\/([A-Za-z0-9_-]{11})/,
+    /youtube\.com\/shorts\/([A-Za-z0-9_-]{11})/,
+    /youtube\.com\/live\/([A-Za-z0-9_-]{11})/
+  ];
+  for (const p of pats) { const m = s.match(p); if (m) return m[1]; }
+  return null;
+}
+function spotifyId(raw) {
+  const s = (raw || "").trim();
+  if (!s) return null;
+  if (/^[A-Za-z0-9]{22}$/.test(s)) return s;
+  let m = s.match(/spotify:episode:([A-Za-z0-9]{22})/); if (m) return m[1];
+  m = s.match(/open\.spotify\.com\/(?:intl-[a-z]{2}\/)?episode\/([A-Za-z0-9]{22})/); if (m) return m[1];
+  return null;
+}
+const ytThumb = id => "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+
+/* ---- seed: her real content, so the studio looks like her studio ---- */
+const SEED = {
+  meds: [
+    { id: "peso", title: "Poner el peso en el suelo", titleEn: "Letting the weight reach the floor", intention: "sanar", secs: 720, line: "Dejar de sostener lo que puede apoyarse.", lineEn: "Stop holding what can rest on its own.", status: "public", src: null, fileName: null },
+    { id: "habitacion", title: "Una habitación para quien se fue", titleEn: "A room for the one who left", intention: "duelo", secs: 1080, line: "Hacer sitio en vez de hacer las paces.", lineEn: "Making space instead of making peace.", status: "public", src: null, fileName: null },
+    { id: "ruido", title: "Quitar el ruido de encima", titleEn: "Taking the noise off", intention: "claridad", secs: 540, line: "Distinguir tu voz de todas las demás.", lineEn: "Telling your voice apart from all the others.", status: "public", src: null, fileName: null },
+    { id: "dormir", title: "Dormir sin resolverlo", titleEn: "Sleeping without solving it", intention: "sueno", secs: 1200, line: "Dejar el día abierto y dormirte igual.", lineEn: "Leave the day open and fall asleep anyway.", status: "public", src: null, fileName: null },
+    { id: "amiga", title: "Hablarte como a una amiga", titleEn: "Speaking to yourself as to a friend", intention: "autoestima", secs: 660, line: "Cambiar el tono con el que te hablas.", lineEn: "Changing the tone you use on yourself.", status: "public", src: null, fileName: null },
+    { id: "luz", title: "La primera luz", titleEn: "First light", intention: "manana", secs: 420, line: "Empezar el día por el cuerpo, no por la lista.", lineEn: "Begin the day with the body, not the list.", status: "public", src: null, fileName: null },
+    { id: "casa", title: "La casa en silencio", titleEn: "The house in silence", intention: "duelo", secs: 900, line: "Volver a una casa donde ya no está.", lineEn: "Coming back to a house where they no longer are.", status: "public", src: null, fileName: null },
+    { id: "decision", title: "Antes de una decisión difícil", titleEn: "Before a hard decision", intention: "claridad", secs: 600, line: "Preguntar desde la calma y no desde el miedo.", lineEn: "Asking from calm rather than from fear.", status: "public", src: null, fileName: null },
+    { id: "perdonar", title: "Perdonarte lo que no supiste", titleEn: "Forgiving yourself for what you didn't know", intention: "autoestima", secs: 840, line: "Devolverle a la culpa su tamaño real.", lineEn: "Giving the guilt back its real size.", status: "draft", src: null, fileName: null },
+    { id: "cuerpo", title: "El cuerpo primero", titleEn: "The body first", intention: "manana", secs: 480, line: "Habitar el cuerpo antes de que empiece el día.", lineEn: "Inhabiting the body before the day begins.", status: "draft", src: null, fileName: null },
+    /* Her first real recording — a static file, not a session upload, so it
+       survives a reload and plays in both the Studio and on the site. */
+    { id: "viaje", title: "El verdadero viaje", titleEn: "The True Journey", intention: "sanar", secs: 284, line: "Grabada por Gaby, en su voz.", lineEn: "Recorded by Gaby, in her own voice.", status: "public", src: "./assets/audio/true-journey-es.mp3", fileName: "true-journey-es.mp3" }
+  ],
+  videos: [
+    { id: "TefHntd8kT8", ytId: "TefHntd8kT8", title: "Tiempo y Vida", quote: "El tiempo no se toma ni se pide, sino que se vive.", status: "public" },
+    { id: "vgi5Txca8QU", ytId: "vgi5Txca8QU", title: "Viajar Ligero: el arte de soltar", quote: "Sobre el equipaje que cargamos sin revisarlo.", status: "public" },
+    { id: "lF_jTGUKuC0", ytId: "lF_jTGUKuC0", title: "Aspectos éticos al final de la vida", quote: "Qué decisiones aparecen cuando ya no se trata de curar.", status: "draft" }
+  ],
+  episodes: [
+    { id: "1FLkr6zWI6L7C4HfBgZJSX", kind: "spotify", spId: "1FLkr6zWI6L7C4HfBgZJSX", title: "¿Cómo hemos trascendido?", status: "public", src: null },
+    { id: "5aCNqeApFpbxwTdfhZd2Pc", kind: "spotify", spId: "5aCNqeApFpbxwTdfhZd2Pc", title: "Ecos del alma", status: "public", src: null }
+  ],
+  posts: [
+    { id: "r0", title: "El tiempo no se pide, se vive", body: "En las visitas hay una frase que se repite: «si tuviera más tiempo». Pero cuando pregunto para qué, casi nunca es para hacer algo grande. Es para una tarde concreta, para una conversación que se aplazó, para mirar a alguien sin prisa.", status: "public", date: "12 marzo" },
+    { id: "r1", title: "Lo que aprendí acompañando a quien se va", body: "Al principio buscaba qué decir. Con los años he aprendido que las familias no recuerdan lo que dije: recuerdan que me quedé, que no miré el reloj, que aguanté el silencio con ellas.", status: "public", date: "27 febrero" },
+    { id: "r2", title: "Huellas pequeñas", body: "Recibo muchos mensajes que empiezan pidiendo perdón: «sé que era solo un gato, pero…». Ese «pero» es el duelo entero. Los duelos no compiten entre sí.", status: "public", date: "9 enero" },
+    { id: "r3", title: "Viajar ligero en diciembre", body: "En diciembre las casas se llenan y las sillas vacías se ven más. Nadie pide permiso para estar triste entre luces. Las fiestas no son un examen de superación.", status: "public", date: "18 diciembre" },
+    { id: "c1", title: "Cartas de invierno para el círculo", body: "Un texto que solo quiero compartir con quienes están dentro. Diciembre pesa distinto cuando la silla vacía se ve entre las luces, y aquí puedo decirlo sin rodearlo de explicaciones.", status: "circle", date: "18 diciembre" },
+    { id: "d1", title: "Sobre la culpa que llega después", body: "Casi todo el mundo guarda una frase: «tenía que haber ido antes». Todavía estoy pensando cómo escribir esto sin que suene a consuelo fácil.", status: "draft", date: "3 marzo" }
+  ],
+  members: [
+    { id: "m1", name: "Elena Ruiz", email: "elena.ruiz@correo.com", status: "joined", date: "2 marzo" },
+    { id: "m2", name: "Marieke de Vries", email: "marieke@voorbeeld.nl", status: "joined", date: "18 febrero" },
+    { id: "m3", name: "Carmen Iglesias", email: "carmen.i@correo.com", status: "invited", date: "9 marzo" }
+  ]
+};
+
+const C = {
+  es: {
+    studio: "ESTUDIO",
+    viewSite: "Ver el sitio →",
+    signOut: "Salir",
+    remove: "Quitar",
+    edit: "Editar",
+    a11y: { nav: "Secciones del estudio" },
+    login: {
+      title: "Bienvenida de nuevo.",
+      body: "Aquí subes meditaciones, añades vídeos y episodios, escribes y decides quién entra en el círculo.",
+      email: "Tu correo", pass: "Contraseña", go: "Entrar",
+      note: "Maqueta de demostración: entra con cualquier correo y contraseña. Todavía no hay servidor ni cuentas reales."
+    },
+    nav: { home: "Resumen", meds: "Meditaciones", vids: "Vídeos", pod: "Podcast", refs: "Reflexiones", circle: "Círculo" },
+    home: {
+      title: "Tu estudio",
+      intro: "Todo lo que publicas en el sitio empieza aquí. Nada se envía hasta que tú lo dices.",
+      quick: "EMPEZAR POR", recent: "MOVIMIENTO RECIENTE",
+      empty: "Todavía no hay movimiento. Sube una meditación o escribe algo y aparecerá aquí.",
+      sMeds: "meditaciones", sVids: "vídeos", sPosts: "reflexiones", sMembers: "en el círculo",
+      qMed: "Subir una meditación", qVid: "Añadir un vídeo de YouTube", qPost: "Escribir o dictar una reflexión", qInvite: "Invitar a alguien al círculo"
+    },
+    meds: {
+      title: "Meditaciones", intro: "Sube el audio y ponle una intención. Los oyentes las encuentran por cómo llegan o por lo que vienen a buscar.",
+      newLabel: "NUEVA MEDITACIÓN",
+      drop: "Arrastra el audio aquí o pulsa para elegirlo", dropHint: "MP3, WAV o M4A",
+      preview: "Escuchar antes de guardar",
+      fTitle: "Título", pTitle: "Poner el peso en el suelo",
+      fIntention: "Intención",
+      fLine: "Una línea sobre la intención", pLine: "Dejar de sostener lo que puede apoyarse.",
+      save: "Guardar como borrador", listLabel: "EN LA BIBLIOTECA",
+      note: "En esta maqueta el audio que subas se escucha durante la sesión. Al recargar se pierde: guardarlo de verdad llega con el servidor (fase 3).",
+      needFile: "Elige primero un archivo de audio.", needTitle: "Ponle un título antes de guardar."
+    },
+    vids: {
+      title: "Vídeos", intro: "Pega el enlace de YouTube. Se reproduce dentro del sitio, sin mandar a nadie fuera.",
+      fUrl: "Enlace del vídeo", add: "Añadir", detected: "VÍDEO ENCONTRADO",
+      pTitle: "Título del vídeo", pQuote: "Una frase que lo acompañe",
+      note: "Acepta youtube.com/watch, youtu.be, /shorts y /embed.",
+      bad: "No reconozco ese enlace de YouTube. Revisa que esté completo.",
+      dupe: "Ese vídeo ya está en la lista."
+    },
+    pod: {
+      title: "Podcast", intro: "Dos formas: enlazar un episodio que ya está en Spotify, o subir el audio directamente y alojarlo tú.",
+      wayLink: "DESDE SPOTIFY", wayFile: "SUBIR EL AUDIO",
+      fUrl: "Enlace del episodio", pTitle: "Título del episodio",
+      addLink: "Añadir episodio", addFile: "Añadir como episodio propio",
+      drop: "Arrastra el audio aquí o pulsa para elegirlo",
+      bad: "No reconozco ese enlace de Spotify. Debe ser un episodio.",
+      dupe: "Ese episodio ya está en la lista.",
+      found: "Episodio reconocido:"
+    },
+    refs: {
+      title: "Reflexiones", intro: "Escribe, o pulsa el micrófono y habla. Lo que dictes se va escribiendo solo y luego lo corriges.",
+      pTitle: "El título, si ya lo tienes", pBody: "Escribe aquí, o pulsa «Dictar» y habla con calma…",
+      micStart: "Dictar", micStop: "Detener",
+      micHintOff: "El navegador escucha y transcribe. Nada sale de tu ordenador.",
+      micHintOn: "Escuchando… habla con normalidad. Pulsa detener cuando acabes.",
+      noSpeech: "Este navegador no admite dictado por voz. En Chrome funciona; mientras tanto puedes escribir con normalidad.",
+      saveDraft: "Guardar borrador", toCircle: "Solo para el círculo", publish: "Publicar",
+      listLabel: "TUS TEXTOS", words: "palabras"
+    },
+    circle: {
+      title: "El círculo", intro: "Un grupo pequeño y por invitación. Reciben los textos que no están en el sitio público. Por ahora solo leen: ni comentan ni publican.",
+      inviteLabel: "INVITAR A ALGUIEN", pName: "Nombre",
+      send: "Enviar invitación", listLabel: "PERSONAS", empty: "Todavía no has invitado a nadie.",
+      note: "En la maqueta la invitación no se envía por correo: la persona aparece como «invitada». El envío real llega con el servidor (fase 3).",
+      readingLabel: "LO QUE SOLO VEN ELLAS", readingIntro: "Textos marcados como «solo para el círculo».",
+      readingEmpty: "Nada por ahora. Marca una reflexión como «solo para el círculo» y aparecerá aquí.",
+      badMail: "Ese correo no parece completo.", dupe: "Esa persona ya está en el círculo."
+    },
+    pill: { public: "Publicado", draft: "Borrador", circle: "Círculo", joined: "Dentro", invited: "Invitada" },
+    toast: {
+      med: "Meditación guardada como borrador.", vid: "Vídeo añadido.", ep: "Episodio añadido.",
+      draft: "Borrador guardado.", published: "Publicado en el sitio.", circle: "Enviado al círculo.",
+      invited: "Invitación anotada.", removed: "Quitado.", loaded: "Audio listo para escuchar."
+    }
+  },
+  en: {
+    studio: "STUDIO",
+    viewSite: "View the site →",
+    signOut: "Sign out",
+    remove: "Remove",
+    edit: "Edit",
+    a11y: { nav: "Studio sections" },
+    login: {
+      title: "Welcome back.",
+      body: "This is where you upload meditations, add videos and episodes, write, and decide who joins the circle.",
+      email: "Your email", pass: "Password", go: "Sign in",
+      note: "Demonstration mockup: any email and password will let you in. There is no server and no real account yet."
+    },
+    nav: { home: "Overview", meds: "Meditations", vids: "Videos", pod: "Podcast", refs: "Reflections", circle: "Circle" },
+    home: {
+      title: "Your studio",
+      intro: "Everything on the site starts here. Nothing goes out until you say so.",
+      quick: "START WITH", recent: "RECENT ACTIVITY",
+      empty: "Nothing yet. Upload a meditation or write something and it will show up here.",
+      sMeds: "meditations", sVids: "videos", sPosts: "reflections", sMembers: "in the circle",
+      qMed: "Upload a meditation", qVid: "Add a YouTube video", qPost: "Write or dictate a reflection", qInvite: "Invite someone to the circle"
+    },
+    meds: {
+      title: "Meditations", intro: "Upload the audio and give it an intention. Listeners find these by how they arrive, or by what they came looking for.",
+      newLabel: "NEW MEDITATION",
+      drop: "Drag the audio here, or click to choose it", dropHint: "MP3, WAV or M4A",
+      preview: "Listen before saving",
+      fTitle: "Title", pTitle: "Letting the weight reach the floor",
+      fIntention: "Intention",
+      fLine: "One line about the intention", pLine: "Stop holding what can rest on its own.",
+      save: "Save as draft", listLabel: "IN THE LIBRARY",
+      note: "In this mockup, audio you upload plays for this session. It is lost on refresh — storing it for real arrives with the server (phase 3).",
+      needFile: "Choose an audio file first.", needTitle: "Give it a title before saving."
+    },
+    vids: {
+      title: "Videos", intro: "Paste the YouTube link. It plays inside the site, without sending anyone away.",
+      fUrl: "Video link", add: "Add", detected: "VIDEO FOUND",
+      pTitle: "Video title", pQuote: "A line to go with it",
+      note: "Accepts youtube.com/watch, youtu.be, /shorts and /embed.",
+      bad: "I don't recognise that YouTube link. Check it is complete.",
+      dupe: "That video is already on the list."
+    },
+    pod: {
+      title: "Podcast", intro: "Two ways: link an episode already on Spotify, or upload the audio directly and host it yourself.",
+      wayLink: "FROM SPOTIFY", wayFile: "UPLOAD THE AUDIO",
+      fUrl: "Episode link", pTitle: "Episode title",
+      addLink: "Add episode", addFile: "Add as your own episode",
+      drop: "Drag the audio here, or click to choose it",
+      bad: "I don't recognise that Spotify link. It should be an episode.",
+      dupe: "That episode is already on the list.",
+      found: "Episode recognised:"
+    },
+    refs: {
+      title: "Reflections", intro: "Write, or press the microphone and speak. What you dictate is written out for you, and you tidy it afterwards.",
+      pTitle: "The title, if you have one yet", pBody: "Write here, or press 'Dictate' and speak slowly…",
+      micStart: "Dictate", micStop: "Stop",
+      micHintOff: "The browser listens and transcribes. Nothing leaves your computer.",
+      micHintOn: "Listening… speak normally. Press stop when you're done.",
+      noSpeech: "This browser doesn't support voice dictation. It works in Chrome; in the meantime you can type as usual.",
+      saveDraft: "Save draft", toCircle: "Circle only", publish: "Publish",
+      listLabel: "YOUR WRITING", words: "words"
+    },
+    circle: {
+      title: "The circle", intro: "A small, invitation-only group. They receive the writing that isn't on the public site. For now they only read — no comments, no posts.",
+      inviteLabel: "INVITE SOMEONE", pName: "Name",
+      send: "Send invitation", listLabel: "PEOPLE", empty: "You haven't invited anyone yet.",
+      note: "In the mockup the invitation isn't emailed: the person simply appears as 'invited'. Real sending arrives with the server (phase 3).",
+      readingLabel: "WHAT ONLY THEY SEE", readingIntro: "Writing marked 'circle only'.",
+      readingEmpty: "Nothing yet. Mark a reflection as 'circle only' and it will appear here.",
+      badMail: "That email doesn't look complete.", dupe: "That person is already in the circle."
+    },
+    pill: { public: "Published", draft: "Draft", circle: "Circle", joined: "Joined", invited: "Invited" },
+    toast: {
+      med: "Meditation saved as a draft.", vid: "Video added.", ep: "Episode added.",
+      draft: "Draft saved.", published: "Published to the site.", circle: "Sent to the circle.",
+      invited: "Invitation noted.", removed: "Removed.", loaded: "Audio ready to play."
+    }
+  }
+};
+
+const INT_LABEL = {
+  es: { sanar: "Sanar", duelo: "Duelo", claridad: "Claridad", sueno: "Sueño", autoestima: "Autoestima", manana: "Arraigo matinal" },
+  en: { sanar: "Healing", duelo: "Grief", claridad: "Clarity", sueno: "Sleep", autoestima: "Self-worth", manana: "Morning grounding" }
+};
+const PAGES = ["home", "meds", "vids", "pod", "refs", "circle"];
+const PILL_COLOR = { public: "oklch(0.80 0.09 118)", draft: "oklch(0.74 0.02 265)", circle: "oklch(0.78 0.09 330)",
+                     joined: "oklch(0.80 0.09 118)", invited: "oklch(0.76 0.07 75)" };
+
+class Component extends DCLogic {
+  state = {
+    lang: "es", authed: false, page: "home", email: "", pass: "",
+    meds: SEED.meds, videos: SEED.videos, episodes: SEED.episodes, posts: SEED.posts, members: SEED.members,
+    draft: { fileName: null, src: null, secs: 0, title: "", intention: "sanar", line: "" },
+    hot: false, podHot: false, medErr: "", previewing: false,
+    vidUrl: "", vidTitle: "", vidQuote: "", vidErr: "",
+    podUrl: "", podTitle: "", podErr: "", podFile: null, podFileTitle: "",
+    post: { id: null, title: "", body: "" }, dictating: false, interim: "", noSpeech: false,
+    inviteMail: "", inviteName: "", inviteErr: "",
+    playingId: null, toast: "", activity: []
+  };
+
+  /* ---------- lifecycle ---------- */
+  componentDidMount() {
+    this.load();
+    this.audio = typeof Audio !== "undefined" ? new Audio() : null;
+    if (this.audio) this.audio.addEventListener("ended", () => this.setState({ playingId: null, previewing: false }));
+    try {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) this.setState({ noSpeech: true });
+    } catch (e) { this.setState({ noSpeech: true }); }
+    this.syncLang();
+  }
+  componentDidUpdate(_p, prev) { if (!prev || prev.lang !== this.state.lang) this.syncLang(); }
+  componentWillUnmount() {
+    this.stopAudio();
+    try { if (this.rec) this.rec.stop(); } catch (e) {}
+    clearTimeout(this.toastT);
+  }
+  syncLang() {
+    try {
+      document.documentElement.lang = this.state.lang;
+      document.title = this.state.lang === "es" ? "Gaby Traviesa · Estudio" : "Gaby Traviesa · Studio";
+    } catch (e) {}
+  }
+
+  /* ---------- persistence (text only; blobs can't survive a reload) ---------- */
+  load() {
+    try {
+      const raw = window.localStorage.getItem(KEY);
+      if (!raw) return;
+      const d = JSON.parse(raw);
+      /* Session blob: URLs die with the page; real file paths do not. */
+      const strip = list => (list || []).map(x =>
+        Object.assign({}, x, { src: (x.src && /^blob:/.test(x.src)) ? null : (x.src || null) }));
+      this.setState({
+        meds: d.meds ? strip(d.meds) : SEED.meds,
+        videos: d.videos || SEED.videos,
+        episodes: d.episodes ? strip(d.episodes) : SEED.episodes,
+        posts: d.posts || SEED.posts,
+        members: d.members || SEED.members,
+        activity: d.activity || []
+      });
+    } catch (e) {}
+  }
+  save(over) {
+    try {
+      const s = Object.assign({}, this.state, over || {});
+      window.localStorage.setItem(KEY, JSON.stringify({
+        meds: s.meds, videos: s.videos, episodes: s.episodes,
+        posts: s.posts, members: s.members, activity: s.activity
+      }));
+    } catch (e) {}
+  }
+  commit(patch, toastKey, activityText, icon) {
+    const next = Object.assign({}, patch);
+    if (activityText) {
+      const entry = { icon: icon || "•", text: activityText, when: this.nowLabel() };
+      next.activity = [entry].concat(this.state.activity).slice(0, 6);
+    }
+    this.setState(next);
+    this.save(next);
+    if (toastKey) this.flash(this.t().toast[toastKey]);
+  }
+  nowLabel() {
+    try {
+      const d = new Date();
+      return d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0");
+    } catch (e) { return ""; }
+  }
+  flash(msg) {
+    this.setState({ toast: msg });
+    clearTimeout(this.toastT);
+    this.toastT = setTimeout(() => this.setState({ toast: "" }), 2600);
+  }
+
+  t() { return C[this.state.lang]; }
+  fmt(sec) {
+    const s = Math.max(0, Math.round(sec || 0));
+    return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+  }
+  medTitle(m) { return this.state.lang === "en" && m.titleEn ? m.titleEn : m.title; }
+  medLine(m) { return this.state.lang === "en" && m.lineEn ? m.lineEn : m.line; }
+
+  /* ---------- audio ---------- */
+  stopAudio() { try { if (this.audio) { this.audio.pause(); this.audio.currentTime = 0; } } catch (e) {} }
+  playSrc(src, id) {
+    if (!this.audio || !src) return;
+    if (this.state.playingId === id) { this.stopAudio(); this.setState({ playingId: null }); return; }
+    try {
+      this.audio.src = src;
+      this.audio.play().then(() => this.setState({ playingId: id })).catch(() => this.setState({ playingId: null }));
+    } catch (e) {}
+  }
+  /* Reads real duration off the file before it is ever saved. */
+  takeAudio(file, forPodcast) {
+    if (!file || !/^audio\//.test(file.type || "")) return;
+    let url = "";
+    try { url = URL.createObjectURL(file); } catch (e) { return; }
+    if (forPodcast) {
+      this.setState({ podFile: { name: file.name, src: url, secs: 0 }, podHot: false, podFileTitle: this.state.podFileTitle || file.name.replace(/\.[^.]+$/, "") });
+      return;
+    }
+    const probe = new Audio();
+    probe.preload = "metadata";
+    probe.onloadedmetadata = () => {
+      const secs = isFinite(probe.duration) ? probe.duration : 0;
+      this.setState(s => ({ draft: Object.assign({}, s.draft, { secs }) }));
+    };
+    probe.src = url;
+    this.setState(s => ({
+      hot: false, medErr: "",
+      draft: Object.assign({}, s.draft, {
+        fileName: file.name, src: url, secs: 0,
+        title: s.draft.title || file.name.replace(/\.[^.]+$/, "")
+      })
+    }));
+    this.flash(this.t().toast.loaded);
+  }
+
+  /* ---------- voice dictation (Web Speech API — real, on-device) ---------- */
+  toggleDictation() {
+    if (this.state.dictating) {
+      try { if (this.rec) this.rec.stop(); } catch (e) {}
+      this.setState({ dictating: false, interim: "" });
+      return;
+    }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) { this.setState({ noSpeech: true }); return; }
+    const rec = new SR();
+    rec.continuous = true;
+    rec.interimResults = true;
+    rec.lang = this.state.lang === "es" ? "es-ES" : "en-GB";
+    rec.onresult = ev => {
+      let done = "", live = "";
+      for (let i = ev.resultIndex; i < ev.results.length; i++) {
+        const r = ev.results[i];
+        if (r.isFinal) done += r[0].transcript; else live += r[0].transcript;
+      }
+      if (done) {
+        this.setState(s => {
+          const sep = s.post.body && !/\s$/.test(s.post.body) ? " " : "";
+          return { post: Object.assign({}, s.post, { body: s.post.body + sep + done.trim() }), interim: "" };
+        });
+      } else {
+        this.setState({ interim: live });
+      }
+    };
+    rec.onerror = () => this.setState({ dictating: false, interim: "" });
+    rec.onend = () => { if (this.state.dictating) { try { rec.start(); } catch (e) { this.setState({ dictating: false }); } } };
+    try { rec.start(); this.rec = rec; this.setState({ dictating: true, interim: "" }); }
+    catch (e) { this.setState({ noSpeech: true }); }
+  }
+
+  /* ---------- actions ---------- */
+  saveMed() {
+    const d = this.state.draft, t = this.t();
+    if (!d.src) { this.setState({ medErr: t.meds.needFile }); return; }
+    if (!d.title.trim()) { this.setState({ medErr: t.meds.needTitle }); return; }
+    const rec = { id: uid(), title: d.title.trim(), titleEn: null, intention: d.intention, secs: d.secs,
+                  line: d.line.trim(), lineEn: null, status: "draft", src: d.src, fileName: d.fileName };
+    this.commit({
+      meds: [rec].concat(this.state.meds), medErr: "", previewing: false,
+      draft: { fileName: null, src: null, secs: 0, title: "", intention: "sanar", line: "" }
+    }, "med", d.title.trim(), "♪");
+  }
+  addVideo() {
+    const t = this.t(), id = youtubeId(this.state.vidUrl);
+    if (!id) { this.setState({ vidErr: t.vids.bad }); return; }
+    if (this.state.videos.some(v => v.ytId === id)) { this.setState({ vidErr: t.vids.dupe }); return; }
+    const rec = { id: uid(), ytId: id, title: this.state.vidTitle.trim() || "YouTube · " + id,
+                  quote: this.state.vidQuote.trim(), status: "draft" };
+    this.commit({ videos: [rec].concat(this.state.videos), vidUrl: "", vidTitle: "", vidQuote: "", vidErr: "" },
+      "vid", rec.title, "▶");
+  }
+  addEpisode() {
+    const t = this.t(), id = spotifyId(this.state.podUrl);
+    if (!id) { this.setState({ podErr: t.pod.bad }); return; }
+    if (this.state.episodes.some(e => e.spId === id)) { this.setState({ podErr: t.pod.dupe }); return; }
+    const rec = { id: uid(), kind: "spotify", spId: id, title: this.state.podTitle.trim() || "Spotify · " + id.slice(0, 8), status: "draft", src: null };
+    this.commit({ episodes: [rec].concat(this.state.episodes), podUrl: "", podTitle: "", podErr: "" }, "ep", rec.title, "◉");
+  }
+  addSelfHosted() {
+    const f = this.state.podFile;
+    if (!f) return;
+    const rec = { id: uid(), kind: "file", spId: null, title: this.state.podFileTitle.trim() || f.name, status: "draft", src: f.src, fileName: f.name };
+    this.commit({ episodes: [rec].concat(this.state.episodes), podFile: null, podFileTitle: "" }, "ep", rec.title, "◉");
+  }
+  storePost(status) {
+    const p = this.state.post;
+    if (!p.title.trim() && !p.body.trim()) return;
+    const title = p.title.trim() || p.body.trim().slice(0, 46) + "…";
+    let posts;
+    if (p.id) posts = this.state.posts.map(x => x.id === p.id ? Object.assign({}, x, { title, body: p.body.trim(), status }) : x);
+    else posts = [{ id: uid(), title, body: p.body.trim(), status, date: this.todayLabel() }].concat(this.state.posts);
+    if (this.state.dictating) this.toggleDictation();
+    this.commit({ posts, post: { id: null, title: "", body: "" }, interim: "" },
+      status === "public" ? "published" : (status === "circle" ? "circle" : "draft"), title, "✎");
+  }
+  todayLabel() {
+    try {
+      const d = new Date();
+      const es = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+      const en = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const mm = this.state.lang === "es" ? es : en;
+      return this.state.lang === "es" ? d.getDate() + " " + mm[d.getMonth()] : d.getDate() + " " + mm[d.getMonth()];
+    } catch (e) { return ""; }
+  }
+  invite() {
+    const t = this.t(), mail = this.state.inviteMail.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)) { this.setState({ inviteErr: t.circle.badMail }); return; }
+    if (this.state.members.some(m => m.email.toLowerCase() === mail.toLowerCase())) { this.setState({ inviteErr: t.circle.dupe }); return; }
+    const rec = { id: uid(), name: this.state.inviteName.trim() || mail.split("@")[0], email: mail, status: "invited", date: this.todayLabel() };
+    this.commit({ members: [rec].concat(this.state.members), inviteMail: "", inviteName: "", inviteErr: "" }, "invited", rec.name, "✉");
+  }
+  removeFrom(listName, id) {
+    const next = {};
+    next[listName] = this.state[listName].filter(x => x.id !== id);
+    if (this.state.playingId === id) { this.stopAudio(); next.playingId = null; }
+    this.commit(next, "removed");
+  }
+
+  renderVals() {
+    const t = this.t(), st = this.state;
+    const go = p => () => { this.setState({ page: p }); try { window.scrollTo(0, 0); } catch (e) {} };
+    const pillOf = k => ({ pill: t.pill[k], pillColor: PILL_COLOR[k] });
+    const circlePosts = st.posts.filter(p => p.status === "circle");
+    const icons = { home: "◎", meds: "♪", vids: "▶", pod: "◉", refs: "✎", circle: "◍" };
+    const counts = { home: null, meds: st.meds.length, vids: st.videos.length, pod: st.episodes.length, refs: st.posts.length, circle: st.members.length };
+    const navKey = { home: "home", meds: "meds", vids: "vids", pod: "pod", refs: "refs", circle: "circle" };
+
+    return {
+      t,
+      isEs: st.lang === "es", isEn: st.lang === "en",
+      esColor: st.lang === "es" ? "oklch(0.94 0.012 90)" : "oklch(0.70 0.02 265)",
+      enColor: st.lang === "en" ? "oklch(0.94 0.012 90)" : "oklch(0.70 0.02 265)",
+      setEs: () => this.setState({ lang: "es" }),
+      setEn: () => this.setState({ lang: "en" }),
+
+      locked: !st.authed, unlocked: st.authed,
+      email: st.email, pass: st.pass,
+      setEmail: e => this.setState({ email: e.target.value }),
+      setPass: e => this.setState({ pass: e.target.value }),
+      signIn: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ authed: true, page: "home" }); },
+      signOut: () => { this.stopAudio(); this.setState({ authed: false, playingId: null, email: "", pass: "" }); },
+
+      isHome: st.page === "home", isMeds: st.page === "meds", isVideos: st.page === "vids",
+      isPod: st.page === "pod", isRefs: st.page === "refs", isCircle: st.page === "circle",
+
+      nav: PAGES.map(p => ({
+        label: t.nav[navKey[p]], icon: icons[p], go: go(p),
+        cls: st.page === p ? "navbtn on" : "navbtn",
+        cur: st.page === p ? "page" : null,
+        hasCount: counts[p] !== null, count: counts[p]
+      })),
+
+      greeting: t.studio + " · " + (st.lang === "es" ? "Aalsmeer" : "Aalsmeer"),
+      stats: [
+        { n: st.meds.length, label: t.home.sMeds, go: go("meds") },
+        { n: st.videos.length, label: t.home.sVids, go: go("vids") },
+        { n: st.posts.length, label: t.home.sPosts, go: go("refs") },
+        { n: st.members.length, label: t.home.sMembers, go: go("circle") }
+      ],
+      quick: [
+        { icon: "♪", label: t.home.qMed, go: go("meds") },
+        { icon: "▶", label: t.home.qVid, go: go("vids") },
+        { icon: "✎", label: t.home.qPost, go: go("refs") },
+        { icon: "✉", label: t.home.qInvite, go: go("circle") }
+      ],
+      activity: st.activity,
+      noActivity: st.activity.length === 0,
+
+      /* ---- meditations ---- */
+      dropCls: st.hot ? "drop hot" : "drop",
+      dragOver: e => { e.preventDefault(); if (!st.hot) this.setState({ hot: true }); },
+      dragLeave: () => this.setState({ hot: false }),
+      dropAudio: e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; this.takeAudio(f, false); },
+      pickAudio: e => this.takeAudio(e.target.files && e.target.files[0], false),
+      hasDraftAudio: !!st.draft.src,
+      draft: Object.assign({}, st.draft, {
+        meta: (st.draft.secs ? this.fmt(st.draft.secs) : "—") + " · " + (INT_LABEL[st.lang][st.draft.intention] || "")
+      }),
+      previewIcon: st.previewing ? "❙❙" : "▶",
+      previewToggle: () => { this.setState(s => ({ previewing: !s.previewing })); this.playSrc(st.draft.src, "draft"); },
+      setDraftTitle: e => { const v = e.target.value; this.setState(s => ({ draft: Object.assign({}, s.draft, { title: v }), medErr: "" })); },
+      setDraftIntention: e => { const v = e.target.value; this.setState(s => ({ draft: Object.assign({}, s.draft, { intention: v }) })); },
+      setDraftLine: e => { const v = e.target.value; this.setState(s => ({ draft: Object.assign({}, s.draft, { line: v }) })); },
+      intentionOpts: INTENTIONS.map(k => ({ key: k, label: INT_LABEL[st.lang][k] })),
+      cantSaveMed: !st.draft.src || !st.draft.title.trim() ? true : null,
+      medErr: st.medErr,
+      saveMed: () => this.saveMed(),
+      clearDraft: () => { this.stopAudio(); this.setState({ previewing: false, draft: { fileName: null, src: null, secs: 0, title: "", intention: "sanar", line: "" } }); },
+      meds: st.meds.map(m => Object.assign({}, pillOf(m.status), {
+        title: this.medTitle(m),
+        meta: (m.secs ? this.fmt(m.secs) : "—") + " · " + (INT_LABEL[st.lang][m.intention] || "") + (m.line ? " · " + this.medLine(m) : ""),
+        icon: st.playingId === m.id ? "❙❙" : "▶",
+        ring: m.src ? "oklch(0.78 0.10 118)" : "oklch(0.42 0.02 265)",
+        playLabel: this.medTitle(m),
+        play: () => this.playSrc(m.src, m.id),
+        remove: () => this.removeFrom("meds", m.id)
+      })),
+
+      /* ---- videos ---- */
+      vidUrl: st.vidUrl, vidTitle: st.vidTitle, vidQuote: st.vidQuote, vidErr: st.vidErr,
+      setVidUrl: e => this.setState({ vidUrl: e.target.value, vidErr: "" }),
+      setVidTitle: e => this.setState({ vidTitle: e.target.value }),
+      setVidQuote: e => this.setState({ vidQuote: e.target.value }),
+      hasVidPreview: !!youtubeId(st.vidUrl),
+      vidThumb: youtubeId(st.vidUrl) ? ytThumb(youtubeId(st.vidUrl)) : "",
+      cantAddVid: youtubeId(st.vidUrl) ? null : true,
+      addVideo: () => this.addVideo(),
+      videos: st.videos.map(v => Object.assign({}, pillOf(v.status), {
+        title: v.title, quote: v.quote, thumb: ytThumb(v.ytId),
+        toggleLabel: v.status === "public" ? t.pill.draft : t.pill.public,
+        toggle: () => { const nx = st.videos.map(x => x.id === v.id ? Object.assign({}, x, { status: x.status === "public" ? "draft" : "public" }) : x); this.commit({ videos: nx }); },
+        remove: () => this.removeFrom("videos", v.id)
+      })),
+
+      /* ---- podcast ---- */
+      podUrl: st.podUrl, podTitle: st.podTitle, podErr: st.podErr,
+      setPodUrl: e => this.setState({ podUrl: e.target.value, podErr: "" }),
+      setPodTitle: e => this.setState({ podTitle: e.target.value }),
+      hasPodPreview: !!spotifyId(st.podUrl),
+      podDetected: t.pod.found + " " + (spotifyId(st.podUrl) || ""),
+      cantAddPod: spotifyId(st.podUrl) ? null : true,
+      addEpisode: () => this.addEpisode(),
+      podDropCls: st.podHot ? "drop hot" : "drop",
+      podDragOver: e => { e.preventDefault(); if (!st.podHot) this.setState({ podHot: true }); },
+      podDragLeave: () => this.setState({ podHot: false }),
+      podDrop: e => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; this.takeAudio(f, true); },
+      pickPodAudio: e => this.takeAudio(e.target.files && e.target.files[0], true),
+      hasPodFile: !!st.podFile,
+      podFileName: st.podFile ? st.podFile.name : "",
+      podFileTitle: st.podFileTitle,
+      setPodFileTitle: e => this.setState({ podFileTitle: e.target.value }),
+      addSelfHosted: () => this.addSelfHosted(),
+      episodes: st.episodes.map(e => Object.assign({}, pillOf(e.status), {
+        title: e.title,
+        meta: e.kind === "spotify" ? "Spotify · " + e.spId : (st.lang === "es" ? "Audio propio" : "Self-hosted") + (e.fileName ? " · " + e.fileName : ""),
+        icon: st.playingId === e.id ? "❙❙" : "▶",
+        ring: e.src ? "oklch(0.78 0.10 118)" : "oklch(0.42 0.02 265)",
+        playLabel: e.title,
+        play: () => this.playSrc(e.src, e.id),
+        remove: () => this.removeFrom("episodes", e.id)
+      })),
+
+      /* ---- reflections ---- */
+      post: st.post,
+      setPostTitle: e => { const v = e.target.value; this.setState(s => ({ post: Object.assign({}, s.post, { title: v }) })); },
+      setPostBody: e => { const v = e.target.value; this.setState(s => ({ post: Object.assign({}, s.post, { body: v }) })); },
+      dictating: st.dictating,
+      noSpeech: st.noSpeech,
+      micLabel: st.dictating ? t.refs.micStop : t.refs.micStart,
+      micHint: st.dictating ? t.refs.micHintOn : t.refs.micHintOff,
+      micRing: st.dictating ? "oklch(0.74 0.14 25)" : "oklch(0.48 0.02 265)",
+      micText: st.dictating ? "oklch(0.82 0.13 25)" : "oklch(0.90 0.014 90)",
+      micCls: "btn-ghost",
+      toggleDictation: () => this.toggleDictation(),
+      interim: st.interim, hasInterim: !!st.interim,
+      wordCount: (st.post.body.trim() ? st.post.body.trim().split(/\s+/).length : 0) + " " + t.refs.words,
+      cantSavePost: (!st.post.title.trim() && !st.post.body.trim()) ? true : null,
+      savePost: () => this.storePost("draft"),
+      publishPost: () => this.storePost("public"),
+      publishCircle: () => this.storePost("circle"),
+      posts: st.posts.map(p => Object.assign({}, pillOf(p.status), {
+        title: p.title,
+        excerpt: p.body.length > 118 ? p.body.slice(0, 118) + "…" : p.body,
+        meta: p.date,
+        edit: () => { this.setState({ post: { id: p.id, title: p.title, body: p.body } }); try { window.scrollTo(0, 0); } catch (e) {} },
+        remove: () => this.removeFrom("posts", p.id)
+      })),
+
+      /* ---- circle ---- */
+      inviteMail: st.inviteMail, inviteName: st.inviteName, inviteErr: st.inviteErr,
+      setInviteMail: e => this.setState({ inviteMail: e.target.value, inviteErr: "" }),
+      setInviteName: e => this.setState({ inviteName: e.target.value }),
+      cantInvite: st.inviteMail.trim() ? null : true,
+      invite: () => this.invite(),
+      members: st.members.map(m => Object.assign({}, pillOf(m.status), {
+        name: m.name, email: m.email,
+        initial: (m.name || "?").trim().charAt(0).toUpperCase(),
+        remove: () => this.removeFrom("members", m.id)
+      })),
+      noMembers: st.members.length === 0,
+      circlePosts: circlePosts.map(p => ({
+        title: p.title,
+        excerpt: p.body.length > 108 ? p.body.slice(0, 108) + "…" : p.body,
+        meta: p.date
+      })),
+      noCirclePosts: circlePosts.length === 0,
+
+      toast: st.toast
+    };
+  }
+}
+</script>
+</body>
+</html>

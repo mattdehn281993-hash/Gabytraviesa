@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Client media — deliberately NOT committed by default.
+#
+# These are Gaby's own files: her meditation recordings and her personal
+# photographs. On a public repo they would be downloadable by anyone, and one
+# of the photos is a private snapshot rather than a press portrait. Keeping
+# them out is the reversible choice; publishing them is not.
+#
+# If the repo is PRIVATE and you want the site to work straight from a clone,
+# delete this block — the portrait and audio are needed for the About page and
+# the meditation player to be complete.
+# ---------------------------------------------------------------------------
+assets/audio/*
+!assets/audio/.gitkeep
+assets/portrait/*
+!assets/portrait/.gitkeep
+assets/misc/*
+!assets/misc/.gitkeep
+assets/covers/*
+!assets/covers/.gitkeep
+
+# ---------------------------------------------------------------------------
+# Internal documents — the briefs describe Gaby as a prospective client and
+# carry commercial framing that is not hers to publish.
+# ---------------------------------------------------------------------------
+uploads/
+
+# Editor / canvas scratch
+.thumbnail
+__*.html
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# If a build ever appears
+node_modules/
+dist/
+.env
+.env.*
