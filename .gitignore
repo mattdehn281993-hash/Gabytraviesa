@@ -1,23 +1,12 @@
 # ---------------------------------------------------------------------------
-# Client media — deliberately NOT committed by default.
+# Client media IS committed, so the site works straight from a clone: her
+# portrait on About, and the real recording the meditation player plays.
 #
-# These are Gaby's own files: her meditation recordings and her personal
-# photographs. On a public repo they would be downloadable by anyone, and one
-# of the photos is a private snapshot rather than a press portrait. Keeping
-# them out is the reversible choice; publishing them is not.
-#
-# If the repo is PRIVATE and you want the site to work straight from a clone,
-# delete this block — the portrait and audio are needed for the About page and
-# the meditation player to be complete.
+# NOTE: these are Gaby's own files — her recordings and her photographs. They
+# are only appropriate to commit while this repo is private, or with her
+# agreement. assets/misc/gaby-selfie-original.jpg in particular is a private
+# snapshot, not a press photo.
 # ---------------------------------------------------------------------------
-assets/audio/*
-!assets/audio/.gitkeep
-assets/portrait/*
-!assets/portrait/.gitkeep
-assets/misc/*
-!assets/misc/.gitkeep
-assets/covers/*
-!assets/covers/.gitkeep
 
 # ---------------------------------------------------------------------------
 # Internal documents — the briefs describe Gaby as a prospective client and

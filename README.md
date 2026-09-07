@@ -79,9 +79,10 @@ Demo, and labelled as such in the interface:
 
 `assets/README.md` documents what goes where and under which filename.
 
-**Not committed by default** — see `.gitignore`. Her audio and photographs are
-excluded because a public repo would make them downloadable by anyone. On a
-private repo, delete that block and the demo works straight from a clone.
+Her portrait and the recorded meditation **are committed**, with her
+permission, so the demo works straight from a clone. The recording is already
+published on her YouTube channel; the files here are the audio-only versions.
+`uploads/` (internal briefs) is not committed.
 
 Still outstanding from her: the seven high-resolution book covers (the site
 currently falls back to Amazon's CDN, which caps at 500px and goes soft), a
