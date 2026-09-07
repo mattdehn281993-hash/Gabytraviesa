@@ -5,8 +5,8 @@ thanatologist and bioethicist, Aalsmeer, Netherlands.
 
 | | |
 |---|---|
-| **Sanctuary for Readers.dc.html** | The public site — books, meditations, reflections, podcast, about, circle |
-| **Sanctuary Studio.dc.html** | Her side — upload audio, add videos and episodes, write or dictate, manage the circle |
+| **index.html** | The public site — books, meditations, reflections, podcast, about, circle |
+| **studio.html** | Her side — upload audio, add videos and episodes, write or dictate, manage the circle |
 
 Both are single self-contained files on the Claude Design (`x-dc`) runtime.
 No build step, no bundler, no framework install. Bilingual ES/EN throughout,
@@ -23,8 +23,10 @@ Serve the folder over HTTP and open either file:
 python -m http.server 8080 --bind 127.0.0.1
 ```
 
-- Site → <http://127.0.0.1:8080/Sanctuary%20for%20Readers.dc.html>
-- Studio → <http://127.0.0.1:8080/Sanctuary%20Studio.dc.html> (any email/password signs in)
+- Site → <http://127.0.0.1:8080/>
+- Studio → <http://127.0.0.1:8080/studio.html> (any email/password signs in)
+
+Deployed, the site is at `/` and the Studio at `/studio.html`.
 
 **Serve it — don't double-click the file.** Over `file://` the page gets a null
 origin, which breaks the YouTube and Spotify embeds. It is the same condition
