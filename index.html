@@ -174,7 +174,10 @@ a:hover{color:oklch(0.86 0.08 118)}
     <div style="animation:rise 1.2s .8s both">
       <sc-if value="{{ hasNewest }}">
       <div style="border-left:1px solid oklch(0.32 0.02 265);padding-left:28px">
-        <p style="margin:0 0 14px;font-size:11.5px;color:oklch(0.80 0.016 265)">{{ t.home.newestLabel }}</p>
+        <div style="margin:0 0 14px;display:flex;align-items:center;gap:9px;flex-wrap:wrap">
+          <span style="font-size:11.5px;color:oklch(0.80 0.016 265)">{{ t.home.newestLabel }}</span>
+          <sc-if value="{{ newestHasAudio }}"><span style="font-size:9.5px;letter-spacing:.05em;padding:2px 7px;border:1px solid oklch(0.55 0.09 118);border-radius:2px;color:oklch(0.86 0.08 118)">{{ t.meds.realBadge }}</span></sc-if>
+        </div>
         <p style="margin:0;font-family:Spectral,serif;font-size:26px;font-weight:400;line-height:1.25">{{ newest.title }}</p>
         <p style="margin:10px 0 22px;font-size:14px;line-height:1.65;color:oklch(0.78 0.016 265)">{{ newest.intentionLine }}</p>
         <button onClick="{{ playNewest }}" style="display:flex;align-items:center;gap:14px" style-hover="color:oklch(0.86 0.09 118)">
@@ -1333,8 +1336,13 @@ class Component extends DCLogic {
       this.audio = new Audio();
       this.audio.preload = "none";
       this.audio.addEventListener("ended", () => this.setState({ playing: false }));
+      /* timeupdate fires about four times a second, and every setState here
+         re-renders the whole page — enough to peg the main thread while a
+         recording plays. Only publish a whole second that actually changed. */
       this.audio.addEventListener("timeupdate", () => {
-        if (this.audio && !this.audio.paused) this.setState({ elapsed: Math.floor(this.audio.currentTime) });
+        if (!this.audio || this.audio.paused) return;
+        const secs = Math.floor(this.audio.currentTime);
+        if (secs !== this.state.elapsed) this.setState({ elapsed: secs });
       });
     } catch (e) { this.audio = null; }
 
@@ -1499,23 +1507,69 @@ class Component extends DCLogic {
       const w = state.w, h = state.h, sc = state.scroll;
       const horizon = h * (0.60 + sc * 0.06);   // the horizon lifts a little as she scrolls
 
-      /* sky: deep dusk above, a warm band where the light went down */
+      /* One slow rise and set, looping. The sun never climbs high — this
+         stays a dusk scene, so it tracks low across the right of the sky and
+         goes back into the water. Everything warm in the frame is driven off
+         `arc`, so the sky, the horizon band, the path on the water and the
+         stars all belong to the same light. */
+      const CYCLE = 84;                                  // seconds, whole arc
+      const ph  = (t % CYCLE) / CYCLE;                   // 0..1
+      const arc = Math.sin(ph * Math.PI);                // up, over, back down
+      const day = Math.max(0, Math.min(1, (arc - 0.05) / 0.35));
+      const night = 1 - day * 0.55;                      // stars dim, never wash out
+      const sunR = Math.max(16, Math.min(30, w * 0.020));
+      const sunX = (0.66 + ph * 0.22) * w;               // rises right, sets further right
+      const sunY = horizon + sunR * 1.5 - arc * (horizon * 0.46 + sunR * 1.5);
+      const mix = (c0, c1, k) => Math.round(c0 + (c1 - c0) * k);
+
+      /* sky: deep dusk above, warming toward the horizon as the sun comes up */
       const sky = ctx.createLinearGradient(0, 0, 0, horizon);
       sky.addColorStop(0.00, "#0f131d");
-      sky.addColorStop(0.45, "#161d2e");
-      sky.addColorStop(0.80, "#1f2940");
-      sky.addColorStop(1.00, "#4b3e4e");
+      sky.addColorStop(0.45, "rgb(" + mix(22,27,arc) + "," + mix(29,31,arc) + "," + mix(46,50,arc) + ")");
+      sky.addColorStop(0.80, "rgb(" + mix(31,54,arc) + "," + mix(41,44,arc) + "," + mix(64,66,arc) + ")");
+      sky.addColorStop(1.00, "rgb(" + mix(75,126,arc) + "," + mix(62,74,arc) + "," + mix(78,74,arc) + ")");
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, w, horizon + 1);
 
-      /* the last of the light, breathing very slowly just above the water */
+      /* the disc, drawn before the water and the headlands so they occlude it
+         as it comes up and again as it goes down. Flattened and redder when
+         it sits low, the way a real one is through more atmosphere. */
+      if (arc > 0.004) {
+        const low = 1 - arc;
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+        const halo = ctx.createRadialGradient(sunX, sunY, sunR * 0.6, sunX, sunY, sunR * 6.5);
+        halo.addColorStop(0.00, "rgba(228,132,76," + (0.20 * arc).toFixed(3) + ")");
+        halo.addColorStop(0.30, "rgba(198,104,72," + (0.075 * arc).toFixed(3) + ")");
+        halo.addColorStop(1.00, "rgba(150,86,86,0)");
+        ctx.fillStyle = halo;
+        ctx.beginPath(); ctx.arc(sunX, sunY, sunR * 6.5, 0, Math.PI * 2); ctx.fill();
+        /* the gradient reaches zero at exactly the radius we fill, so the disc
+           has no rim — a hard edge is what made it read as a sticker */
+        const rx = sunR * (1.16 - arc * 0.16), ry = sunR * (0.90 + arc * 0.10);
+        const disc = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, rx);
+        disc.addColorStop(0.00, "rgba(255," + mix(214,240,arc) + "," + mix(168,206,arc) + "," + (0.72 + arc * 0.24).toFixed(3) + ")");
+        disc.addColorStop(0.55, "rgba(250," + mix(158,186,arc) + "," + mix(104,132,arc) + "," + (0.52 + arc * 0.24).toFixed(3) + ")");
+        disc.addColorStop(0.85, "rgba(226,124,88," + (0.20 * (0.5 + arc * 0.5)).toFixed(3) + ")");
+        disc.addColorStop(1.00, "rgba(206,110,86,0)");
+        ctx.fillStyle = disc;
+        ctx.beginPath();
+        ctx.ellipse(sunX, sunY, rx, ry, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      /* the band of light along the horizon, centred under wherever the sun
+         is and breathing very slowly */
       const breathe = 0.82 + Math.sin(t * 0.16) * 0.18;
-      const glowH = h * 0.30;
-      const glow = ctx.createLinearGradient(0, horizon - glowH, 0, horizon);
-      glow.addColorStop(0, "rgba(150,96,86,0)");
-      glow.addColorStop(1, "rgba(182,118,96," + (0.22 * breathe).toFixed(3) + ")");
+      const glowA = (0.15 + 0.20 * arc) * breathe;
+      const glow = ctx.createRadialGradient(sunX, horizon, 0, sunX, horizon, Math.max(w * 0.40, h * 0.62));
+      glow.addColorStop(0.00, "rgba(198,126,98," + glowA.toFixed(3) + ")");
+      glow.addColorStop(0.45, "rgba(174,106,92," + (glowA * 0.40).toFixed(3) + ")");
+      glow.addColorStop(1.00, "rgba(150,96,86,0)");
       ctx.fillStyle = glow;
-      ctx.fillRect(0, horizon - glowH, w, glowH);
+      /* over the whole sky, so the gradient's own falloff is the only edge */
+      ctx.fillRect(0, 0, w, horizon + 1);
 
       /* water */
       const sea = ctx.createLinearGradient(0, horizon, 0, h);
@@ -1533,9 +1587,9 @@ class Component extends DCLogic {
         const y = horizon + p * (h - horizon) * 0.55;
         const sway = Math.sin(t * 0.5 + i * 1.3) * (6 + i * 5);
         const wide = w * (0.06 + p * 0.20);
-        const a = (0.055 - p * 0.006) * breathe;
+        const a = (0.055 - p * 0.006) * breathe * (0.45 + arc * 0.85);
         ctx.fillStyle = "rgba(206,146,112," + Math.max(0, a).toFixed(3) + ")";
-        ctx.fillRect(w * 0.5 - wide / 2 + sway, y, wide, 1.6 + p * 2.4);
+        ctx.fillRect(sunX - wide / 2 + sway, y, wide, 1.6 + p * 2.4);
       }
       ctx.restore();
 
@@ -1579,7 +1633,7 @@ class Component extends DCLogic {
         const tw = Math.max(0, Math.min(1,
           0.52 + Math.sin(t * m.twRate + m.phase) * 0.34
                + Math.sin(t * m.twRate * 2.7 + m.phase2) * 0.17));
-        const a = (0.10 + m.depth * 0.30) * tw;
+        const a = (0.10 + m.depth * 0.30) * tw * night;
         const rr = m.r * (0.6 + m.depth * 0.8);
         const g = ctx.createRadialGradient(x, y, 0, x, y, rr * 3.4);
         const c = m.warm ? "214,168,132" : "196,206,168";
@@ -1604,7 +1658,7 @@ class Component extends DCLogic {
       /* every so often, one crosses. Rare enough to read as luck rather than
          decoration; it can never fire for reduced motion, which only ever
          draws the single frame at t=0. */
-      if (!state.shoot && t > state.shootAt) {
+      if (!state.shoot && t > state.shootAt && day < 0.5) {
         const dir = Math.random() < 0.5 ? 1 : -1;
         state.shoot = {
           x0: dir > 0 ? 0.04 + Math.random() * 0.34 : 0.62 + Math.random() * 0.34,
@@ -1672,9 +1726,13 @@ class Component extends DCLogic {
 
     try {
       size();
-      this.heroResize = () => { try { size(); if (still) draw(0); } catch (e) {} };
+      /* Reduced motion still gets the composed scene, just frozen: t=0 puts
+         the sun under the water, so hold it at a low, warm point in the arc.
+         Meteors are pushed out of reach so the still frame can never catch one. */
+      const STILL_T = 16;
+      this.heroResize = () => { try { size(); if (still) draw(STILL_T); } catch (e) {} };
       window.addEventListener("resize", this.heroResize);
-      if (still) { draw(0); }                      // one calm frame, no loop
+      if (still) { state.shootAt = Infinity; draw(STILL_T); }   // one calm frame, no loop
       else { this.heroRAF = window.requestAnimationFrame(frame); }
       requestAnimationFrame(() => { try { cv.style.opacity = "1"; } catch (e) {} });
     } catch (e) { this.heroDead = true; }
@@ -1688,6 +1746,10 @@ class Component extends DCLogic {
   }
 
   stopAudio() { try { if (this.audio) { this.audio.pause(); } } catch (e) {} }
+  /* Start her actual recording from the top. The hero used to set `playing:
+     true` and stop there, which drives the simulated clock but never opens the
+     file — fine while nothing had audio, silent once something did. Meditations
+     with no recording still fall through to that simulated clock. */
   toggleAudio() {
     const med = this.currentMed();
     if (!med || !med.audioSrc || !this.audio) {
@@ -1968,7 +2030,12 @@ class Component extends DCLogic {
     const liveVideos = this.pubVideos();
     const liveEpisodes = this.pubEpisodes();
     const liveRefs = this.pubRefs();
-    const newestKey = pubKeys.indexOf("peso") >= 0 ? "peso" : pubKeys[0];
+    /* Her one real recording leads the hero. The hero is the only place most
+       people look, and a sample clip there is worth less than her own voice —
+       so prefer any published meditation carrying audio, and only fall back to
+       the old default when none does. */
+    const recordedKey = pubKeys.filter(k => MED_BY_KEY[k] && MED_BY_KEY[k].audio)[0];
+    const newestKey = recordedKey || (pubKeys.indexOf("peso") >= 0 ? "peso" : pubKeys[0]);
     const newestRec = newestKey ? this.medRecord(newestKey) : null;
     const refVals = (function (self) {
       if (st.refIndex === null || !liveRefs[st.refIndex]) return null;
@@ -2043,9 +2110,10 @@ class Component extends DCLogic {
       noCircleRefs: this.circleRefs().length === 0,
       openFeatured: () => this.nav("books", 0),
 
-      newest: newestRec ? Object.assign({}, newestRec, { meta: newestRec.min + " min · " + t.moods[0].label.toLowerCase() })
+      newest: newestRec ? Object.assign({}, newestRec, { meta: newestRec.min + " min · " + String(newestRec.intention || "").toLowerCase() })
                         : { title: "", intentionLine: "", meta: "" },
       hasNewest: !!newestRec,
+      newestHasAudio: !!(newestRec && newestRec.audioSrc),
 
       reflections: liveRefs.map((r, i) => Object.assign({}, r, {
         readLabel: t.refs.readLabel,
