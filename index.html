@@ -64,6 +64,15 @@ a:hover{color:oklch(0.86 0.08 118)}
 .skip{position:absolute;left:-9999px;top:0;z-index:60;background:oklch(0.76 0.10 118);color:oklch(0.18 0.02 265);padding:12px 20px;font-size:13px}
 .skip:focus{left:12px;top:12px}
 
+/* ---- footer (glow seam + staggered columns) ---- */
+.ftr{position:relative;border-radius:34px 34px 0 0}
+.ftr-seam{position:absolute;top:0;left:50%;width:34%;height:1px;transform:translate(-50%,-50%);background:oklch(0.94 0.012 90 / .30);filter:blur(1.5px);border-radius:999px}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:56px;align-items:start}
+.ftr-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.ftr-lbl{margin:0 0 16px;font-size:11.5px;letter-spacing:.05em;color:oklch(0.74 0.02 265)}
+.ftr-list{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ftr-lnk{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.4;color:oklch(0.86 0.014 90);transition:color .3s}
+
 @media (max-width:860px){
   .g2{gap:34px}
   .g-hero,.g-feat,.g-letters,.g-book,.g-player,.g-vid,.g-about{grid-template-columns:minmax(0,1fr)}
@@ -79,12 +88,16 @@ a:hover{color:oklch(0.86 0.08 118)}
   .door{padding:26px 0;border-right:none;border-bottom:1px solid oklch(0.28 0.02 265)}
   .door:last-child{border-bottom:none}
   .g-ref{grid-template-columns:minmax(0,1fr);gap:10px}
+  .ftr{border-radius:22px 22px 0 0}
+  .ftr-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .ftr-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
   .mini{padding:12px 20px!important;gap:14px!important}
   .mini-meta{display:none}
 }
 @media (max-width:560px){
   .hdr-nav{gap:14px;font-size:13px}
   .g-book,.g-player{gap:40px}
+  .ftr-cols{grid-template-columns:minmax(0,1fr);gap:26px}
 }
 </style>
 </helmet>
@@ -671,34 +684,83 @@ a:hover{color:oklch(0.86 0.08 118)}
 </div>
 </sc-if>
 
-<footer style="border-top:1px solid oklch(0.30 0.02 265);background:oklch(0.22 0.026 265)">
-  <div class="wrap" style="padding-top:64px;padding-bottom:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px">
-    <div>
-      <p style="margin:0;font-family:Spectral,serif;font-size:20px">Gabriela Traviesa Soria</p>
+<footer class="ftr" style="border-top:1px solid oklch(0.30 0.02 265);background-color:oklch(0.22 0.026 265);background-image:radial-gradient(44% 180px at 50% 0%, oklch(0.80 0.10 118 / .15), transparent)">
+  <span class="ftr-seam" aria-hidden="true"></span>
+
+  <div class="wrap ftr-grid" style="padding-top:72px;padding-bottom:40px">
+
+    <div style="animation:rise .9s .05s both">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="oklch(0.76 0.10 118)" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+      </svg>
+      <p style="margin:18px 0 0;font-family:Spectral,serif;font-size:20px">Gabriela Traviesa Soria</p>
       <p style="margin:14px 0 0;font-size:13.5px;line-height:1.75;color:oklch(0.78 0.018 265);max-width:36ch">{{ t.footer.bio }}</p>
       <p style="margin:16px 0 0;font-size:12.5px;color:oklch(0.72 0.02 265)">{{ t.footer.place }}</p>
     </div>
-    <div>
-      <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.footer.readLabel }}</p>
-      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
-        <button onClick="{{ goBooks }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.books }}</button>
-        <button onClick="{{ goMeds }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.meds }}</button>
-        <button onClick="{{ goRefs }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.refs }}</button>
-        <button onClick="{{ goPod }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.pod }}</button>
-        <button onClick="{{ goAbout }}" style="font-size:13.5px;color:oklch(0.86 0.014 90)" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.about }}</button>
+
+    <div class="ftr-cols">
+
+      <div style="animation:rise .9s .18s both">
+        <p class="ftr-lbl">{{ t.footer.readLabel }}</p>
+        <div class="ftr-list">
+          <button onClick="{{ goBooks }}" class="ftr-lnk" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.books }}</button>
+          <button onClick="{{ goMeds }}" class="ftr-lnk" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.meds }}</button>
+          <button onClick="{{ goPod }}" class="ftr-lnk" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.pod }}</button>
+        </div>
       </div>
-    </div>
-    <div>
-      <p style="margin:0 0 16px;font-size:11.5px;color:oklch(0.74 0.02 265)">{{ t.footer.elseLabel }}</p>
-      <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
-        <a href="https://www.instagram.com/rebornwithoutyou" target="_blank" rel="noopener">@rebornwithoutyou</a>
-        <a href="https://www.youtube.com/@gabrielatraviesaescritora.64" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://theguidinglighttherapy.com" target="_blank" rel="noopener">Guiding Light</a>
-        <span style="font-size:13px;color:oklch(0.68 0.02 265)">{{ t.footer.soon }}</span>
+
+      <div style="animation:rise .9s .30s both">
+        <p class="ftr-lbl">{{ t.footer.exploreLabel }}</p>
+        <div class="ftr-list">
+          <button onClick="{{ goRefs }}" class="ftr-lnk" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.refs }}</button>
+          <button onClick="{{ goAbout }}" class="ftr-lnk" style-hover="color:oklch(0.86 0.09 118)">{{ t.nav.about }}</button>
+          <sc-if value="{{ circleOffered }}">
+            <button onClick="{{ goCircle }}" class="ftr-lnk" style="color:oklch(0.86 0.05 330)" style-hover="color:oklch(0.90 0.08 330)">{{ t.nav.circle }}</button>
+          </sc-if>
+        </div>
       </div>
+
+      <div style="animation:rise .9s .42s both">
+        <p class="ftr-lbl">{{ t.footer.elseLabel }}</p>
+        <div class="ftr-list">
+          <a href="https://www.instagram.com/rebornwithoutyou" target="_blank" rel="noopener" class="ftr-lnk" style="color:oklch(0.76 0.10 118)" style-hover="color:oklch(0.88 0.08 118)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" style="flex:none">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+            </svg>
+            <span>@rebornwithoutyou</span>
+          </a>
+          <a href="https://www.youtube.com/@gabrielatraviesaescritora.64" target="_blank" rel="noopener" class="ftr-lnk" style="color:oklch(0.76 0.10 118)" style-hover="color:oklch(0.88 0.08 118)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" style="flex:none">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+              <path d="m10 15 5-3-5-3z"></path>
+            </svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://theguidinglighttherapy.com" target="_blank" rel="noopener" class="ftr-lnk" style="color:oklch(0.76 0.10 118)" style-hover="color:oklch(0.88 0.08 118)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" style="flex:none">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+            <span>Guiding Light</span>
+          </a>
+          <span class="ftr-lnk" style="color:oklch(0.68 0.02 265)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" style="flex:none">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>{{ t.footer.soon }}</span>
+          </span>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="wrap" style="padding-bottom:44px">
+
+  <div class="wrap" style="padding-bottom:44px;animation:fade 1s .5s both">
     <p style="margin:0;font-size:11.5px;color:oklch(0.68 0.02 265)">{{ t.footer.legal }}</p>
   </div>
 </footer>
@@ -912,6 +974,7 @@ const C = {
       bio: "Gaby Traviesa es tanatóloga y bioeticista. Acompaña a personas en duelo y a familias en el final de la vida, y escribe sobre la pérdida, el cuidado de los mayores y la dignidad.",
       place: "Aalsmeer, Holanda del Norte · atiende en español, inglés y neerlandés.",
       readLabel: "Leer y escuchar",
+      exploreLabel: "Explorar",
       elseLabel: "Lo demás",
       soon: "Círculo de duelo · pronto",
       legal: "© 2026 Gabriela Traviesa Soria · Guiding Light. Maqueta de demostración con textos de muestra."
@@ -1137,6 +1200,7 @@ const C = {
       bio: "Gaby Traviesa is a thanatologist and bioethicist. She accompanies people in grief and families at the end of life, and writes about loss, the care of elders, and dignity.",
       place: "Aalsmeer, North Holland · works in Spanish, English, and Dutch.",
       readLabel: "Read and listen",
+      exploreLabel: "Explore",
       elseLabel: "Elsewhere",
       soon: "Grief circle · soon",
       legal: "© 2026 Gabriela Traviesa Soria · Guiding Light. Demonstration mockup with sample text."
